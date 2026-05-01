@@ -93,7 +93,7 @@ export default function TwoWorldsSplit() {
           style={{ minHeight: '92vh', background: 'linear-gradient(160deg, #ede4d8 0%, #d8ccbb 45%, #c8b8a2 100%)' }}
         >
           <img
-            src="/images/tourism%20i%C3%A7in%20overview%20sayfas%C4%B1%20g%C3%B6rseli.jpg"
+            src="/images/VIP%20Hospitality%20Experience.png"
             alt="Aegean coast — Tourism & Concierge"
             className="absolute inset-0 w-full h-full object-cover"
           />

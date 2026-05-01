@@ -211,7 +211,7 @@ export default function ConciergePage() {
               </p>
               <div className="overflow-hidden rounded-sm" style={{ height: 'clamp(220px, 22vw, 300px)' }}>
                 <img
-                  src="/images/concierge-private-villas.png"
+                  src="/images/gathering.png"
                   alt="A curated journey"
                   className="w-full h-full object-cover"
                 />

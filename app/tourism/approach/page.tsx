@@ -24,7 +24,7 @@ const stages = [
     num: '03',
     title: <>Local knowledge, not<br />tourist circuits.</>,
     body: 'We work with people who live in the places we send you. Guides, drivers, hosts who know the rhythms of their cities and can introduce you to them on human terms — not tour operators running the same loops.',
-    image: '/images/approach-stage-03-cultural-access.png.jpg',
+    image: '/images/approach-stage-03-local-knowledge.png',
     imageAlt: 'Stage 03 — Local Knowledge',
     textLeft: true,
   },
