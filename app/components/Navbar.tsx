@@ -47,12 +47,15 @@ export default function Navbar() {
   const router    = useRouter()
   const mode      = detectMode(pathname)
   const [open, setOpen]               = useState(false)
+  const [menuOpen, setMenuOpen]       = useState(false)
   const [scrollProgress, setProgress] = useState(0)
 
   // Transparent hero: Entertainment pages + Tourism overview only
   const isEnt = mode === 'entertainment'
   const isTourismOverview = pathname === '/tourism'
   const isHeroMode = isEnt || isTourismOverview
+
+  useEffect(() => { setMenuOpen(false) }, [pathname])
 
   useEffect(() => {
     setProgress(0)
@@ -103,7 +106,7 @@ export default function Navbar() {
         WebkitBackdropFilter: blur,
       }}
     >
-      <div className="max-w-screen-2xl mx-auto px-6 lg:px-14">
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20">
         <div className="flex items-center justify-between h-[68px]">
 
           {/* LEFT: Logo + mode selector */}
@@ -170,17 +173,90 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {/* RIGHT: Global nav */}
-          <div className="hidden lg:flex items-center gap-10">
-            <NavLink href="/"        active={pathname === '/'}       textColor={textColor}>Home</NavLink>
-            <NavLink href="/about"   active={pathname === '/about'}  textColor={textColor}>About</NavLink>
-            <NavLink href="/contact" active={pathname === '/contact'} textColor={textColor}>Contact</NavLink>
+          {/* RIGHT: Desktop nav + hamburger */}
+          <div className="flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-10">
+              <NavLink href="/"        active={pathname === '/'}       textColor={textColor}>Home</NavLink>
+              <NavLink href="/about"   active={pathname === '/about'}  textColor={textColor}>About</NavLink>
+              <NavLink href="/contact" active={pathname === '/contact'} textColor={textColor}>Contact</NavLink>
+            </div>
+
+            {/* Hamburger — mobile only */}
+            <button
+              className="lg:hidden flex flex-col gap-1.5 p-2 focus:outline-none"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label="Open menu"
+            >
+              <span className="w-6 h-0.5 block transition-all" style={{ backgroundColor: textColor }} />
+              <span className="w-6 h-0.5 block transition-all" style={{ backgroundColor: textColor }} />
+              <span className="w-6 h-0.5 block transition-all" style={{ backgroundColor: textColor }} />
+            </button>
           </div>
 
         </div>
       </div>
 
       {mode !== 'none' && <SubNav currentMode={mode} scrollProgress={(isEnt || isTourismOverview) ? p : 1} />}
+
+      {/* Mobile full-screen menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.22 }}
+            className="fixed inset-0 z-[70] flex flex-col lg:hidden"
+            style={{ backgroundColor: isEnt ? '#0A0A0A' : '#FFFFFF' }}
+          >
+            {/* Close button */}
+            <div className="flex items-center justify-between px-6 h-[68px] border-b" style={{ borderColor: isEnt ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)' }}>
+              <span className="font-sans font-bold text-[15px] tracking-[0.04em]" style={{ color: isEnt ? '#ffffff' : '#0A0A0A' }}>KOLLEKTIV 26</span>
+              <button
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                className="p-2 focus:outline-none"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 6l12 12M18 6l-12 12" stroke={isEnt ? '#ffffff' : '#0A0A0A'} strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Nav links */}
+            <nav className="flex flex-col items-start justify-center flex-1 px-10 gap-2">
+              {[
+                { href: '/', label: 'Home' },
+                { href: '/about', label: 'About' },
+                { href: '/contact', label: 'Contact' },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.href}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.06 + i * 0.07, duration: 0.3 }}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="font-sans font-light text-4xl leading-tight hover:opacity-40 transition-opacity block py-3"
+                    style={{ color: isEnt ? '#ffffff' : '#0A0A0A' }}
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+
+            {/* Bottom bar */}
+            <div className="px-10 pb-10">
+              <span className="font-mono text-[9px] tracking-[0.18em] uppercase" style={{ color: isEnt ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)' }}>
+                Istanbul · Aegean · Global
+              </span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }
