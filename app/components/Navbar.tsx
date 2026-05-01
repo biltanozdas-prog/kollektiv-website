@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -23,11 +23,16 @@ const modeLabel: Record<Mode, string> = {
   innovation:    'INNOVATION',
 }
 
-function NavLink({ href, children, active }: { href: string; children: React.ReactNode; active: boolean }) {
+function NavLink({
+  href, children, active, textColor = '#0A0A0A',
+}: {
+  href: string; children: React.ReactNode; active: boolean; textColor?: string
+}) {
   return (
     <Link
       href={href}
-      className={`relative font-sans text-sm tracking-[0.05em] text-black transition-opacity hover:opacity-50 ${active ? 'font-medium' : ''}`}
+      className={`relative font-sans text-sm tracking-[0.05em] transition-opacity hover:opacity-50 ${active ? 'font-medium' : ''}`}
+      style={{ color: textColor }}
     >
       {children}
       {active && (
@@ -38,10 +43,49 @@ function NavLink({ href, children, active }: { href: string; children: React.Rea
 }
 
 export default function Navbar() {
-  const pathname = usePathname()
-  const router   = useRouter()
-  const mode     = detectMode(pathname)
-  const [open, setOpen] = useState(false)
+  const pathname  = usePathname()
+  const router    = useRouter()
+  const mode      = detectMode(pathname)
+  const [open, setOpen]               = useState(false)
+  const [scrollProgress, setProgress] = useState(0)
+
+  // Transparent hero: Entertainment pages + Tourism overview only
+  const isEnt = mode === 'entertainment'
+  const isTourismOverview = pathname === '/tourism'
+  const isHeroMode = isEnt || isTourismOverview
+
+  useEffect(() => {
+    setProgress(0)
+    if (!isHeroMode) return
+
+    const update = () => setProgress(Math.min(window.scrollY / 280, 1))
+    window.addEventListener('scroll', update, { passive: true })
+    update()
+    return () => window.removeEventListener('scroll', update)
+  }, [pathname, isHeroMode])
+
+  const p = isHeroMode ? scrollProgress : 1
+
+  let navBg: string, borderCol: string, blur: string, textColor: string, textMuted: string
+  if (isEnt) {
+    navBg     = `rgba(10,10,10,${0.94 * p})`
+    borderCol = `rgba(255,255,255,${0.10 * p})`
+    blur      = `blur(${8 * p}px)`
+    textColor = '#ffffff'
+    textMuted = `rgba(255,255,255,${0.45 + 0.25 * p})`
+  } else if (isTourismOverview) {
+    navBg     = `rgba(248,245,239,${0.90 * p})`
+    borderCol = `rgba(0,0,0,${0.06 * p})`
+    blur      = `blur(${12 * p}px)`
+    textColor = p < 0.5 ? '#ffffff' : '#0A0A0A'
+    textMuted = p < 0.5 ? 'rgba(255,255,255,0.70)' : 'rgba(0,0,0,0.60)'
+  } else {
+    navBg     = 'rgba(248,245,239,0.90)'
+    borderCol = 'rgba(0,0,0,0.06)'
+    blur      = 'blur(12px)'
+    textColor = '#0A0A0A'
+    textMuted = 'rgba(0,0,0,0.60)'
+  }
 
   const handleModeSelect = (target: Exclude<Mode, 'none'>) => {
     setOpen(false)
@@ -49,37 +93,50 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-offwhite/90 backdrop-blur-md border-b border-black/[0.06]">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 transition-none"
+      style={{
+        backgroundColor: navBg,
+        borderBottomColor: borderCol,
+        borderBottomWidth: '1px',
+        backdropFilter: blur,
+        WebkitBackdropFilter: blur,
+      }}
+    >
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-14">
         <div className="flex items-center justify-between h-[68px]">
 
-          {/* LEFT: Logo + inline mode selector */}
+          {/* LEFT: Logo + mode selector */}
           <div className="flex items-center gap-2 relative">
-            <Link href="/" className="group shrink-0">
-              <K26Mark size={30} className="text-black transition-opacity group-hover:opacity-60" />
+            <Link href="/" className="group shrink-0 transition-opacity hover:opacity-60" style={{ color: textColor }}>
+              <K26Mark size={30} />
             </Link>
 
             <Link href="/" className="flex items-center gap-0.5 hover:opacity-60 transition-opacity shrink-0">
-              <span className="font-sans font-bold text-[15px] tracking-[0.04em]">KOLLEKTIV</span>
-              <span className="font-sans font-light text-[15px] tracking-[0.04em] ml-1">26</span>
+              <span className="font-sans font-bold text-[15px] tracking-[0.04em]" style={{ color: textColor }}>KOLLEKTIV</span>
+              <span className="font-sans font-light text-[15px] tracking-[0.04em] ml-1" style={{ color: textColor }}>26</span>
             </Link>
 
-            {/* Mode selector button */}
             <button
               onClick={() => setOpen((v) => !v)}
               aria-label="Switch mode"
               className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all focus:outline-none
-                ${open ? 'bg-black/[0.06]' : 'hover:bg-black/[0.04]'}`}
+                ${open
+                  ? (isEnt ? 'bg-white/10' : 'bg-black/[0.06]')
+                  : (isEnt ? 'hover:bg-white/10' : 'hover:bg-black/[0.04]')
+                }`}
             >
               <span className={`w-2.5 h-2.5 rounded-full bg-yellow transition-all shrink-0
                 ${open ? 'scale-125 shadow-[0_0_10px_3px_rgba(232,200,50,0.6)]' : 'hover:scale-110'}`}
               />
-              <span className="font-mono text-[11px] tracking-[0.16em] text-black/60 uppercase font-medium">
+              <span
+                className="font-mono text-[11px] tracking-[0.16em] uppercase font-medium"
+                style={{ color: textMuted }}
+              >
                 {modeLabel[mode]}
               </span>
             </button>
 
-            {/* Mode dropdown — bigger, more prominent */}
             <AnimatePresence>
               {open && (
                 <>
@@ -98,12 +155,9 @@ export default function Navbar() {
                           key={m}
                           onClick={() => handleModeSelect(m)}
                           className={`w-full px-5 py-4 text-left flex items-center gap-3 transition-colors
-                            ${isActive
-                              ? 'bg-yellow/[0.08]'
-                              : 'hover:bg-black/[0.04]'
-                            }`}
+                            ${isActive ? 'bg-yellow/[0.08]' : 'hover:bg-black/[0.04]'}`}
                         >
-                          <span className={`w-2 h-2 rounded-full shrink-0 transition-colors ${isActive ? 'bg-yellow' : 'bg-black/20'}`} />
+                          <span className={`w-2 h-2 rounded-full shrink-0 ${isActive ? 'bg-yellow' : 'bg-black/20'}`} />
                           <span className={`font-sans text-[13px] tracking-[0.06em] uppercase ${isActive ? 'font-semibold text-black' : 'text-black/70'}`}>
                             {m === 'tourism' ? 'Tourism' : m === 'entertainment' ? 'Entertainment' : 'Innovation'}
                           </span>
@@ -118,15 +172,15 @@ export default function Navbar() {
 
           {/* RIGHT: Global nav */}
           <div className="hidden lg:flex items-center gap-10">
-            <NavLink href="/"        active={pathname === '/'}>Home</NavLink>
-            <NavLink href="/about"   active={pathname === '/about'}>About</NavLink>
-            <NavLink href="/contact" active={pathname === '/contact'}>Contact</NavLink>
+            <NavLink href="/"        active={pathname === '/'}       textColor={textColor}>Home</NavLink>
+            <NavLink href="/about"   active={pathname === '/about'}  textColor={textColor}>About</NavLink>
+            <NavLink href="/contact" active={pathname === '/contact'} textColor={textColor}>Contact</NavLink>
           </div>
 
         </div>
       </div>
 
-      {mode !== 'none' && <SubNav currentMode={mode} />}
+      {mode !== 'none' && <SubNav currentMode={mode} scrollProgress={(isEnt || isTourismOverview) ? p : 1} />}
     </nav>
   )
 }

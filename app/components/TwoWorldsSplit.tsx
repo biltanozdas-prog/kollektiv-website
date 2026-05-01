@@ -17,11 +17,11 @@ const fadeScale = {
 }
 
 const tourismLinks = [
-  { label: 'Bespoke Itineraries', href: '/tourism/itineraries' },
-  { label: 'Private Transfers', href: '/tourism/transfers' },
+  { label: 'Bespoke Itineraries', href: '/tourism/concierge' },
+  { label: 'Private Transfers', href: '/tourism/concierge' },
   { label: 'Cultural Concierge', href: '/tourism/concierge' },
   { label: 'Aegean & Istanbul', href: '/tourism' },
-  { label: 'Exclusive Access', href: '/tourism/access' },
+  { label: 'Cultural Access', href: '/tourism/concierge' },
 ]
 
 export default function TwoWorldsSplit() {
@@ -39,7 +39,7 @@ export default function TwoWorldsSplit() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-offwhite flex flex-col justify-center px-10 lg:px-16 py-20 lg:py-32"
+          className="bg-white flex flex-col justify-center px-10 lg:px-16 py-20 lg:py-32"
         >
           <motion.span
             initial={{ opacity: 0, y: 12 }}
@@ -89,12 +89,14 @@ export default function TwoWorldsSplit() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="relative"
+          className="relative overflow-hidden"
           style={{ minHeight: '92vh', background: 'linear-gradient(160deg, #ede4d8 0%, #d8ccbb 45%, #c8b8a2 100%)' }}
         >
-          <div className="absolute inset-0 flex items-end p-10">
-            <span className="font-mono text-[9px] text-stone/40 tracking-[0.14em] uppercase">Image — Aegean coast</span>
-          </div>
+          <img
+            src="/images/tourism%20i%C3%A7in%20overview%20sayfas%C4%B1%20g%C3%B6rseli.jpg"
+            alt="Aegean coast — Tourism & Concierge"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </motion.div>
 
         {/* Col 3 — Navigation links */}
@@ -103,7 +105,7 @@ export default function TwoWorldsSplit() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-offwhite flex flex-col justify-center px-10 lg:px-14 py-20 lg:py-32 border-l border-lg/40"
+          className="bg-white flex flex-col justify-center px-10 lg:px-14 py-20 lg:py-32 border-l border-lg/40"
         >
           <motion.span
             initial={{ opacity: 0, y: 12 }}
@@ -194,9 +196,12 @@ export default function TwoWorldsSplit() {
           className="relative order-2 lg:order-1"
           style={{ minHeight: '90vh', background: 'linear-gradient(145deg, #111 0%, #0a0a0a 60%, #050505 100%)' }}
         >
-          <div className="absolute inset-0 flex items-end p-10">
-            <span className="font-mono text-[9px] text-white/15 tracking-[0.14em] uppercase">Image — Live performance</span>
-          </div>
+          <img
+            src="/images/13-entertainment-venue-flow-corridor.jpg.png"
+            alt="Entertainment — Live performance"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30" />
         </motion.div>
 
         <motion.div

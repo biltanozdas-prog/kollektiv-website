@@ -6,7 +6,7 @@ const words = "Kollektiv 26 is a platform for those who move between worlds — 
 
 export default function BrandIntro() {
   return (
-    <section className="bg-offwhite py-32 lg:py-48">
+    <section className="bg-white py-32 lg:py-48">
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-14">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
 

@@ -5,17 +5,17 @@ import { motion } from 'framer-motion'
 
 const pillars = [
   {
-    icon: '⚡',
+    num: '01',
     title: 'Hybrid Spaces',
     body: 'Venues that shift function. Gallery by day, club by night, residency space in between. Architecture that serves culture, not the other way around.',
   },
   {
-    icon: '🔗',
+    num: '02',
     title: 'Collaborative Models',
     body: 'New funding and ownership structures for creative projects. Built for makers, not just investors. Sustained by communities, not just patrons.',
   },
   {
-    icon: '✦',
+    num: '03',
     title: 'Cultural Tech',
     body: 'Tools that support artists, organizers, and audiences without extracting value. Technology in service of experience — not the reverse.',
   },
@@ -133,7 +133,10 @@ export default function InnovationPage() {
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="border-r border-white/[0.07] px-10 lg:px-14 py-12"
               >
-                <div className="text-3xl mb-8 opacity-70">{p.icon}</div>
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-6 h-[1.5px] bg-yellow" />
+                  <span className="font-mono text-[9px] text-yellow/60 tracking-[0.22em] uppercase">{p.num}</span>
+                </div>
                 <h3 className="font-sans font-bold text-white text-2xl lg:text-3xl leading-snug mb-5">
                   {p.title}
                 </h3>

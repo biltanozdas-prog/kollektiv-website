@@ -16,7 +16,7 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen bg-offwhite pt-[68px]">
+    <main className="min-h-screen bg-white pt-[68px]">
 
       <section className="py-28 lg:py-36 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-20 lg:gap-32">
