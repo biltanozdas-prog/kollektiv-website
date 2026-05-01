@@ -175,7 +175,7 @@ export default function Navbar() {
 
           {/* RIGHT: Desktop nav + hamburger */}
           <div className="flex items-center gap-6">
-            <div className="hidden lg:flex items-center gap-10">
+            <div className="hidden md:flex items-center gap-10">
               <NavLink href="/"        active={pathname === '/'}       textColor={textColor}>Home</NavLink>
               <NavLink href="/about"   active={pathname === '/about'}  textColor={textColor}>About</NavLink>
               <NavLink href="/contact" active={pathname === '/contact'} textColor={textColor}>Contact</NavLink>
@@ -183,7 +183,7 @@ export default function Navbar() {
 
             {/* Hamburger — mobile only */}
             <button
-              className="lg:hidden flex flex-col gap-1.5 p-2 focus:outline-none"
+              className="md:hidden flex flex-col gap-1.5 p-2 focus:outline-none"
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Open menu"
             >
@@ -206,7 +206,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-[70] flex flex-col lg:hidden"
+            className="fixed inset-0 z-[70] flex flex-col md:hidden"
             style={{ backgroundColor: isEnt ? '#0A0A0A' : '#FFFFFF' }}
           >
             {/* Close button */}
