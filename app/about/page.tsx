@@ -23,7 +23,7 @@ export default function AboutPage() {
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.25, ease: "easeOut" }}
+              transition={{ duration: 0.9, delay: 0.25, ease: "easeOut" as const }}
               className="font-sans font-bold text-black leading-[1.04] mb-12"
               style={{ fontSize: 'clamp(2.8rem, 6vw, 6rem)', letterSpacing: '-0.025em' }}
             >
@@ -64,7 +64,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.09, ease: "easeOut" }}
+                transition={{ duration: 0.55, delay: i * 0.09, ease: "easeOut" as const }}
                 className="border-r border-black/15 px-10 lg:px-14 py-10"
               >
                 <span className="font-mono text-[9px] text-yellow-600 tracking-[0.22em] uppercase block mb-5">{item.label}</span>
@@ -93,7 +93,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" as const }}
               className="font-sans font-bold !text-black leading-tight mb-14"
               style={{ fontSize: 'clamp(2.4rem, 4vw, 4.2rem)', letterSpacing: '-0.025em' }}
             >
@@ -158,7 +158,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" as const }}
             className="lg:col-span-5 lg:sticky lg:top-40"
           >
             <div

@@ -84,7 +84,7 @@ export default function ItinerariesPage() {
               <motion.h1
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
+                transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" as const }}
                 className="font-serif italic text-black leading-[1.05] mb-6"
                 style={{ fontSize: 'clamp(2.6rem, 4.5vw, 4.8rem)' }}
               >
@@ -123,7 +123,7 @@ export default function ItinerariesPage() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: i * 0.08, ease: "easeOut" as const }}
                 className="grid lg:grid-cols-12 gap-8 py-12 border-b border-black/[0.06]"
               >
                 {/* Day number + location */}

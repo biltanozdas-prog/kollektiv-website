@@ -33,7 +33,7 @@ export default function BrandIntro() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.028, ease: "easeOut" }}
+                  transition={{ duration: 0.4, delay: i * 0.028, ease: "easeOut" as const }}
                   className="inline-block mr-[0.28em]"
                 >
                   {word}
@@ -57,7 +57,7 @@ export default function BrandIntro() {
             initial={{ opacity: 0, x: 32 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" as const }}
             className="lg:col-span-5"
           >
             <div

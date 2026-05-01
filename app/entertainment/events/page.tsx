@@ -60,7 +60,7 @@ export default function EventsPage() {
             <motion.div
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: "easeOut" }}
+              transition={{ duration: 0.9, ease: "easeOut" as const }}
             >
               <p className="font-mono text-[10px] text-white/40 tracking-[0.28em] uppercase mb-8">
                 01 — Events
@@ -151,7 +151,7 @@ export default function EventsPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
+              transition={{ duration: 0.7, ease: "easeOut" as const }}
             >
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-8 h-[1.5px] bg-yellow" />
@@ -171,7 +171,7 @@ export default function EventsPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" }}
+            transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" as const }}
             className="lg:col-span-6 lg:col-start-7 flex flex-col lg:flex-row gap-10 items-start lg:items-end"
           >
             <div className="flex-1">
@@ -350,7 +350,7 @@ export default function EventsPage() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: "easeOut" as const }}
             className="lg:col-span-7"
           >
             <div className="w-8 h-[1.5px] bg-yellow mb-10" />
@@ -366,7 +366,7 @@ export default function EventsPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" as const }}
             className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-[#D8D4CC] lg:pl-10"
           >
             <p className="font-sans text-[#8C8C8C] text-sm mb-8">Tell us what you're building.</p>

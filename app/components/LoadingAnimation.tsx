@@ -34,7 +34,7 @@ export default function LoadingAnimation() {
             <motion.div
               initial={{ clipPath: 'inset(100% 0 0 0)' }}
               animate={{ clipPath: 'inset(0% 0 0 0)' }}
-              transition={{ duration: 1.4, ease: "easeOut" }}
+              transition={{ duration: 1.4, ease: "easeOut" as const }}
               style={{ position: 'absolute', inset: 0 }}
             >
               <svg

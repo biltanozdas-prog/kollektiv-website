@@ -140,7 +140,7 @@ export default function Hero() {
                 style={{ position: 'absolute', top: c.top, right: c.right, width: c.size, height: c.size }}
                 initial={{ opacity: 0, scale: 0.82, y: 40 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" }}
+                transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
               >
                 {/* Oscillation */}
                 <motion.div
