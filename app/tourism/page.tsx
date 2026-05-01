@@ -60,7 +60,7 @@ export default function TourismPage() {
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
               className="font-serif italic text-white leading-[1.05] mb-6 max-w-5xl"
               style={{ fontSize: 'clamp(3.2rem, 7vw, 7rem)' }}
             >
@@ -103,7 +103,7 @@ export default function TourismPage() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
               className="font-serif italic text-black leading-tight text-right"
               style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.8rem)' }}
             >
@@ -116,7 +116,7 @@ export default function TourismPage() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="lg:col-span-5 overflow-hidden rounded-sm"
               style={{ height: 'clamp(380px, 52vw, 620px)' }}
             >
@@ -156,7 +156,7 @@ export default function TourismPage() {
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
                   className="grid grid-cols-12 gap-4 py-10 border-b border-[#D8D4CC] first:border-t first:border-[#D8D4CC]"
                 >
                   <div className="col-span-1 pt-1">
@@ -230,7 +230,7 @@ export default function TourismPage() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
               className="lg:col-span-7"
             >
               <div className="overflow-hidden rounded-sm" style={{ height: 'clamp(360px, 50vw, 620px)' }}>
@@ -302,7 +302,7 @@ export default function TourismPage() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
               className="overflow-hidden rounded-sm"
               style={{ aspectRatio: '4/3' }}
             >
