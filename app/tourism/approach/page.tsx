@@ -143,7 +143,7 @@ export default function ApproachPage() {
                   className={stage.textLeft ? 'order-2' : 'order-2 lg:order-1'}
                 >
                   <div
-                    className="border border-[#D8D4CC] bg-[#F2EFE8] p-8 lg:p-10 flex items-center justify-center"
+                    className="border border-[#D8D4CC] bg-[#F2EFE8] p-8 lg:p-10 flex items-center justify-center max-h-[260px] lg:max-h-none"
                     style={{ aspectRatio: '4/3' }}
                   >
                     <img
@@ -185,7 +185,7 @@ export default function ApproachPage() {
             </motion.h2>
           </div>
 
-          <div className="border-t border-[#C8C4BC] pt-12 grid lg:grid-cols-3 gap-10">
+          <div className="border-t border-[#C8C4BC] pt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
             {steps.map((step, i) => (
               <motion.div
                 key={step.num}

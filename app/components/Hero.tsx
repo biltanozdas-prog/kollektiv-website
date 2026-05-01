@@ -55,7 +55,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-12 gap-8 min-h-[calc(100vh-68px)] items-center py-28 lg:py-36">
 
           {/* LEFT: Text */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 relative z-10">
             <motion.p
               custom={0}
               variants={textReveal}
@@ -71,7 +71,7 @@ export default function Hero() {
               variants={textReveal}
               initial="hidden"
               animate="show"
-              className="font-sans font-light text-dark/55 text-[16px] leading-relaxed mb-16 max-w-[300px]"
+              className="font-sans font-light text-dark/55 text-[16px] leading-relaxed mb-16 max-w-[300px] hidden md:block"
             >
               Curated journeys in culture, design, and entertainment. Meaningful by design. Unforgettable by nature.
             </motion.p>
@@ -96,7 +96,7 @@ export default function Hero() {
           </div>
 
           {/* RIGHT: Massive type + decorative circles */}
-          <div className="lg:col-span-8 relative min-h-[720px] lg:min-h-[calc(100vh-220px)]">
+          <div className="lg:col-span-8 relative min-h-[360px] md:min-h-[520px] lg:min-h-[calc(100vh-220px)]">
 
             {/* Large display type */}
             <motion.div
@@ -108,7 +108,7 @@ export default function Hero() {
             >
               <h1
                 className="font-sans font-bold uppercase text-black"
-                style={{ fontSize: 'clamp(80px, 14vw, 200px)', letterSpacing: '-0.025em', lineHeight: 0.88 }}
+                style={{ fontSize: 'clamp(52px, 14vw, 200px)', letterSpacing: '-0.025em', lineHeight: 0.88 }}
               >
                 {['CULTURE', 'IN'].map((word, i) => (
                   <motion.span
@@ -133,11 +133,15 @@ export default function Hero() {
               </h1>
             </motion.div>
 
-            {/* Floating decorative circles */}
+            {/* Floating decorative circles — scaled down on mobile */}
             {circles.map((c, i) => (
-              <motion.div
+              <div
                 key={c.id}
-                style={{ position: 'absolute', top: c.top, right: c.right, width: c.size, height: c.size }}
+                className="scale-[0.65] md:scale-100 origin-top-right absolute"
+                style={{ top: c.top, right: c.right, width: c.size, height: c.size }}
+              >
+              <motion.div
+                style={{ position: 'absolute', top: 0, right: 0, width: c.size, height: c.size }}
                 initial={{ opacity: 0, scale: 0.82, y: 40 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
@@ -185,6 +189,7 @@ export default function Hero() {
                   </div>
                 </motion.div>
               </motion.div>
+              </div>
             ))}
 
           </div>

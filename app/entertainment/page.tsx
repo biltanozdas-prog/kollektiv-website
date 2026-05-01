@@ -91,8 +91,8 @@ export default function EntertainmentPage() {
                 Mode 02 — Entertainment
               </p>
               <h1
-                className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
-                style={{ fontSize: 'clamp(3.5rem, 8vw, 8.5rem)' }}
+                className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8 2xl:text-8xl"
+                style={{ fontSize: 'clamp(2.8rem, 8vw, 8.5rem)' }}
               >
                 SOUND-LED<br />
                 CULTURAL<br />

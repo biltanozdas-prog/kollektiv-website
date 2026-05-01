@@ -30,7 +30,7 @@ export default function TwoWorldsSplit() {
 
       {/* ── TOURISM — 3-column: text | image | nav ── */}
       <div
-        className="grid lg:grid-cols-[1fr_1.4fr_1fr]"
+        className="grid lg:grid-cols-[1fr_1.4fr_1fr] xl:grid-cols-[1fr_2fr_1fr]"
         style={{ minHeight: '92vh' }}
       >
         {/* Col 1 — Text content */}
@@ -39,7 +39,7 @@ export default function TwoWorldsSplit() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: "easeOut" as const }}
-          className="bg-white flex flex-col justify-center px-10 lg:px-16 py-20 lg:py-32"
+          className="bg-white flex flex-col justify-center px-8 lg:px-16 xl:px-16 py-20 lg:py-32"
         >
           <motion.span
             initial={{ opacity: 0, y: 12 }}
@@ -89,7 +89,7 @@ export default function TwoWorldsSplit() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="relative overflow-hidden"
+          className="relative overflow-hidden min-h-[300px] lg:min-h-0"
           style={{ minHeight: '92vh', background: 'linear-gradient(160deg, #ede4d8 0%, #d8ccbb 45%, #c8b8a2 100%)' }}
         >
           <img
@@ -105,7 +105,7 @@ export default function TwoWorldsSplit() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: "easeOut" as const }}
-          className="bg-white flex flex-col justify-center px-10 lg:px-14 py-20 lg:py-32 border-l border-lg/40"
+          className="bg-white flex flex-col justify-center px-8 lg:px-14 xl:px-16 py-20 lg:py-32 border-t lg:border-t-0 border-l-0 lg:border-l border-lg/40"
         >
           <motion.span
             initial={{ opacity: 0, y: 12 }}
@@ -157,8 +157,8 @@ export default function TwoWorldsSplit() {
       </div>
 
       {/* ── WHAT CONNECTS CULTURE DIVIDER ── */}
-      <div className="bg-black px-10 lg:px-24 py-16 lg:py-20">
-        <div className="max-w-screen-2xl mx-auto">
+      <div className="bg-black px-8 lg:px-24 py-16 lg:py-20">
+        <div className="max-w-screen-xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -171,7 +171,7 @@ export default function TwoWorldsSplit() {
                 The Thread
               </span>
               <h3
-                className="font-sans font-bold text-white leading-none"
+                className="font-sans font-bold text-white leading-none 2xl:text-7xl"
                 style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', letterSpacing: '-0.02em' }}
               >
                 What connects culture.
@@ -209,7 +209,7 @@ export default function TwoWorldsSplit() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: "easeOut" as const }}
-          className="bg-black flex flex-col justify-center px-10 lg:px-24 py-20 lg:py-32 order-1 lg:order-2"
+          className="bg-black flex flex-col justify-center px-8 lg:px-24 py-20 lg:py-32 order-1 lg:order-2"
         >
           <motion.span
             initial={{ opacity: 0, y: 12 }}

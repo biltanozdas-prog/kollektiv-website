@@ -38,7 +38,7 @@ export default function TourismPage() {
             alt="Travel with intention"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-black/65" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/70 md:from-black/45 md:via-black/20 md:to-black/65" />
         </motion.div>
 
         <motion.div
@@ -62,7 +62,7 @@ export default function TourismPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" as const }}
               className="font-serif italic text-white leading-[1.05] mb-6 max-w-5xl"
-              style={{ fontSize: 'clamp(3.2rem, 7vw, 7rem)' }}
+              style={{ fontSize: 'clamp(2rem, 7vw, 7rem)' }}
             >
               Curated journeys.<br />Timeless places.
             </motion.h1>
@@ -117,8 +117,8 @@ export default function TourismPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" as const }}
-              className="lg:col-span-5 overflow-hidden rounded-sm"
-              style={{ height: 'clamp(380px, 52vw, 620px)' }}
+              className="lg:col-span-5 overflow-hidden rounded-sm mb-8 lg:mb-0"
+              style={{ height: 'clamp(280px, 52vw, 500px)' }}
             >
               <img
                 src="/images/concierge-yacht-charters.png"

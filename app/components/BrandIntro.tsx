@@ -11,7 +11,7 @@ export default function BrandIntro() {
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
 
           {/* Left: Text — 7 cols */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 xl:max-w-[640px]">
             <motion.span
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ export default function BrandIntro() {
           >
             <div
               className="w-full rounded-sm overflow-hidden"
-              style={{ height: 'clamp(420px, 55vh, 680px)' }}
+              style={{ height: 'clamp(300px, 55vh, 500px)' }}
             >
               <img
                 src="/images/editorial%20support%20image%202.png"

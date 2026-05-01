@@ -118,7 +118,7 @@ export default function ConciergePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" as const }}
               className="overflow-hidden rounded-sm order-2"
-              style={{ height: 'clamp(320px, 48vw, 560px)' }}
+              style={{ height: 'clamp(240px, 48vw, 560px)' }}
             >
               <img
                 src="/images/Tourism%20Newsletter%20Banner%202.png"
