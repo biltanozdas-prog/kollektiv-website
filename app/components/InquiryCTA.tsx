@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 export default function InquiryCTA() {
   return (
-    <section className="bg-offwhite border-t border-lg px-6 lg:px-14 py-32 lg:py-48">
+    <section className="bg-white border-t border-lg px-6 lg:px-14 py-32 lg:py-48">
       <div className="max-w-screen-2xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
 

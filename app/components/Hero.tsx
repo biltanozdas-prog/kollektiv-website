@@ -50,7 +50,7 @@ const textReveal = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full bg-offwhite overflow-hidden pt-[68px]">
+    <section className="relative min-h-screen w-full bg-white overflow-hidden pt-[68px]">
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-14">
         <div className="grid lg:grid-cols-12 gap-8 min-h-[calc(100vh-68px)] items-center py-28 lg:py-36">
 

@@ -167,7 +167,7 @@ export default function EntertainmentPage() {
 
       <div
         aria-hidden="true"
-        className="h-32 bg-gradient-to-b from-[#0A0A0A] to-transparent pointer-events-none"
+        className="h-24 bg-gradient-to-b from-[#0A0A0A] to-transparent -mt-24 relative z-10 pointer-events-none"
       />
 
       {/* ── 03 SYSTEM INTRO ──────────────────────────────────────────────────── */}
