@@ -84,7 +84,7 @@ export default function ApproachPage() {
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
               className="font-serif text-black leading-[1.05] mb-10"
               style={{ fontSize: 'clamp(3rem, 5.5vw, 5.5rem)' }}
             >
@@ -117,7 +117,7 @@ export default function ApproachPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
                   className={stage.textLeft ? 'order-1' : 'order-1 lg:order-2'}
                 >
                   <span className="font-mono text-[9px] tracking-[0.22em] uppercase block mb-6" style={{ color: '#8C8C8C' }}>
@@ -139,7 +139,7 @@ export default function ApproachPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                   className={stage.textLeft ? 'order-2' : 'order-2 lg:order-1'}
                 >
                   <div
@@ -177,7 +177,7 @@ export default function ApproachPage() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
               className="font-serif text-[#0A0A0A] leading-tight lg:text-right"
               style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3.2rem)' }}
             >

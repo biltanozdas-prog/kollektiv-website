@@ -44,7 +44,7 @@ const textReveal = {
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: 0.3 + i * 0.12, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, delay: 0.3 + i * 0.12, ease: "easeOut" },
   }),
 }
 
@@ -140,7 +140,7 @@ export default function Hero() {
                 style={{ position: 'absolute', top: c.top, right: c.right, width: c.size, height: c.size }}
                 initial={{ opacity: 0, scale: 0.82, y: 40 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" }}
               >
                 {/* Oscillation */}
                 <motion.div

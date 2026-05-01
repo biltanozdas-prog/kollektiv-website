@@ -85,7 +85,7 @@ export default function EntertainmentPage() {
             <motion.div
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
             >
               <p className="font-mono text-[10px] text-white/40 tracking-[0.28em] uppercase mb-8">
                 Mode 02 — Entertainment
@@ -193,7 +193,7 @@ export default function EntertainmentPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
             >
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-8 h-[1.5px] bg-yellow" />
@@ -217,7 +217,7 @@ export default function EntertainmentPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" }}
               className="flex-1"
             >
               <p className="font-sans text-[#0A0A0A]/55 text-base leading-relaxed mb-8">
@@ -371,7 +371,7 @@ export default function EntertainmentPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
               >
                 <h2
                   className="font-sans font-bold text-[#0A0A0A] leading-[0.88] tracking-tighter mb-6"
@@ -525,7 +525,7 @@ export default function EntertainmentPage() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="lg:col-span-7"
           >
             <div className="w-8 h-[1.5px] bg-yellow mb-10" />
@@ -542,7 +542,7 @@ export default function EntertainmentPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
             className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-[#D8D4CC] lg:pl-10"
           >
             <p className="font-sans text-[#8C8C8C] text-sm mb-8">Start with a signal.</p>

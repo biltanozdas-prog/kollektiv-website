@@ -13,7 +13,7 @@ function Arrow() {
 
 const fadeScale = {
   hidden: { opacity: 0, scale: 1.04 },
-  show: { opacity: 1, scale: 1, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, scale: 1, transition: { duration: 1, ease: "easeOut" } },
 }
 
 const tourismLinks = [
@@ -38,7 +38,7 @@ export default function TwoWorldsSplit() {
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="bg-white flex flex-col justify-center px-10 lg:px-16 py-20 lg:py-32"
         >
           <motion.span
@@ -55,7 +55,7 @@ export default function TwoWorldsSplit() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.25, duration: 0.7, ease: "easeOut" }}
             className="font-serif italic text-black leading-[1.08] mb-10"
             style={{ fontSize: 'clamp(2.2rem, 3.5vw, 3.8rem)' }}
           >
@@ -104,7 +104,7 @@ export default function TwoWorldsSplit() {
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="bg-white flex flex-col justify-center px-10 lg:px-14 py-20 lg:py-32 border-l border-lg/40"
         >
           <motion.span
@@ -124,7 +124,7 @@ export default function TwoWorldsSplit() {
                 initial={{ opacity: 0, x: 16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.25 + i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ delay: 0.25 + i * 0.08, duration: 0.5, ease: "easeOut" }}
               >
                 <Link
                   href={link.href}
@@ -163,7 +163,7 @@ export default function TwoWorldsSplit() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
           >
             <div>
@@ -208,7 +208,7 @@ export default function TwoWorldsSplit() {
           initial={{ opacity: 0, x: 48 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="bg-black flex flex-col justify-center px-10 lg:px-24 py-20 lg:py-32 order-1 lg:order-2"
         >
           <motion.span
@@ -225,7 +225,7 @@ export default function TwoWorldsSplit() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.25, duration: 0.7, ease: "easeOut" }}
             className="font-sans font-bold text-white leading-[1.08] mb-10"
             style={{ fontSize: 'clamp(2.6rem, 5.5vw, 4.5rem)' }}
           >

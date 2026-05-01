@@ -37,7 +37,7 @@ export default function InnovationPage() {
               style={{ width: size, height: size }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, delay: 0.2 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1.2, delay: 0.2 + i * 0.15, ease: "easeOut" }}
             />
           ))}
           {/* Rotating yellow dot on outermost ring */}
@@ -72,7 +72,7 @@ export default function InnovationPage() {
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
             className="font-sans font-bold text-black leading-[1.02] mb-10"
             style={{ fontSize: 'clamp(3rem, 7vw, 7rem)', letterSpacing: '-0.03em' }}
           >
@@ -130,7 +130,7 @@ export default function InnovationPage() {
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
                 className="border-r border-white/[0.07] px-10 lg:px-14 py-12"
               >
                 <div className="flex items-center gap-3 mb-8">
@@ -165,7 +165,7 @@ export default function InnovationPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
               className="font-sans font-light text-dark/65 text-xl lg:text-2xl leading-relaxed mb-8"
             >
               Culture moves faster than institutions. We&apos;d rather operate at the edge — with practitioners, experimenters, and people building things that don&apos;t have names yet.

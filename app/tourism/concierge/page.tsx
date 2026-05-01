@@ -96,7 +96,7 @@ export default function ConciergePage() {
               <motion.h1
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
                 className="font-serif italic text-black leading-[1.05] mb-10"
                 style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
               >
@@ -116,7 +116,7 @@ export default function ConciergePage() {
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
               className="overflow-hidden rounded-sm order-2"
               style={{ height: 'clamp(320px, 48vw, 560px)' }}
             >
@@ -150,7 +150,7 @@ export default function ConciergePage() {
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: (i % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.6, delay: (i % 2) * 0.1, ease: "easeOut" }}
                 className="group"
               >
                 <div
