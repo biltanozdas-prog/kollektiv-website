@@ -59,7 +59,7 @@ export default function InnovationPage() {
           </motion.div>
         </div>
 
-        <div className="relative z-10 max-w-4xl text-center">
+        <div className="relative z-10 max-w-3xl text-left">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,16 +74,16 @@ export default function InnovationPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" as const }}
             className="font-sans font-bold text-black leading-[1.02] mb-10"
-            style={{ fontSize: 'clamp(3rem, 7vw, 7rem)', letterSpacing: '-0.03em' }}
+            style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)', letterSpacing: '-0.03em' }}
           >
-            Where culture<br />meets what&apos;s next.
+            Where culture meets what&apos;s next.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
-            className="font-sans font-light text-dark/55 text-xl leading-relaxed max-w-2xl mx-auto mb-12"
+            className="font-sans font-light text-dark/55 text-xl leading-relaxed max-w-xl mb-12"
           >
             We&apos;re building infrastructure for cultural ventures that don&apos;t fit existing categories. Projects that ask better questions rather than offering quick answers.
           </motion.p>
@@ -92,7 +92,7 @@ export default function InnovationPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.75 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col items-start gap-5"
           >
             <Link
               href="/contact"

@@ -7,56 +7,25 @@ const circles = [
   {
     id: 'places',
     label: 'Places',
-    size: 330,
-    // desktop
-    top: '2%',
-    right: '5%',
-    // xl overrides
-    xlTop: '0%',
-    xlRight: '3%',
-    xlSize: 370,
-    duration: 7,
-    oscDelay: 0,
-    amp: 14,
-    dotDuration: 9,
-    // mobile
-    mTop: '10%',
-    mRight: '0%',
-    mSize: 110,
+    // Desktop: positioned within circle zone (top portion of right col)
+    dTop: '5%',   dRight: '4%',  dSize: 144,  xlSize: 180,
+    // Mobile: positioned within 200px circle block
+    mTop: '5%',   mRight: '2%',  mSize: 90,
+    duration: 7,  oscDelay: 0,   amp: 10, dotDuration: 9,
   },
   {
     id: 'moments',
     label: 'Moments',
-    size: 280,
-    top: '47%',
-    right: '38%',
-    xlTop: '44%',
-    xlRight: '34%',
-    xlSize: 320,
-    duration: 6,
-    oscDelay: 1.4,
-    amp: 11,
-    dotDuration: 7,
-    mTop: '40%',
-    mRight: '5%',
-    mSize: 95,
+    dTop: '28%',  dRight: '30%', dSize: 118,  xlSize: 148,
+    mTop: '38%',  mRight: '16%', mSize: 74,
+    duration: 6,  oscDelay: 1.4, amp: 8,  dotDuration: 7,
   },
   {
     id: 'futures',
     label: 'Futures',
-    size: 240,
-    top: '58%',
-    right: '3%',
-    xlTop: '60%',
-    xlRight: '1%',
-    xlSize: 275,
-    duration: 8,
-    oscDelay: 2.8,
-    amp: 9,
-    dotDuration: 11,
-    mTop: '62%',
-    mRight: '2%',
-    mSize: 80,
+    dTop: '52%',  dRight: '5%',  dSize: 98,   xlSize: 122,
+    mTop: '68%',  mRight: '3%',  mSize: 60,
+    duration: 8,  oscDelay: 2.8, amp: 6,  dotDuration: 11,
   },
 ]
 
@@ -71,14 +40,14 @@ const textReveal = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full bg-white overflow-hidden pt-[68px]">
+    <section className="relative min-h-screen w-full bg-white overflow-x-hidden pt-[68px]">
 
       {/* ── DESKTOP layout (md and up) ── */}
       <div className="hidden md:block max-w-screen-2xl mx-auto px-8 md:px-16 xl:px-20 2xl:px-24">
-        <div className="grid lg:grid-cols-12 gap-8 min-h-[calc(100vh-68px)] items-center py-28 lg:py-36">
+        <div className="grid lg:grid-cols-12 gap-8 min-h-[calc(100vh-68px)] items-stretch py-16 lg:py-20">
 
-          {/* LEFT: Text */}
-          <div className="lg:col-span-4 relative z-10">
+          {/* LEFT: Text — vertically centered */}
+          <div className="lg:col-span-4 flex flex-col justify-center relative z-10">
             <motion.p
               custom={0}
               variants={textReveal}
@@ -118,15 +87,47 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT: Massive type + decorative circles */}
-          <div className="lg:col-span-8 relative min-h-[520px] lg:min-h-[calc(100vh-220px)]">
+          {/* RIGHT: circles (top zone) + h1 (bottom zone) — no overlap */}
+          <div className="lg:col-span-8 flex flex-col min-h-[520px] lg:min-h-[calc(100vh-160px)]">
 
-            {/* Large display type */}
+            {/* CIRCLE ZONE — upper fixed-height area, h1 cannot enter here */}
+            <div className="relative h-[280px] xl:h-[380px] overflow-hidden shrink-0">
+
+              {/* md/lg circles */}
+              {circles.map((c, i) => (
+                <motion.div
+                  key={c.id}
+                  style={{ position: 'absolute', top: c.dTop, right: c.dRight, width: c.dSize, height: c.dSize }}
+                  initial={{ opacity: 0, scale: 0.82, y: 40 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
+                  className="xl:hidden"
+                >
+                  <CircleContent c={c} size={c.dSize} />
+                </motion.div>
+              ))}
+
+              {/* xl+ circles — slightly larger */}
+              {circles.map((c, i) => (
+                <motion.div
+                  key={`xl-${c.id}`}
+                  style={{ position: 'absolute', top: c.dTop, right: c.dRight, width: c.xlSize, height: c.xlSize }}
+                  initial={{ opacity: 0, scale: 0.82, y: 40 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
+                  className="hidden xl:block"
+                >
+                  <CircleContent c={c} size={c.xlSize} />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* H1 ZONE — below circles, zero overlap */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="absolute inset-0 flex items-center pointer-events-none select-none"
+              className="flex-1 flex items-end pb-8 lg:pb-14 pointer-events-none select-none"
               aria-hidden="true"
             >
               <h1
@@ -156,43 +157,36 @@ export default function Hero() {
               </h1>
             </motion.div>
 
-            {/* Floating decorative circles — desktop */}
-            {circles.map((c, i) => (
-              <motion.div
-                key={c.id}
-                style={{ position: 'absolute', top: c.top, right: c.right, width: c.size, height: c.size }}
-                initial={{ opacity: 0, scale: 0.82, y: 40 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
-                className="xl:hidden"
-              >
-                <CircleContent c={c} size={c.size} />
-              </motion.div>
-            ))}
-
-            {/* XL+ circles — slightly larger and repositioned */}
-            {circles.map((c, i) => (
-              <motion.div
-                key={`xl-${c.id}`}
-                style={{ position: 'absolute', top: c.xlTop, right: c.xlRight, width: c.xlSize, height: c.xlSize }}
-                initial={{ opacity: 0, scale: 0.82, y: 40 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
-                className="hidden xl:block"
-              >
-                <CircleContent c={c} size={c.xlSize} />
-              </motion.div>
-            ))}
-
           </div>
         </div>
       </div>
 
-      {/* ── MOBILE layout (below md) ── */}
-      <div className="md:hidden flex flex-col min-h-[calc(100vh-68px)]">
+      {/* ── MOBILE layout (below md) — 3 separate blocks ── */}
+      <div className="md:hidden flex flex-col min-h-[calc(100vh-68px)] overflow-x-hidden">
 
-        {/* TOP: label + button — protected zone */}
-        <div className="relative z-20 flex flex-col px-6 pt-10 pb-6 min-h-[45vh] justify-between">
+        {/* BLOCK 1: Circles — isolated, right-side cluster, no text here */}
+        <div className="relative h-[200px] overflow-hidden shrink-0">
+          {circles.map((c, i) => (
+            <motion.div
+              key={`m-${c.id}`}
+              style={{
+                position: 'absolute',
+                top: c.mTop,
+                right: c.mRight,
+                width: c.mSize,
+                height: c.mSize,
+              }}
+              initial={{ opacity: 0, scale: 0.82, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
+            >
+              <CircleContent c={c} size={c.mSize} />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* BLOCK 2: Label + button — no circles */}
+        <div className="px-5 py-8 flex flex-col gap-10">
           <motion.p
             custom={0}
             variants={textReveal}
@@ -222,63 +216,41 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* BOTTOM: big type + circles */}
-        <div className="relative z-10 flex-1 overflow-hidden">
-
-          {/* Big type */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="absolute inset-0 flex items-start pt-4 pl-6 pointer-events-none select-none"
-            aria-hidden="true"
+        {/* BLOCK 3: Big typography — no circles */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex-1 flex items-end pb-8 px-5 overflow-hidden pointer-events-none select-none"
+          aria-hidden="true"
+        >
+          <h1
+            className="font-sans font-bold uppercase text-black"
+            style={{ fontSize: 'clamp(44px, 20vw, 80px)', letterSpacing: '-0.025em', lineHeight: 0.88 }}
           >
-            <h1
-              className="font-sans font-bold uppercase text-black"
-              style={{ fontSize: 'clamp(48px, 20vw, 80px)', letterSpacing: '-0.025em', lineHeight: 0.88 }}
-            >
-              {['CULTURE', 'IN'].map((word, i) => (
-                <motion.span
-                  key={word}
-                  custom={i}
-                  variants={textReveal}
-                  initial="hidden"
-                  animate="show"
-                  className="block"
-                >
-                  {word}
-                </motion.span>
-              ))}
+            {['CULTURE', 'IN'].map((word, i) => (
               <motion.span
-                className="block text-black"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.75, duration: 0.8 }}
+                key={word}
+                custom={i}
+                variants={textReveal}
+                initial="hidden"
+                animate="show"
+                className="block"
               >
-                CONTEXT
+                {word}
               </motion.span>
-            </h1>
-          </motion.div>
-
-          {/* Mobile circles — right-side cluster */}
-          {circles.map((c, i) => (
-            <motion.div
-              key={`m-${c.id}`}
-              style={{
-                position: 'absolute',
-                top: c.mTop,
-                right: c.mRight,
-                width: c.mSize,
-                height: c.mSize,
-              }}
-              initial={{ opacity: 0, scale: 0.82, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
+            ))}
+            <motion.span
+              className="block text-black"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.75, duration: 0.8 }}
             >
-              <CircleContent c={c} size={c.mSize} />
-            </motion.div>
-          ))}
-        </div>
+              CONTEXT
+            </motion.span>
+          </h1>
+        </motion.div>
+
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 border-t border-black/[0.06]" />

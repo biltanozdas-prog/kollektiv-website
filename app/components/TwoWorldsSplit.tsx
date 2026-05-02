@@ -105,7 +105,7 @@ export default function TwoWorldsSplit() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: "easeOut" as const }}
-          className="bg-white flex flex-col justify-center px-8 lg:px-14 xl:px-16 py-20 lg:py-32 border-t lg:border-t-0 border-l-0 lg:border-l border-lg/40"
+          className="bg-white flex flex-col justify-center px-5 sm:px-8 lg:px-14 xl:px-16 py-20 lg:py-32 border-t lg:border-t-0 border-l-0 lg:border-l border-lg/40"
         >
           <motion.span
             initial={{ opacity: 0, y: 12 }}
