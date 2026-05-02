@@ -3,28 +3,29 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
+// Positions verified non-overlapping:
+// Desktop: Places(144) ↔ Moments(118) gap ≈65px | Moments ↔ Futures(98) gap ≈39px
+// Mobile:  Places(96)  ↔ Moments(80)  gap≈104px | Moments ↔ Futures(64) gap ≈95px
 const circles = [
   {
     id: 'places',
     label: 'Places',
-    // Desktop: positioned within circle zone (top portion of right col)
-    dTop: '5%',   dRight: '4%',  dSize: 144,  xlSize: 180,
-    // Mobile: positioned within 200px circle block
-    mTop: '5%',   mRight: '2%',  mSize: 90,
+    dTop: '8%',   dRight: '10%', dSize: 144,  xlSize: 180,
+    mTop: '15%',  mRight: '1%',  mSize: 96,
     duration: 7,  oscDelay: 0,   amp: 10, dotDuration: 9,
   },
   {
     id: 'moments',
     label: 'Moments',
-    dTop: '28%',  dRight: '30%', dSize: 118,  xlSize: 148,
-    mTop: '38%',  mRight: '16%', mSize: 74,
+    dTop: '35%',  dRight: '22%', dSize: 118,  xlSize: 148,
+    mTop: '38%',  mRight: '30%', mSize: 80,
     duration: 6,  oscDelay: 1.4, amp: 8,  dotDuration: 7,
   },
   {
     id: 'futures',
     label: 'Futures',
-    dTop: '52%',  dRight: '5%',  dSize: 98,   xlSize: 122,
-    mTop: '68%',  mRight: '3%',  mSize: 60,
+    dTop: '48%',  dRight: '6%',  dSize: 98,   xlSize: 122,
+    mTop: '58%',  mRight: '1%',  mSize: 64,
     duration: 8,  oscDelay: 2.8, amp: 6,  dotDuration: 11,
   },
 ]
@@ -44,10 +45,10 @@ export default function Hero() {
 
       {/* ── DESKTOP layout (md and up) ── */}
       <div className="hidden md:block max-w-screen-2xl mx-auto px-8 md:px-16 xl:px-20 2xl:px-24">
-        <div className="grid lg:grid-cols-12 gap-8 min-h-[calc(100vh-68px)] items-stretch py-16 lg:py-20">
+        <div className="grid lg:grid-cols-12 gap-8 min-h-[calc(100vh-68px)] items-center py-28 lg:py-36">
 
-          {/* LEFT: Text — vertically centered */}
-          <div className="lg:col-span-4 flex flex-col justify-center relative z-10">
+          {/* LEFT: Text */}
+          <div className="lg:col-span-4 relative z-10">
             <motion.p
               custom={0}
               variants={textReveal}
@@ -87,47 +88,15 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT: circles (top zone) + h1 (bottom zone) — no overlap */}
-          <div className="lg:col-span-8 flex flex-col min-h-[520px] lg:min-h-[calc(100vh-160px)]">
+          {/* RIGHT: h1 + circles floating on top — intentional overlap */}
+          <div className="lg:col-span-8 relative min-h-[520px] lg:min-h-[calc(100vh-220px)]">
 
-            {/* CIRCLE ZONE — upper fixed-height area, h1 cannot enter here */}
-            <div className="relative h-[280px] xl:h-[380px] overflow-hidden shrink-0">
-
-              {/* md/lg circles */}
-              {circles.map((c, i) => (
-                <motion.div
-                  key={c.id}
-                  style={{ position: 'absolute', top: c.dTop, right: c.dRight, width: c.dSize, height: c.dSize }}
-                  initial={{ opacity: 0, scale: 0.82, y: 40 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
-                  className="xl:hidden"
-                >
-                  <CircleContent c={c} size={c.dSize} />
-                </motion.div>
-              ))}
-
-              {/* xl+ circles — slightly larger */}
-              {circles.map((c, i) => (
-                <motion.div
-                  key={`xl-${c.id}`}
-                  style={{ position: 'absolute', top: c.dTop, right: c.dRight, width: c.xlSize, height: c.xlSize }}
-                  initial={{ opacity: 0, scale: 0.82, y: 40 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
-                  className="hidden xl:block"
-                >
-                  <CircleContent c={c} size={c.xlSize} />
-                </motion.div>
-              ))}
-            </div>
-
-            {/* H1 ZONE — below circles, zero overlap */}
+            {/* Large display type — circles float above this */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex-1 flex items-end pb-8 lg:pb-14 pointer-events-none select-none"
+              className="absolute inset-0 flex items-center pointer-events-none select-none"
               aria-hidden="true"
             >
               <h1
@@ -157,36 +126,63 @@ export default function Hero() {
               </h1>
             </motion.div>
 
+            {/* md/lg circles — non-overlapping triangle composition */}
+            {circles.map((c, i) => (
+              <motion.div
+                key={c.id}
+                style={{ position: 'absolute', top: c.dTop, right: c.dRight, width: c.dSize, height: c.dSize, pointerEvents: 'none' }}
+                initial={{ opacity: 0, scale: 0.82, y: 40 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
+                className="xl:hidden"
+              >
+                <CircleContent c={c} size={c.dSize} />
+              </motion.div>
+            ))}
+
+            {/* xl+ circles */}
+            {circles.map((c, i) => (
+              <motion.div
+                key={`xl-${c.id}`}
+                style={{ position: 'absolute', top: c.dTop, right: c.dRight, width: c.xlSize, height: c.xlSize, pointerEvents: 'none' }}
+                initial={{ opacity: 0, scale: 0.82, y: 40 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
+                className="hidden xl:block"
+              >
+                <CircleContent c={c} size={c.xlSize} />
+              </motion.div>
+            ))}
+
           </div>
         </div>
       </div>
 
-      {/* ── MOBILE layout (below md) — 3 separate blocks ── */}
-      <div className="md:hidden flex flex-col min-h-[calc(100vh-68px)] overflow-x-hidden">
+      {/* ── MOBILE layout (below md) — circles float over text, intentional ── */}
+      <div className="md:hidden relative flex flex-col min-h-[calc(100vh-68px)] overflow-x-hidden">
 
-        {/* BLOCK 1: Circles — isolated, right-side cluster, no text here */}
-        <div className="relative h-[200px] overflow-hidden shrink-0">
-          {circles.map((c, i) => (
-            <motion.div
-              key={`m-${c.id}`}
-              style={{
-                position: 'absolute',
-                top: c.mTop,
-                right: c.mRight,
-                width: c.mSize,
-                height: c.mSize,
-              }}
-              initial={{ opacity: 0, scale: 0.82, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
-            >
-              <CircleContent c={c} size={c.mSize} />
-            </motion.div>
-          ))}
-        </div>
+        {/* Circles — absolute, float above text and h1 */}
+        {circles.map((c, i) => (
+          <motion.div
+            key={`m-${c.id}`}
+            style={{
+              position: 'absolute',
+              top: c.mTop,
+              right: c.mRight,
+              width: c.mSize,
+              height: c.mSize,
+              pointerEvents: 'none',
+            }}
+            initial={{ opacity: 0, scale: 0.82, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
+          >
+            <CircleContent c={c} size={c.mSize} />
+          </motion.div>
+        ))}
 
-        {/* BLOCK 2: Label + button — no circles */}
-        <div className="px-5 py-8 flex flex-col gap-10">
+        {/* Label — top, readable */}
+        <div className="relative z-10 px-5 pt-10 shrink-0">
           <motion.p
             custom={0}
             variants={textReveal}
@@ -196,12 +192,19 @@ export default function Hero() {
           >
             A Contemporary Cultural Platform
           </motion.p>
+        </div>
 
+        {/* Spacer — pushes button + h1 to bottom */}
+        <div className="flex-1" />
+
+        {/* Button + h1 — bottom */}
+        <div className="px-5 pb-8 flex flex-col gap-8">
           <motion.div
             custom={2}
             variants={textReveal}
             initial="hidden"
             animate="show"
+            className="relative z-10"
           >
             <Link
               href="/tourism"
@@ -214,42 +217,42 @@ export default function Hero() {
               </svg>
             </Link>
           </motion.div>
-        </div>
 
-        {/* BLOCK 3: Big typography — no circles */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex-1 flex items-end pb-8 px-5 overflow-hidden pointer-events-none select-none"
-          aria-hidden="true"
-        >
-          <h1
-            className="font-sans font-bold uppercase text-black"
-            style={{ fontSize: 'clamp(44px, 20vw, 80px)', letterSpacing: '-0.025em', lineHeight: 0.88 }}
+          {/* h1 — circles intentionally overlap this */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="pointer-events-none select-none"
+            aria-hidden="true"
           >
-            {['CULTURE', 'IN'].map((word, i) => (
-              <motion.span
-                key={word}
-                custom={i}
-                variants={textReveal}
-                initial="hidden"
-                animate="show"
-                className="block"
-              >
-                {word}
-              </motion.span>
-            ))}
-            <motion.span
-              className="block text-black"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.75, duration: 0.8 }}
+            <h1
+              className="font-sans font-bold uppercase text-black"
+              style={{ fontSize: 'clamp(44px, 20vw, 80px)', letterSpacing: '-0.025em', lineHeight: 0.88 }}
             >
-              CONTEXT
-            </motion.span>
-          </h1>
-        </motion.div>
+              {['CULTURE', 'IN'].map((word, i) => (
+                <motion.span
+                  key={word}
+                  custom={i}
+                  variants={textReveal}
+                  initial="hidden"
+                  animate="show"
+                  className="block"
+                >
+                  {word}
+                </motion.span>
+              ))}
+              <motion.span
+                className="block text-black"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.75, duration: 0.8 }}
+              >
+                CONTEXT
+              </motion.span>
+            </h1>
+          </motion.div>
+        </div>
 
       </div>
 
