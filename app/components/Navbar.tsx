@@ -55,7 +55,18 @@ export default function Navbar() {
   const isTourismOverview = pathname === '/tourism'
   const isHeroMode = isEnt || isTourismOverview
 
+  // Close mobile menu on route change
   useEffect(() => { setMenuOpen(false) }, [pathname])
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
 
   useEffect(() => {
     setProgress(0)
@@ -95,110 +106,117 @@ export default function Navbar() {
     router.push(`/${target}`)
   }
 
+  const menuBg = isEnt ? '#0A0A0A' : '#FFFFFF'
+  const menuText = isEnt ? '#ffffff' : '#0A0A0A'
+  const menuBorder = isEnt ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)'
+  const menuMuted = isEnt ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)'
+
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-none"
-      style={{
-        backgroundColor: navBg,
-        borderBottomColor: borderCol,
-        borderBottomWidth: '1px',
-        backdropFilter: blur,
-        WebkitBackdropFilter: blur,
-      }}
-    >
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20">
-        <div className="flex items-center justify-between h-[68px]">
+    <>
+      <nav
+        className="fixed top-0 left-0 right-0 z-50 transition-none"
+        style={{
+          backgroundColor: navBg,
+          borderBottomColor: borderCol,
+          borderBottomWidth: '1px',
+          backdropFilter: blur,
+          WebkitBackdropFilter: blur,
+        }}
+      >
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20">
+          <div className="flex items-center justify-between h-[68px]">
 
-          {/* LEFT: Logo + mode selector */}
-          <div className="flex items-center gap-2 relative">
-            <Link href="/" className="group shrink-0 transition-opacity hover:opacity-60" style={{ color: textColor }}>
-              <K26Mark size={30} />
-            </Link>
+            {/* LEFT: Logo + mode selector */}
+            <div className="flex items-center gap-2 relative">
+              <Link href="/" className="group shrink-0 transition-opacity hover:opacity-60" style={{ color: textColor }}>
+                <K26Mark size={30} />
+              </Link>
 
-            <Link href="/" className="flex items-center gap-0.5 hover:opacity-60 transition-opacity shrink-0">
-              <span className="font-sans font-bold text-[15px] tracking-[0.04em]" style={{ color: textColor }}>KOLLEKTIV</span>
-              <span className="font-sans font-light text-[15px] tracking-[0.04em] ml-1" style={{ color: textColor }}>26</span>
-            </Link>
+              <Link href="/" className="flex items-center gap-0.5 hover:opacity-60 transition-opacity shrink-0">
+                <span className="font-sans font-bold text-[15px] tracking-[0.04em]" style={{ color: textColor }}>KOLLEKTIV</span>
+                <span className="font-sans font-light text-[15px] tracking-[0.04em] ml-1" style={{ color: textColor }}>26</span>
+              </Link>
 
-            <button
-              onClick={() => setOpen((v) => !v)}
-              aria-label="Switch mode"
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all focus:outline-none
-                ${open
-                  ? (isEnt ? 'bg-white/10' : 'bg-black/[0.06]')
-                  : (isEnt ? 'hover:bg-white/10' : 'hover:bg-black/[0.04]')
-                }`}
-            >
-              <span className={`w-2.5 h-2.5 rounded-full bg-yellow transition-all shrink-0
-                ${open ? 'scale-125 shadow-[0_0_10px_3px_rgba(232,200,50,0.6)]' : 'hover:scale-110'}`}
-              />
-              <span
-                className="font-mono text-[11px] tracking-[0.16em] uppercase font-medium"
-                style={{ color: textMuted }}
+              <button
+                onClick={() => setOpen((v) => !v)}
+                aria-label="Switch mode"
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all focus:outline-none
+                  ${open
+                    ? (isEnt ? 'bg-white/10' : 'bg-black/[0.06]')
+                    : (isEnt ? 'hover:bg-white/10' : 'hover:bg-black/[0.04]')
+                  }`}
               >
-                {modeLabel[mode]}
-              </span>
-            </button>
+                <span className={`w-2.5 h-2.5 rounded-full bg-yellow transition-all shrink-0
+                  ${open ? 'scale-125 shadow-[0_0_10px_3px_rgba(232,200,50,0.6)]' : 'hover:scale-110'}`}
+                />
+                <span
+                  className="font-mono text-[11px] tracking-[0.16em] uppercase font-medium"
+                  style={{ color: textMuted }}
+                >
+                  {modeLabel[mode]}
+                </span>
+              </button>
 
-            <AnimatePresence>
-              {open && (
-                <>
-                  <div className="fixed inset-0 z-[55]" onClick={() => setOpen(false)} />
-                  <motion.div
-                    initial={{ opacity: 0, y: -8, scale: 0.97 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -8, scale: 0.97 }}
-                    transition={{ duration: 0.18 }}
-                    className="absolute top-full left-[88px] mt-2 w-[230px] bg-white rounded-xl shadow-2xl border border-black/[0.07] overflow-hidden z-[60]"
-                  >
-                    {(['tourism', 'entertainment', 'innovation'] as const).map((m) => {
-                      const isActive = mode === m
-                      return (
-                        <button
-                          key={m}
-                          onClick={() => handleModeSelect(m)}
-                          className={`w-full px-5 py-4 text-left flex items-center gap-3 transition-colors
-                            ${isActive ? 'bg-yellow/[0.08]' : 'hover:bg-black/[0.04]'}`}
-                        >
-                          <span className={`w-2 h-2 rounded-full shrink-0 ${isActive ? 'bg-yellow' : 'bg-black/20'}`} />
-                          <span className={`font-sans text-[13px] tracking-[0.06em] uppercase ${isActive ? 'font-semibold text-black' : 'text-black/70'}`}>
-                            {m === 'tourism' ? 'Tourism' : m === 'entertainment' ? 'Entertainment' : 'Innovation'}
-                          </span>
-                        </button>
-                      )
-                    })}
-                  </motion.div>
-                </>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* RIGHT: Desktop nav + hamburger */}
-          <div className="flex items-center gap-6">
-            <div className="hidden md:flex items-center gap-10">
-              <NavLink href="/"        active={pathname === '/'}       textColor={textColor}>Home</NavLink>
-              <NavLink href="/about"   active={pathname === '/about'}  textColor={textColor}>About</NavLink>
-              <NavLink href="/contact" active={pathname === '/contact'} textColor={textColor}>Contact</NavLink>
+              <AnimatePresence>
+                {open && (
+                  <>
+                    <div className="fixed inset-0 z-[55]" onClick={() => setOpen(false)} />
+                    <motion.div
+                      initial={{ opacity: 0, y: -8, scale: 0.97 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -8, scale: 0.97 }}
+                      transition={{ duration: 0.18 }}
+                      className="absolute top-full left-[88px] mt-2 w-[230px] bg-white rounded-xl shadow-2xl border border-black/[0.07] overflow-hidden z-[60]"
+                    >
+                      {(['tourism', 'entertainment', 'innovation'] as const).map((m) => {
+                        const isActive = mode === m
+                        return (
+                          <button
+                            key={m}
+                            onClick={() => handleModeSelect(m)}
+                            className={`w-full px-5 py-4 text-left flex items-center gap-3 transition-colors
+                              ${isActive ? 'bg-yellow/[0.08]' : 'hover:bg-black/[0.04]'}`}
+                          >
+                            <span className={`w-2 h-2 rounded-full shrink-0 ${isActive ? 'bg-yellow' : 'bg-black/20'}`} />
+                            <span className={`font-sans text-[13px] tracking-[0.06em] uppercase ${isActive ? 'font-semibold text-black' : 'text-black/70'}`}>
+                              {m === 'tourism' ? 'Tourism' : m === 'entertainment' ? 'Entertainment' : 'Innovation'}
+                            </span>
+                          </button>
+                        )
+                      })}
+                    </motion.div>
+                  </>
+                )}
+              </AnimatePresence>
             </div>
 
-            {/* Hamburger — mobile only */}
-            <button
-              className="md:hidden flex flex-col gap-1.5 p-2 focus:outline-none"
-              onClick={() => setMenuOpen((v) => !v)}
-              aria-label="Open menu"
-            >
-              <span className="w-6 h-0.5 block transition-all" style={{ backgroundColor: textColor }} />
-              <span className="w-6 h-0.5 block transition-all" style={{ backgroundColor: textColor }} />
-              <span className="w-6 h-0.5 block transition-all" style={{ backgroundColor: textColor }} />
-            </button>
+            {/* RIGHT: Desktop nav + hamburger */}
+            <div className="flex items-center gap-6">
+              <div className="hidden md:flex items-center gap-10">
+                <NavLink href="/"        active={pathname === '/'}       textColor={textColor}>Home</NavLink>
+                <NavLink href="/about"   active={pathname === '/about'}  textColor={textColor}>About</NavLink>
+                <NavLink href="/contact" active={pathname === '/contact'} textColor={textColor}>Contact</NavLink>
+              </div>
+
+              {/* Hamburger — mobile only */}
+              <button
+                className="md:hidden flex flex-col gap-1.5 p-2 focus:outline-none"
+                onClick={() => setMenuOpen((v) => !v)}
+                aria-label="Open menu"
+              >
+                <span className="w-6 h-0.5 block transition-all" style={{ backgroundColor: textColor }} />
+                <span className="w-6 h-0.5 block transition-all" style={{ backgroundColor: textColor }} />
+                <span className="w-6 h-0.5 block transition-all" style={{ backgroundColor: textColor }} />
+              </button>
+            </div>
+
           </div>
-
         </div>
-      </div>
 
-      {mode !== 'none' && <SubNav currentMode={mode} scrollProgress={(isEnt || isTourismOverview) ? p : 1} />}
+        {mode !== 'none' && <SubNav currentMode={mode} scrollProgress={(isEnt || isTourismOverview) ? p : 1} />}
+      </nav>
 
-      {/* Mobile full-screen menu */}
+      {/* Mobile full-screen menu — rendered outside <nav> to escape stacking context */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -206,25 +224,33 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-[70] flex flex-col md:hidden"
-            style={{ backgroundColor: isEnt ? '#0A0A0A' : '#FFFFFF' }}
+            className="fixed inset-0 w-screen h-screen z-[9999] flex flex-col"
+            style={{ backgroundColor: menuBg }}
           >
-            {/* Close button */}
-            <div className="flex items-center justify-between px-6 h-[68px] border-b" style={{ borderColor: isEnt ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)' }}>
-              <span className="font-sans font-bold text-[15px] tracking-[0.04em]" style={{ color: isEnt ? '#ffffff' : '#0A0A0A' }}>KOLLEKTIV 26</span>
+            {/* Top bar */}
+            <div
+              className="flex items-center justify-between px-6 h-[68px] border-b shrink-0"
+              style={{ borderColor: menuBorder }}
+            >
+              <span
+                className="font-sans font-bold text-[15px] tracking-[0.04em]"
+                style={{ color: menuText }}
+              >
+                KOLLEKTIV 26
+              </span>
               <button
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
                 className="p-2 focus:outline-none"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 6l12 12M18 6l-12 12" stroke={isEnt ? '#ffffff' : '#0A0A0A'} strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M6 6l12 12M18 6l-12 12" stroke={menuText} strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </button>
             </div>
 
             {/* Nav links */}
-            <nav className="flex flex-col items-start justify-center flex-1 px-10 gap-2">
+            <nav className="flex flex-col flex-1 justify-center px-8">
               {[
                 { href: '/', label: 'Home' },
                 { href: '/about', label: 'About' },
@@ -235,12 +261,14 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.06 + i * 0.07, duration: 0.3 }}
+                  className={i < 2 ? 'border-b' : ''}
+                  style={{ borderColor: menuBorder }}
                 >
                   <Link
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className="font-sans font-light text-4xl leading-tight hover:opacity-40 transition-opacity block py-3"
-                    style={{ color: isEnt ? '#ffffff' : '#0A0A0A' }}
+                    className="font-sans font-light text-4xl leading-tight hover:opacity-40 transition-opacity block py-5"
+                    style={{ color: menuText }}
                   >
                     {item.label}
                   </Link>
@@ -249,14 +277,17 @@ export default function Navbar() {
             </nav>
 
             {/* Bottom bar */}
-            <div className="px-10 pb-10">
-              <span className="font-mono text-[9px] tracking-[0.18em] uppercase" style={{ color: isEnt ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)' }}>
+            <div className="px-8 pb-10 shrink-0">
+              <span
+                className="font-mono text-[9px] tracking-[0.18em] uppercase"
+                style={{ color: menuMuted }}
+              >
                 Istanbul · Aegean · Global
               </span>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   )
 }

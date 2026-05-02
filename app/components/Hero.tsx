@@ -38,7 +38,7 @@ const circles = [
     amp: 11,
     dotDuration: 7,
     mTop: '40%',
-    mRight: '20%',
+    mRight: '5%',
     mSize: 95,
   },
   {
