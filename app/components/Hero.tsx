@@ -7,11 +7,11 @@ type Circle = {
   id: string
   label: string
   dTop: string
-  dLeft?: string   // Places uses left positioning
-  dRight?: string  // Moments + Futures use right positioning
+  dLeft?: string    // Places uses left positioning
+  dRight?: string   // Moments + Futures use right positioning
   dSize: number
   xlSize: number
-  mTop: string
+  mBottom: string   // from-bottom positioning aligns circles with h1 lines
   mRight: string
   mSize: number
   duration: number
@@ -28,21 +28,21 @@ const circles: Circle[] = [
     id: 'places',
     label: 'Places',
     dTop: '25%',  dLeft: '35%',            dSize: 144,  xlSize: 180,
-    mTop: '30%',  mRight: '5%',  mSize: 96,
+    mBottom: '170px', mRight: '5%',  mSize: 96,
     duration: 7,  oscDelay: 0,   amp: 10, dotDuration: 9,
   },
   {
     id: 'moments',
     label: 'Moments',
     dTop: '15%',  dRight: '8%',            dSize: 118,  xlSize: 148,
-    mTop: '52%',  mRight: '22%', mSize: 80,
+    mBottom: '90px',  mRight: '22%', mSize: 80,
     duration: 6,  oscDelay: 1.4, amp: 8,  dotDuration: 7,
   },
   {
     id: 'futures',
     label: 'Futures',
     dTop: '58%',  dRight: '12%',           dSize: 98,   xlSize: 122,
-    mTop: '72%',  mRight: '2%',  mSize: 64,
+    mBottom: '25px',  mRight: '2%',  mSize: 64,
     duration: 8,  oscDelay: 2.8, amp: 6,  dotDuration: 11,
   },
 ]
@@ -189,7 +189,7 @@ export default function Hero() {
             key={`m-${c.id}`}
             style={{
               position: 'absolute',
-              top: c.mTop,
+              bottom: c.mBottom,
               right: c.mRight,
               width: c.mSize,
               height: c.mSize,
