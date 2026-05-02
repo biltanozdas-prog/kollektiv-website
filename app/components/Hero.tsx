@@ -3,32 +3,54 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
-// Positions verified non-overlapping:
-// Desktop: Places(144) ↔ Moments(118) gap ≈65px | Moments ↔ Futures(98) gap ≈39px
-// Mobile:  Places(96)  ↔ Moments(80)  gap≈104px | Moments ↔ Futures(64) gap ≈95px
-const circles = [
+type Circle = {
+  id: string
+  label: string
+  dTop: string
+  dLeft?: string   // Places uses left positioning
+  dRight?: string  // Moments + Futures use right positioning
+  dSize: number
+  xlSize: number
+  mTop: string
+  mRight: string
+  mSize: number
+  duration: number
+  oscDelay: number
+  amp: number
+  dotDuration: number
+}
+
+// Gap verified non-overlapping:
+// Desktop: P↔M≈337px (r1+r2=131), M↔F≈361px (r1+r2=108), P↔F≈398px (r1+r2=121)
+// Mobile:  P↔M≈168px (r1+r2=88),  M↔F≈166px (r1+r2=72),  P↔F≈300px (r1+r2=80)
+const circles: Circle[] = [
   {
     id: 'places',
     label: 'Places',
-    dTop: '8%',   dRight: '10%', dSize: 144,  xlSize: 180,
-    mTop: '15%',  mRight: '1%',  mSize: 96,
+    dTop: '25%',  dLeft: '35%',            dSize: 144,  xlSize: 180,
+    mTop: '30%',  mRight: '5%',  mSize: 96,
     duration: 7,  oscDelay: 0,   amp: 10, dotDuration: 9,
   },
   {
     id: 'moments',
     label: 'Moments',
-    dTop: '35%',  dRight: '22%', dSize: 118,  xlSize: 148,
-    mTop: '38%',  mRight: '30%', mSize: 80,
+    dTop: '15%',  dRight: '8%',            dSize: 118,  xlSize: 148,
+    mTop: '52%',  mRight: '22%', mSize: 80,
     duration: 6,  oscDelay: 1.4, amp: 8,  dotDuration: 7,
   },
   {
     id: 'futures',
     label: 'Futures',
-    dTop: '48%',  dRight: '6%',  dSize: 98,   xlSize: 122,
-    mTop: '58%',  mRight: '1%',  mSize: 64,
+    dTop: '58%',  dRight: '12%',           dSize: 98,   xlSize: 122,
+    mTop: '72%',  mRight: '2%',  mSize: 64,
     duration: 8,  oscDelay: 2.8, amp: 6,  dotDuration: 11,
   },
 ]
+
+function deskPos(c: Circle, size: number): React.CSSProperties {
+  const base: React.CSSProperties = { position: 'absolute', top: c.dTop, width: size, height: size, pointerEvents: 'none' }
+  return c.dLeft !== undefined ? { ...base, left: c.dLeft } : { ...base, right: c.dRight }
+}
 
 const textReveal = {
   hidden: { opacity: 0, y: 30 },
@@ -88,10 +110,10 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT: h1 + circles floating on top — intentional overlap */}
+          {/* RIGHT: h1 + circles spread across — intentional text overlap */}
           <div className="lg:col-span-8 relative min-h-[520px] lg:min-h-[calc(100vh-220px)]">
 
-            {/* Large display type — circles float above this */}
+            {/* Large display type */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -126,11 +148,11 @@ export default function Hero() {
               </h1>
             </motion.div>
 
-            {/* md/lg circles — non-overlapping triangle composition */}
+            {/* md/lg circles — triangle spread across the text */}
             {circles.map((c, i) => (
               <motion.div
                 key={c.id}
-                style={{ position: 'absolute', top: c.dTop, right: c.dRight, width: c.dSize, height: c.dSize, pointerEvents: 'none' }}
+                style={deskPos(c, c.dSize)}
                 initial={{ opacity: 0, scale: 0.82, y: 40 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
@@ -144,7 +166,7 @@ export default function Hero() {
             {circles.map((c, i) => (
               <motion.div
                 key={`xl-${c.id}`}
-                style={{ position: 'absolute', top: c.dTop, right: c.dRight, width: c.xlSize, height: c.xlSize, pointerEvents: 'none' }}
+                style={deskPos(c, c.xlSize)}
                 initial={{ opacity: 0, scale: 0.82, y: 40 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
@@ -158,10 +180,10 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── MOBILE layout (below md) — circles float over text, intentional ── */}
+      {/* ── MOBILE layout — circles float over text, intentional ── */}
       <div className="md:hidden relative flex flex-col min-h-[calc(100vh-68px)] overflow-x-hidden">
 
-        {/* Circles — absolute, float above text and h1 */}
+        {/* Circles — absolute, spread over CULTURE/IN/CONTEXT lines */}
         {circles.map((c, i) => (
           <motion.div
             key={`m-${c.id}`}
@@ -181,7 +203,7 @@ export default function Hero() {
           </motion.div>
         ))}
 
-        {/* Label — top, readable */}
+        {/* Label — top, readable above circles */}
         <div className="relative z-10 px-5 pt-10 shrink-0">
           <motion.p
             custom={0}
@@ -194,10 +216,10 @@ export default function Hero() {
           </motion.p>
         </div>
 
-        {/* Spacer — pushes button + h1 to bottom */}
+        {/* Spacer */}
         <div className="flex-1" />
 
-        {/* Button + h1 — bottom */}
+        {/* Button + h1 — bottom, circles overlay intentionally */}
         <div className="px-5 pb-8 flex flex-col gap-8">
           <motion.div
             custom={2}
@@ -218,7 +240,6 @@ export default function Hero() {
             </Link>
           </motion.div>
 
-          {/* h1 — circles intentionally overlap this */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -261,7 +282,7 @@ export default function Hero() {
   )
 }
 
-function CircleContent({ c, size }: { c: typeof circles[0]; size: number }) {
+function CircleContent({ c, size }: { c: Circle; size: number }) {
   return (
     <motion.div
       animate={{ y: [0, -c.amp, 0, c.amp, 0] }}
@@ -272,7 +293,6 @@ function CircleContent({ c, size }: { c: typeof circles[0]; size: number }) {
         style={{ width: '100%', height: '100%', borderRadius: '9999px', position: 'relative' }}
         className="backdrop-blur-sm bg-white/40 border-2 border-black/20 shadow-[0_16px_60px_rgba(0,0,0,0.07)] pointer-events-none"
       >
-        {/* Rotating yellow dot */}
         <motion.div
           className="absolute inset-0"
           style={{ transformOrigin: 'center center' }}
@@ -292,7 +312,6 @@ function CircleContent({ c, size }: { c: typeof circles[0]; size: number }) {
           />
         </motion.div>
 
-        {/* Label */}
         <div className="absolute inset-0 flex items-center justify-center">
           <span
             className="font-sans font-semibold text-black leading-none"
