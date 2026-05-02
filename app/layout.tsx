@@ -26,6 +26,9 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   title: 'Kollektiv 26',
   description: 'Contemporary cultural platform. Travel, culture, music, experience.',
+  icons: {
+    icon: '/favicon.png',
+  },
 }
 
 export default function RootLayout({
