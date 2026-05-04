@@ -97,7 +97,7 @@ export default function ConciergePage() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" as const }}
-                className="font-serif italic text-black leading-[1.05] mb-10"
+                className="font-serif text-black leading-[1.05] mb-10"
                 style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
               >
                 Everything handled.<br />Nothing overlooked.
@@ -200,7 +200,7 @@ export default function ConciergePage() {
               </span>
               <div className="w-8 h-[2px] bg-yellow mb-10" />
               <h2
-                className="font-serif italic text-[#0A0A0A] leading-tight mb-7"
+                className="font-serif text-[#0A0A0A] leading-tight mb-7"
                 style={{ fontSize: 'clamp(2rem, 3.5vw, 3.5rem)' }}
               >
                 A Sample Flow.
@@ -249,7 +249,7 @@ export default function ConciergePage() {
               </div>
 
               <div className="pt-8 border-t border-[#D8D4CC]">
-                <p className="font-serif italic text-[#3A3A3A] text-sm leading-relaxed mb-5">
+                <p className="font-serif text-[#3A3A3A] text-sm leading-relaxed mb-5">
                   Every journey is built individually. This is merely a starting point.
                 </p>
                 <Link

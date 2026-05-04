@@ -61,7 +61,7 @@ export default function TourismPage() {
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" as const }}
-              className="font-serif italic text-white leading-[1.05] mb-6 max-w-5xl"
+              className="font-serif text-white leading-[1.05] mb-6 max-w-5xl"
               style={{ fontSize: 'clamp(2rem, 7vw, 7rem)' }}
             >
               Curated journeys.<br />Timeless places.
@@ -104,7 +104,7 @@ export default function TourismPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: "easeOut" as const }}
-              className="font-serif italic text-black leading-tight text-right"
+              className="font-serif text-black leading-tight text-right"
               style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.8rem)' }}
             >
               Bespoke travel, managed.
@@ -194,7 +194,7 @@ export default function TourismPage() {
               <span className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8">For the Itineraries</span>
               <div className="w-8 h-[2px] bg-yellow mb-10" />
               <h2
-                className="font-serif italic text-black leading-[1.1] mb-7"
+                className="font-serif text-black leading-[1.1] mb-7"
                 style={{ fontSize: 'clamp(2rem, 3.2vw, 3rem)' }}
               >
                 Access beyond<br />the ordinary.
@@ -241,7 +241,7 @@ export default function TourismPage() {
                 />
               </div>
               <div className="mt-6 space-y-2">
-                <p className="font-serif italic text-[#3A3A3A] text-base leading-relaxed">
+                <p className="font-serif text-[#3A3A3A] text-base leading-relaxed">
                   "Every journey is built individually."
                 </p>
                 <p className="font-sans font-light text-[#3A3A3A] text-sm leading-relaxed max-w-sm">
@@ -277,7 +277,7 @@ export default function TourismPage() {
               <span className="font-mono text-[9px] text-black/35 tracking-[0.22em] uppercase block mb-8">Our approach</span>
               <div className="w-8 h-[2px] bg-yellow mb-10" />
               <h2
-                className="font-serif italic text-[#0A0A0A] leading-tight mb-7"
+                className="font-serif text-[#0A0A0A] leading-tight mb-7"
                 style={{ fontSize: 'clamp(2.6rem, 5vw, 5.5rem)' }}
               >
                 Every detail<br />intentionally considered.

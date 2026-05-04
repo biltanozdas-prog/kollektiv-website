@@ -56,7 +56,7 @@ export default function TwoWorldsSplit() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.25, duration: 0.7, ease: "easeOut" as const }}
-            className="font-serif italic text-black leading-[1.08] mb-10"
+            className="font-serif text-black leading-[1.08] mb-10"
             style={{ fontSize: 'clamp(2.2rem, 3.5vw, 3.8rem)' }}
           >
             Curated journeys.<br />Timeless places.

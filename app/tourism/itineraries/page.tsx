@@ -85,7 +85,7 @@ export default function ItinerariesPage() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" as const }}
-                className="font-serif italic text-black leading-[1.05] mb-6"
+                className="font-serif text-black leading-[1.05] mb-6"
                 style={{ fontSize: 'clamp(2.6rem, 4.5vw, 4.8rem)' }}
               >
                 {itinerary.title}
