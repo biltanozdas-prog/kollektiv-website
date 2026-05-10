@@ -164,16 +164,18 @@ export default function TourismPage() {
                   </div>
                   <div className="col-span-11">
                     <h3 className="font-sans font-semibold text-[#1A1A1A] text-xl leading-snug mb-3">{item.title}</h3>
-                    <p className="font-sans font-light text-[#3A3A3A] text-base leading-relaxed mb-5">{item.body}</p>
-                    <Link
-                      href={item.href}
-                      className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.12em] uppercase text-black/45 hover:text-black transition-colors"
-                    >
-                      {item.cta} <ArrowRight />
-                    </Link>
+                    <p className="font-sans font-light text-[#3A3A3A] text-base leading-relaxed">{item.body}</p>
                   </div>
                 </motion.div>
               ))}
+            </div>
+            <div className="mt-16 pt-10 border-t border-lg">
+              <Link
+                href="/tourism/concierge"
+                className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-black border border-black/20 rounded-full px-8 py-3 hover:bg-black hover:text-white hover:border-black transition-all"
+              >
+                Begin an inquiry <ArrowRight />
+              </Link>
             </div>
           </div>
         </div>
@@ -229,23 +231,6 @@ export default function TourismPage() {
                   alt="Private concierge access"
                   className="w-full h-full object-cover"
                 />
-              </div>
-              <div className="mt-6 space-y-2">
-                <p className="font-serif text-[#3A3A3A] text-base leading-relaxed">
-                  "Every journey is built individually."
-                </p>
-                <p className="font-sans font-light text-[#3A3A3A] text-sm leading-relaxed max-w-sm">
-                  We handle every detail quietly, so you can focus on the
-                  experience.
-                </p>
-                <div className="pt-2">
-                  <Link
-                    href="/tourism/approach"
-                    className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.12em] uppercase text-black/45 hover:text-black transition-colors"
-                  >
-                    Discover our process <ArrowRight />
-                  </Link>
-                </div>
               </div>
             </motion.div>
 
