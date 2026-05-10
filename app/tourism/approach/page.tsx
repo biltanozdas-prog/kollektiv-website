@@ -7,7 +7,7 @@ const stages = [
   {
     num: '01',
     title: <>We don&apos;t start with<br />destinations.</>,
-    body: 'Most travel planning begins with "where do you want to go?" We start with why. What are you trying to experience? What pace feels right? What moments are you hoping to create? The geography follows from there.',
+    body: 'We start with why — what you want to feel, what pace suits you, what moments matter. The geography follows from there.',
     image: '/images/approach-stage-01-intent.png',
     imageAlt: 'Stage 01 — Intent',
     textLeft: true,
@@ -15,7 +15,7 @@ const stages = [
   {
     num: '02',
     title: <>Space for the<br />unplanned.</>,
-    body: "Over-scheduling kills spontaneity. We build in breathing room — mornings without an agenda, afternoons left open for whatever emerges. The best travel stories come from moments you didn't plan for.",
+    body: "We build in breathing room — mornings without an agenda, afternoons left open. The best travel stories come from moments you didn't plan for.",
     image: '/images/approach-stage-02-unplanned.png',
     imageAlt: 'Stage 02 — Unplanned',
     textLeft: false,
@@ -66,7 +66,7 @@ const steps = [
 
 export default function ApproachPage() {
   return (
-    <main className="min-h-screen bg-[#F8F5EF] pt-[108px]">
+    <main className="min-h-screen bg-offwhite pt-[108px]">
 
       {/* ── HERO ── */}
       <section className="py-20 lg:py-28 px-8 lg:px-16">
@@ -78,7 +78,7 @@ export default function ApproachPage() {
               transition={{ duration: 0.5, delay: 0.15 }}
               className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8"
             >
-              Our Approach
+              Approach
             </motion.span>
             <div className="w-8 h-[2px] bg-yellow mb-10" />
             <motion.h1
@@ -94,7 +94,7 @@ export default function ApproachPage() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="font-sans font-light text-[#3A3A3A] text-xl leading-relaxed max-w-2xl"
+              className="font-sans font-light text-dg text-xl leading-relaxed max-w-2xl"
             >
               Not a checklist. Not a template. A way of thinking about travel that puts you — not logistics — at the center.
             </motion.p>
@@ -103,12 +103,12 @@ export default function ApproachPage() {
       </section>
 
       {/* ── 5 STAGES — zig-zag ── */}
-      <section className="border-t border-[#D8D4CC] py-4 px-8 lg:px-16">
+      <section className="border-t border-lg py-4 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto">
           {stages.map((stage, i) => (
             <div
               key={stage.num}
-              className="py-16 lg:py-20 border-b border-[#D8D4CC] last:border-b-0"
+              className="py-16 lg:py-20 border-b border-lg last:border-b-0"
             >
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
@@ -120,16 +120,16 @@ export default function ApproachPage() {
                   transition={{ duration: 0.6, ease: "easeOut" as const }}
                   className={stage.textLeft ? 'order-1' : 'order-1 lg:order-2'}
                 >
-                  <span className="font-mono text-[9px] tracking-[0.22em] uppercase block mb-6" style={{ color: '#8C8C8C' }}>
+                  <span className="font-mono text-[9px] text-mg tracking-[0.22em] uppercase block mb-6">
                     Stage {stage.num}
                   </span>
                   <h2
-                    className="font-serif text-[#0A0A0A] leading-[1.1] mb-6"
+                    className="font-serif text-black leading-[1.1] mb-6"
                     style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3rem)' }}
                   >
                     {stage.title}
                   </h2>
-                  <p className="font-sans font-light leading-relaxed text-base" style={{ color: '#8C8C8C' }}>
+                  <p className="font-sans font-light text-dg leading-relaxed text-base">
                     {stage.body}
                   </p>
                 </motion.div>
@@ -143,7 +143,7 @@ export default function ApproachPage() {
                   className={stage.textLeft ? 'order-2' : 'order-2 lg:order-1'}
                 >
                   <div
-                    className="border border-[#D8D4CC] bg-[#F2EFE8] p-8 lg:p-10 flex items-center justify-center max-h-[260px] lg:max-h-none"
+                    className="border border-lg bg-[#F2EFE8] p-8 lg:p-10 flex items-center justify-center max-h-[260px] lg:max-h-none"
                     style={{ aspectRatio: '4/3' }}
                   >
                     <img
@@ -164,6 +164,16 @@ export default function ApproachPage() {
       <section className="py-24 lg:py-32 px-8 lg:px-16 bg-[#EDE9E0]">
         <div className="max-w-screen-2xl mx-auto">
 
+          <motion.p
+            className="font-sans font-light text-dg text-lg leading-relaxed max-w-xl mb-14"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' as const }}
+          >
+            Most people come to us with a rough idea and a feeling they want. We take it from there.
+          </motion.p>
+
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-14">
             <motion.span
               initial={{ opacity: 0, y: 12 }}
@@ -178,7 +188,7 @@ export default function ApproachPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: "easeOut" as const }}
-              className="font-serif text-[#0A0A0A] leading-tight lg:text-right"
+              className="font-serif text-black leading-tight lg:text-right"
               style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3.2rem)' }}
             >
               How we move from intention<br />to execution.
@@ -195,8 +205,8 @@ export default function ApproachPage() {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
               >
                 <span className="font-mono text-[9px] text-black/35 tracking-[0.2em] block mb-5">{step.num}</span>
-                <h3 className="font-sans font-semibold text-[#1A1A1A] text-base leading-snug mb-4">{step.title}</h3>
-                <p className="font-sans font-light text-[#3A3A3A] text-sm leading-relaxed">{step.body}</p>
+                <h3 className="font-sans font-semibold text-dark text-base leading-snug mb-4">{step.title}</h3>
+                <p className="font-sans font-light text-dg text-sm leading-relaxed">{step.body}</p>
               </motion.div>
             ))}
           </div>
@@ -205,11 +215,11 @@ export default function ApproachPage() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="border-t border-[#D8D4CC] py-20 lg:py-24 px-8 lg:px-16 bg-[#F8F5EF]">
+      <section className="border-t border-lg py-20 lg:py-24 px-8 lg:px-16 bg-offwhite">
         <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div>
             <span className="font-mono text-[9px] text-black/35 tracking-[0.22em] uppercase block mb-4">Ready to start?</span>
-            <h2 className="font-serif text-[#0A0A0A] leading-tight" style={{ fontSize: 'clamp(2.4rem, 4vw, 4rem)' }}>
+            <h2 className="font-serif text-black leading-tight" style={{ fontSize: 'clamp(2.4rem, 4vw, 4rem)' }}>
               Plan your journey.
             </h2>
           </div>
