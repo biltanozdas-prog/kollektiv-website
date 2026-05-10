@@ -102,6 +102,111 @@ export default function ApproachPage() {
         </div>
       </section>
 
+      {/* ── BRIDGE ── */}
+      <div className="px-8 lg:px-16 pb-16 lg:pb-20">
+        <div className="max-w-screen-2xl mx-auto">
+          <motion.p
+            className="font-sans font-light text-dg text-lg leading-relaxed max-w-xl"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: 'easeOut' as const }}
+          >
+            Most people come to us with a rough idea and a feeling they want. We take it from there.
+          </motion.p>
+        </div>
+      </div>
+
+      {/* ── OPERATIONAL PROCESS ── */}
+      <section className="bg-black px-8 lg:px-16 py-24 lg:py-32">
+        <div className="max-w-screen-2xl mx-auto">
+
+          {/* Header */}
+          <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-16 lg:mb-20">
+            <p className="font-mono text-[9px] text-white/35 tracking-[0.24em] uppercase">
+              Operational Process
+            </p>
+            <h2
+              className="font-serif text-white lg:text-right leading-tight"
+              style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3.2rem)' }}
+            >
+              How we move from intention<br />
+              to execution.
+            </h2>
+          </div>
+
+          {/* 3 Adım — dikey liste */}
+          <div className="border-t border-white/10">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.num}
+                className="grid grid-cols-12 gap-6 lg:gap-12 py-10 lg:py-14 border-b border-white/10 items-start"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: 'easeOut' as const }}
+              >
+                {/* Numara — col 1 */}
+                <div className="col-span-1">
+                  <span className="font-mono text-[9px] text-white/30 tracking-[0.2em]">
+                    {step.num}
+                  </span>
+                </div>
+
+                {/* İkon — col 1 */}
+                <div className="col-span-1 flex items-start pt-[2px]">
+                  {i === 0 && (
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="10" cy="10" r="2" fill="#E8C832"/>
+                      <line x1="10" y1="1" x2="10" y2="5" stroke="#E8C832" strokeWidth="1.2" strokeLinecap="square"/>
+                      <line x1="10" y1="15" x2="10" y2="19" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" strokeLinecap="square"/>
+                      <line x1="1" y1="10" x2="5" y2="10" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" strokeLinecap="square"/>
+                      <line x1="15" y1="10" x2="19" y2="10" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" strokeLinecap="square"/>
+                    </svg>
+                  )}
+                  {i === 1 && (
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="1" y="1" width="4" height="4" stroke="white" strokeOpacity="0.3" strokeWidth="1.2"/>
+                      <rect x="8" y="1" width="4" height="4" stroke="#E8C832" strokeWidth="1.2"/>
+                      <rect x="15" y="1" width="4" height="4" stroke="white" strokeOpacity="0.3" strokeWidth="1.2"/>
+                      <rect x="1" y="8" width="4" height="4" stroke="#E8C832" strokeWidth="1.2"/>
+                      <rect x="8" y="8" width="4" height="4" stroke="white" strokeOpacity="0.3" strokeWidth="1.2"/>
+                      <rect x="15" y="8" width="4" height="4" stroke="#E8C832" strokeWidth="1.2"/>
+                      <rect x="1" y="15" width="4" height="4" stroke="white" strokeOpacity="0.3" strokeWidth="1.2"/>
+                      <rect x="8" y="15" width="4" height="4" stroke="white" strokeOpacity="0.3" strokeWidth="1.2"/>
+                      <rect x="15" y="15" width="4" height="4" stroke="#E8C832" strokeWidth="1.2"/>
+                    </svg>
+                  )}
+                  {i === 2 && (
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 18 C2 10 10 2 18 2" stroke="#E8C832" strokeWidth="1.2" strokeLinecap="square" fill="none"/>
+                      <path d="M2 18 C2 13 8 7 18 7" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" strokeLinecap="square" fill="none"/>
+                      <path d="M2 18 C2 16 7 11 18 12" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" strokeLinecap="square" fill="none"/>
+                    </svg>
+                  )}
+                </div>
+
+                {/* Başlık — col 4 */}
+                <div className="col-span-4">
+                  <h3 className="font-sans font-medium text-white text-base lg:text-lg leading-snug">
+                    {step.title}
+                  </h3>
+                </div>
+
+                {/* Body — col 6 */}
+                <div className="col-span-6">
+                  <p className="font-sans font-light text-white/50 text-sm lg:text-base leading-relaxed">
+                    {step.body}
+                  </p>
+                </div>
+
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
       {/* ── 5 STAGES — zig-zag ── */}
       <section className="border-t border-lg py-4 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto">
@@ -157,60 +262,6 @@ export default function ApproachPage() {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ── OPERATIONAL PROCESS ── */}
-      <section className="py-24 lg:py-32 px-8 lg:px-16 bg-[#EDE9E0]">
-        <div className="max-w-screen-2xl mx-auto">
-
-          <motion.p
-            className="font-sans font-light text-dg text-lg leading-relaxed max-w-xl mb-14"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: 'easeOut' as const }}
-          >
-            Most people come to us with a rough idea and a feeling they want. We take it from there.
-          </motion.p>
-
-          <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-14">
-            <motion.span
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase shrink-0"
-            >
-              Operational Process
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: "easeOut" as const }}
-              className="font-serif text-black leading-tight lg:text-right"
-              style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3.2rem)' }}
-            >
-              How we move from intention<br />to execution.
-            </motion.h2>
-          </div>
-
-          <div className="border-t border-[#C8C4BC] pt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.num}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-              >
-                <span className="font-mono text-[9px] text-black/35 tracking-[0.2em] block mb-5">{step.num}</span>
-                <h3 className="font-sans font-semibold text-dark text-base leading-snug mb-4">{step.title}</h3>
-                <p className="font-sans font-light text-dg text-sm leading-relaxed">{step.body}</p>
-              </motion.div>
-            ))}
-          </div>
-
         </div>
       </section>
 
