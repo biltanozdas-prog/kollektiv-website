@@ -232,10 +232,10 @@ export default function TwoWorldsSplit() {
                 }}
               />
               <Link
-                href="/contact"
+                href="/innovation"
                 className="font-mono text-[11px] tracking-[0.18em] text-dark/50 hover:text-black transition-colors uppercase"
               >
-                Join the list →
+                Explore →
               </Link>
             </div>
 
