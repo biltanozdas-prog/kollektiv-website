@@ -21,27 +21,34 @@ const services = [
   },
   {
     num: '02',
+    title: 'Private Flights',
+    body: "Charter flights arranged around your schedule — not the airline's. Departure from the airport that suits you, to the destination that matters.",
+    image: '/images/Luxury%20Jet%20Interior.jpg',
+    tag: 'International · Private',
+  },
+  {
+    num: '03',
     title: 'Yacht Charters',
     body: 'Private vessels with full crew, curated routes, and catering that fits the occasion — from day sails to multi-night passages.',
     image: '/images/Aegean%20Boat%20Experience.png',
     tag: 'Aegean · Mediterranean',
   },
   {
-    num: '03',
+    num: '04',
     title: 'Private Villas',
     body: 'Exclusive properties with staff, security, and the kind of privacy that lets you actually relax. Your space, your rules.',
     image: '/images/Luxury%20Villa%20Image.png',
     tag: 'Bodrum · Aegean Coast',
   },
   {
-    num: '04',
+    num: '05',
     title: 'Ground Transportation',
     body: 'Professional drivers, premium vehicles, and routes planned around your schedule — not ours.',
     image: '/images/concierge-ground-transportation.png',
     tag: 'City · Region · Coast',
   },
   {
-    num: '05',
+    num: '06',
     title: 'Cultural Access',
     body: "Private site visits, studio tours with working artists, and reservations at the places that don't take reservations publicly.",
     image: '/images/dining%20bodrum.png',
@@ -144,7 +151,7 @@ export default function ConciergePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: (i % 2) * 0.1, ease: "easeOut" as const }}
-                className={`group${i === services.length - 1 ? ' lg:col-span-2' : ''}`}
+                className="group"
               >
                 <div
                   className="relative mb-6 rounded-sm overflow-hidden"
