@@ -73,27 +73,17 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <span className="font-mono text-[9px] text-mg tracking-[0.2em] uppercase block mb-4">
-                  Follow
+                <span className="font-mono text-[9px] text-mg tracking-[0.2em] uppercase block mb-3">
+                  Instagram
                 </span>
-                <div className="flex gap-3">
-                  <a
-                    href="https://www.instagram.com/kollektiv.26/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 border border-black/10 rounded-full flex items-center justify-center font-mono text-[10px] text-mg hover:bg-black hover:text-white hover:border-black transition-all"
-                  >
-                    IG
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/company/kollektiv26"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 border border-black/10 rounded-full flex items-center justify-center font-mono text-[10px] text-mg hover:bg-black hover:text-white hover:border-black transition-all"
-                  >
-                    LI
-                  </a>
-                </div>
+                <a
+                  href="https://www.instagram.com/kollektiv.26/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-lg text-black hover:opacity-50 transition-opacity"
+                >
+                  @kollektiv.26
+                </a>
               </div>
             </div>
           </motion.div>
