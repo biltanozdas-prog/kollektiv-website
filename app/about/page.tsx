@@ -8,35 +8,56 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white pt-[88px]">
 
       {/* Hero */}
-      <section className="py-28 lg:py-44 px-8 lg:px-16">
+      <section className="py-20 lg:py-32 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto">
-          <div className="max-w-5xl">
-            <motion.span
-              initial={{ opacity: 0, y: 12 }}
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+
+            {/* Left: text */}
+            <div className="lg:col-span-6">
+              <motion.span
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="font-mono text-[10px] !text-[#6A6A6A] tracking-[0.22em] uppercase block mb-10"
+              >
+                About Kollektiv 26
+              </motion.span>
+              <div className="w-10 h-[2px] bg-yellow mb-12" />
+              <motion.h1
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 0.25, ease: "easeOut" as const }}
+                className="font-sans font-bold text-black leading-[1.04] mb-12"
+                style={{ fontSize: 'clamp(2.8rem, 6vw, 6rem)', letterSpacing: '-0.025em' }}
+              >
+                A platform for those<br />who move between worlds.
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.45 }}
+                className="font-sans font-normal !text-[#1F1F1F] text-xl lg:text-2xl leading-relaxed max-w-3xl"
+              >
+                We curate travel with cultural depth, entertainment with artistic rigour, and ventures that look ahead. Founded in Istanbul. Operating globally.
+              </motion.p>
+            </div>
+
+            {/* Right: image — desktop only */}
+            <motion.div
+              className="lg:col-span-6 hidden lg:block"
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="font-mono text-[10px] !text-[#6A6A6A] tracking-[0.22em] uppercase block mb-10"
+              transition={{ duration: 0.9, delay: 0.5, ease: 'easeOut' as const }}
             >
-              About Kollektiv 26
-            </motion.span>
-            <div className="w-10 h-[2px] bg-yellow mb-12" />
-            <motion.h1
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.25, ease: "easeOut" as const }}
-              className="font-sans font-bold text-black leading-[1.04] mb-12"
-              style={{ fontSize: 'clamp(2.8rem, 6vw, 6rem)', letterSpacing: '-0.025em' }}
-            >
-              A platform for those<br />who move between worlds.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.45 }}
-              className="font-sans font-normal !text-[#1F1F1F] text-xl lg:text-2xl leading-relaxed max-w-3xl"
-            >
-              We curate travel with cultural depth, entertainment with artistic rigour, and ventures that look ahead. Founded in Istanbul. Operating globally.
-            </motion.p>
+              <div className="overflow-hidden" style={{ height: 'clamp(400px, 55vh, 680px)' }}>
+                <img
+                  src="/images/Editorial%20Support%20Image.png"
+                  alt="Kollektiv 26"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
@@ -48,21 +69,24 @@ export default function AboutPage() {
             {[
               {
                 label: 'Tourism & Concierge',
-                body: 'Curated journeys across Turkey and beyond. Private transfers, bespoke itineraries, and cultural concierge services for those who travel with intention.',
+                body: 'Travel shaped around context. We work from conversation — not catalogues. Curated stays, private access and journeys across the Aegean and beyond.',
                 href: '/tourism',
                 linkLabel: 'Explore Tourism',
+                image: '/images/concierge%201.png',
               },
               {
                 label: 'Entertainment',
-                body: 'Event production, artist management, and venue operations. Building the infrastructure for live culture — from a single night to permanent spaces.',
+                body: 'Sound-led cultural systems. Events, artist development and venue operations — built from concept to close, not just coordinated.',
                 href: '/entertainment',
                 linkLabel: 'Explore Entertainment',
+                image: '/images/12-entertainment-venue-hero-vertical.jpg.png',
               },
               {
                 label: 'Innovation',
-                body: "Ventures at the edge of what's next. Partnerships, platforms, and ideas built for longevity, not trend cycles.",
+                body: "New ventures at the edge of culture and business. Platforms, partnerships and ideas built for longevity — formed when the conditions are right.",
                 href: '/innovation',
                 linkLabel: 'Explore Innovation',
+                image: '/images/07-entertainment-system-diagram.jpg.png',
               },
             ].map((item, i) => (
               <Link href={item.href} key={item.label} className="block">
@@ -71,13 +95,22 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.55, delay: i * 0.09, ease: "easeOut" as const }}
-                  className="border-r border-black/15 px-10 lg:px-14 py-10 hover:bg-black/[0.02] transition-colors cursor-pointer"
+                  className="border-r border-black/15 hover:bg-black/[0.02] transition-colors cursor-pointer flex flex-col"
                 >
-                  <span className="font-mono text-[9px] text-yellow tracking-[0.22em] uppercase block mb-5">{item.label}</span>
-                  <p className="font-sans font-normal !text-[#2A2A2A] text-base leading-relaxed">{item.body}</p>
-                  <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-dark/40 hover:text-black transition-colors mt-6 inline-flex items-center gap-2">
-                    {item.linkLabel} <span className="text-yellow">→</span>
-                  </span>
+                  <div className="w-full overflow-hidden" style={{ height: '220px' }}>
+                    <img
+                      src={item.image}
+                      alt={item.label}
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    />
+                  </div>
+                  <div className="px-10 lg:px-14 py-10">
+                    <span className="font-mono text-[9px] text-yellow tracking-[0.22em] uppercase block mb-5">{item.label}</span>
+                    <p className="font-sans font-normal !text-[#2A2A2A] text-base leading-relaxed">{item.body}</p>
+                    <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-dark/40 hover:text-black transition-colors mt-6 inline-flex items-center gap-2">
+                      {item.linkLabel} <span className="text-yellow">→</span>
+                    </span>
+                  </div>
                 </motion.div>
               </Link>
             ))}
@@ -233,7 +266,7 @@ export default function AboutPage() {
                 {
                   id: '03',
                   title: 'Context matters',
-                  body: 'Every project exists within a broader cultural landscape. We consider how our work fits, what it responds to, and what it contributes.',
+                  body: 'Every journey, event or venture exists within a broader cultural landscape. We consider how our work fits, what it responds to, and what it adds — not just what it delivers.',
                 },
                 {
                   id: '04',
