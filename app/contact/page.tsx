@@ -16,7 +16,7 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white pt-[68px]">
+    <main className="min-h-screen bg-white pt-[88px]">
 
       <section className="py-28 lg:py-36 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-20 lg:gap-32">
@@ -35,8 +35,20 @@ export default function ContactPage() {
               className="font-sans font-bold text-black leading-[1.04] mb-12"
               style={{ fontSize: 'clamp(2.6rem, 4.5vw, 4.5rem)', letterSpacing: '-0.025em' }}
             >
-              Let&apos;s build something remarkable.
+              Have something in mind?
             </h1>
+
+            <motion.p
+              className="font-sans font-light text-dark/55 text-lg leading-relaxed max-w-sm mb-14"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.35 }}
+            >
+              Whether you&apos;re planning a journey, commissioning
+              an experience, or simply want to understand what&apos;s
+              possible — this is where it begins. We respond to
+              every inquiry personally.
+            </motion.p>
 
             <div className="space-y-10">
               <div>
@@ -65,15 +77,22 @@ export default function ContactPage() {
                   Follow
                 </span>
                 <div className="flex gap-3">
-                  {['IG', 'LI'].map((handle) => (
-                    <a
-                      key={handle}
-                      href="#"
-                      className="w-10 h-10 border border-black/10 rounded-full flex items-center justify-center font-mono text-[10px] text-mg hover:bg-black hover:text-white hover:border-black transition-all"
-                    >
-                      {handle}
-                    </a>
-                  ))}
+                  <a
+                    href="https://www.instagram.com/kollektiv.26/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 border border-black/10 rounded-full flex items-center justify-center font-mono text-[10px] text-mg hover:bg-black hover:text-white hover:border-black transition-all"
+                  >
+                    IG
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/kollektiv26"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 border border-black/10 rounded-full flex items-center justify-center font-mono text-[10px] text-mg hover:bg-black hover:text-white hover:border-black transition-all"
+                  >
+                    LI
+                  </a>
                 </div>
               </div>
             </div>
