@@ -118,16 +118,16 @@ export default function ApproachPage() {
       </div>
 
       {/* ── OPERATIONAL PROCESS ── */}
-      <section className="bg-black px-8 lg:px-16 py-24 lg:py-32">
+      <section className="bg-nw px-8 lg:px-16 py-24 lg:py-32">
         <div className="max-w-screen-2xl mx-auto">
 
           {/* Header */}
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-16 lg:mb-20">
-            <p className="font-mono text-[9px] text-white/35 tracking-[0.24em] uppercase">
+            <p className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase">
               Operational Process
             </p>
             <h2
-              className="font-serif text-white lg:text-right leading-tight"
+              className="font-serif text-black lg:text-right leading-tight"
               style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3.2rem)' }}
             >
               How we move from intention<br />
@@ -136,11 +136,11 @@ export default function ApproachPage() {
           </div>
 
           {/* 3 Adım — dikey liste */}
-          <div className="border-t border-white/10">
+          <div className="border-t border-lg">
             {steps.map((step, i) => (
               <motion.div
                 key={step.num}
-                className="grid grid-cols-12 gap-6 lg:gap-12 py-10 lg:py-14 border-b border-white/10 items-start"
+                className="grid grid-cols-12 gap-6 lg:gap-12 py-10 lg:py-14 border-b border-lg items-start"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -148,7 +148,7 @@ export default function ApproachPage() {
               >
                 {/* Numara — col 1 */}
                 <div className="col-span-1">
-                  <span className="font-mono text-[9px] text-white/30 tracking-[0.2em]">
+                  <span className="font-mono text-[9px] text-black/30 tracking-[0.2em]">
                     {step.num}
                   </span>
                 </div>
@@ -159,43 +159,43 @@ export default function ApproachPage() {
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="10" cy="10" r="2" fill="#E8C832"/>
                       <line x1="10" y1="1" x2="10" y2="5" stroke="#E8C832" strokeWidth="1.2" strokeLinecap="square"/>
-                      <line x1="10" y1="15" x2="10" y2="19" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" strokeLinecap="square"/>
-                      <line x1="1" y1="10" x2="5" y2="10" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" strokeLinecap="square"/>
-                      <line x1="15" y1="10" x2="19" y2="10" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" strokeLinecap="square"/>
+                      <line x1="10" y1="15" x2="10" y2="19" stroke="#0A0A0A" strokeWidth="1.2" strokeOpacity="0.15" strokeLinecap="square"/>
+                      <line x1="1" y1="10" x2="5" y2="10" stroke="#0A0A0A" strokeWidth="1.2" strokeOpacity="0.15" strokeLinecap="square"/>
+                      <line x1="15" y1="10" x2="19" y2="10" stroke="#0A0A0A" strokeWidth="1.2" strokeOpacity="0.15" strokeLinecap="square"/>
                     </svg>
                   )}
                   {i === 1 && (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="1" y="1" width="4" height="4" stroke="white" strokeOpacity="0.3" strokeWidth="1.2"/>
+                      <rect x="1" y="1" width="4" height="4" stroke="#0A0A0A" strokeOpacity="0.15" strokeWidth="1.2"/>
                       <rect x="8" y="1" width="4" height="4" stroke="#E8C832" strokeWidth="1.2"/>
-                      <rect x="15" y="1" width="4" height="4" stroke="white" strokeOpacity="0.3" strokeWidth="1.2"/>
+                      <rect x="15" y="1" width="4" height="4" stroke="#0A0A0A" strokeOpacity="0.15" strokeWidth="1.2"/>
                       <rect x="1" y="8" width="4" height="4" stroke="#E8C832" strokeWidth="1.2"/>
-                      <rect x="8" y="8" width="4" height="4" stroke="white" strokeOpacity="0.3" strokeWidth="1.2"/>
+                      <rect x="8" y="8" width="4" height="4" stroke="#0A0A0A" strokeOpacity="0.15" strokeWidth="1.2"/>
                       <rect x="15" y="8" width="4" height="4" stroke="#E8C832" strokeWidth="1.2"/>
-                      <rect x="1" y="15" width="4" height="4" stroke="white" strokeOpacity="0.3" strokeWidth="1.2"/>
-                      <rect x="8" y="15" width="4" height="4" stroke="white" strokeOpacity="0.3" strokeWidth="1.2"/>
+                      <rect x="1" y="15" width="4" height="4" stroke="#0A0A0A" strokeOpacity="0.15" strokeWidth="1.2"/>
+                      <rect x="8" y="15" width="4" height="4" stroke="#0A0A0A" strokeOpacity="0.15" strokeWidth="1.2"/>
                       <rect x="15" y="15" width="4" height="4" stroke="#E8C832" strokeWidth="1.2"/>
                     </svg>
                   )}
                   {i === 2 && (
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M2 18 C2 10 10 2 18 2" stroke="#E8C832" strokeWidth="1.2" strokeLinecap="square" fill="none"/>
-                      <path d="M2 18 C2 13 8 7 18 7" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" strokeLinecap="square" fill="none"/>
-                      <path d="M2 18 C2 16 7 11 18 12" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" strokeLinecap="square" fill="none"/>
+                      <path d="M2 18 C2 13 8 7 18 7" stroke="#0A0A0A" strokeWidth="1.2" strokeOpacity="0.15" strokeLinecap="square" fill="none"/>
+                      <path d="M2 18 C2 16 7 11 18 12" stroke="#0A0A0A" strokeWidth="1.2" strokeOpacity="0.15" strokeLinecap="square" fill="none"/>
                     </svg>
                   )}
                 </div>
 
                 {/* Başlık — col 4 */}
                 <div className="col-span-4">
-                  <h3 className="font-sans font-medium text-white text-base lg:text-lg leading-snug">
+                  <h3 className="font-sans font-medium text-dark text-base lg:text-lg leading-snug">
                     {step.title}
                   </h3>
                 </div>
 
                 {/* Body — col 6 */}
                 <div className="col-span-6">
-                  <p className="font-sans font-light text-white/50 text-sm lg:text-base leading-relaxed">
+                  <p className="font-sans font-light text-dg text-sm lg:text-base leading-relaxed">
                     {step.body}
                   </p>
                 </div>
@@ -209,11 +209,30 @@ export default function ApproachPage() {
 
       {/* ── 5 STAGES — zig-zag ── */}
       <section className="border-t border-lg py-4 px-8 lg:px-16">
+        <div className="max-w-screen-2xl mx-auto mb-4 lg:mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'easeOut' as const }}
+          >
+            <p className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8">
+              Our philosophy
+            </p>
+            <div className="w-8 h-[2px] bg-yellow mb-10" />
+            <h2
+              className="font-serif text-black leading-tight max-w-xl"
+              style={{ fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', letterSpacing: '-0.02em' }}
+            >
+              How we think<br />about travel.
+            </h2>
+          </motion.div>
+        </div>
         <div className="max-w-screen-2xl mx-auto">
           {stages.map((stage, i) => (
             <div
               key={stage.num}
-              className="py-16 lg:py-20 border-b border-lg last:border-b-0"
+              className="py-10 lg:py-14 border-b border-lg last:border-b-0"
             >
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
