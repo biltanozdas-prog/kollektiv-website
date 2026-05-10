@@ -22,7 +22,7 @@ export default function TourismPage() {
   const textY = useTransform(scrollYProgress, [0, 0.5], [0, -40])
 
   return (
-    <main className="min-h-screen bg-[#F8F5EF]">
+    <main className="min-h-screen bg-offwhite">
 
       {/* ── 01 HERO — full viewport, extends behind transparent navbar ── */}
       <section
@@ -52,7 +52,7 @@ export default function TourismPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="font-mono text-[9px] text-white/60 tracking-[0.3em] uppercase"
           >
-            PAGE 01 — TOURISM &amp; CONCIERGE
+            Tourism &amp; Concierge
           </motion.span>
 
           {/* Main content — bottom */}
@@ -86,7 +86,7 @@ export default function TourismPage() {
                 href="/tourism/concierge"
                 className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-white border border-white/30 rounded-full px-7 py-3 backdrop-blur-sm bg-white/10 hover:bg-white hover:text-black hover:border-white transition-all"
               >
-                Start Planning
+                Begin an inquiry
               </Link>
             </motion.div>
           </div>
@@ -94,7 +94,7 @@ export default function TourismPage() {
       </section>
 
       {/* ── 02 SERVICES — left image + numbered list right ── */}
-      <section className="border-t border-[#D8D4CC] py-24 lg:py-36 px-8 lg:px-16">
+      <section className="border-t border-lg py-24 lg:py-36 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto">
 
           <div className="flex items-baseline justify-between mb-16 lg:mb-20 gap-8">
@@ -133,21 +133,21 @@ export default function TourismPage() {
                   num: '01',
                   title: 'Bespoke Itineraries',
                   body: 'Custom-built journeys shaped around your rhythm, your interests, and the places that matter. No template trips.',
-                  cta: 'PLAN THROUGH CONCIERGE',
+                  cta: 'Explore Concierge',
                   href: '/tourism/concierge',
                 },
                 {
                   num: '02',
                   title: 'Private Transfers',
                   body: 'Professional drivers, curated routes, and vehicles that fit the occasion. Getting there becomes part of the experience.',
-                  cta: 'LEARN MORE',
+                  cta: 'Explore Concierge',
                   href: '/tourism/concierge',
                 },
                 {
                   num: '03',
                   title: 'Cultural Concierge',
                   body: "Introductions to local makers, access to private collections, reservations at places that don't advertise. The details that define a journey.",
-                  cta: 'SEE HOW IT WORKS',
+                  cta: 'Explore Concierge',
                   href: '/tourism/concierge',
                 },
               ].map((item, i) => (
@@ -157,7 +157,7 @@ export default function TourismPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" as const }}
-                  className="grid grid-cols-12 gap-4 py-10 border-b border-[#D8D4CC] first:border-t first:border-[#D8D4CC]"
+                  className="grid grid-cols-12 gap-4 py-10 border-b border-lg first:border-t first:border-lg"
                 >
                   <div className="col-span-1 pt-1">
                     <span className="font-mono text-[9px] text-black/25 tracking-[0.18em]">{item.num}</span>
@@ -180,7 +180,7 @@ export default function TourismPage() {
       </section>
 
       {/* ── 03 ACCESS / CONCIERGE FEATURE — text left + image right ── */}
-      <section className="border-t border-[#D8D4CC] py-24 lg:py-36 px-8 lg:px-16">
+      <section className="border-t border-lg py-24 lg:py-36 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
@@ -191,7 +191,7 @@ export default function TourismPage() {
               transition={{ duration: 0.7 }}
               className="lg:col-span-5"
             >
-              <span className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8">For the Itineraries</span>
+              <span className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8">Our network</span>
               <div className="w-8 h-[2px] bg-yellow mb-10" />
               <h2
                 className="font-serif text-black leading-[1.1] mb-7"
@@ -204,26 +204,16 @@ export default function TourismPage() {
                 the gap between visiting a place and truly knowing it, providing
                 the keys to spaces and experiences otherwise closed to the public.
               </p>
-              <div className="space-y-6">
-                {[
-                  {
-                    title: 'Global Network',
-                    body: 'Established partnerships in major cultural capitals.',
-                  },
-                  {
-                    title: 'Private Access',
-                    body: 'Behind-the-scenes entry to galleries, ateliers, and kitchens.',
-                  },
-                ].map((pt) => (
-                  <div key={pt.title} className="flex items-start gap-3">
-                    <span className="text-[#E8C832] text-base leading-none shrink-0 mt-1">●</span>
-                    <div>
-                      <span className="font-sans font-medium text-[#1A1A1A] text-[14px] leading-snug block mb-1">{pt.title}</span>
-                      <span className="font-sans font-light text-[#3A3A3A] text-sm leading-relaxed">{pt.body}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p className="font-sans font-light text-[#3A3A3A] text-base leading-relaxed mb-5">
+                From the sapphire coastline of the Aegean to the layered
+                culture of Istanbul — we move between places with the same
+                deliberate eye.
+              </p>
+              <p className="font-sans font-light text-[#3A3A3A] text-base leading-relaxed mb-10">
+                We work through an established network across major cultural
+                capitals — with direct access to private galleries, ateliers
+                and places that don&apos;t take public reservations.
+              </p>
             </motion.div>
 
             <motion.div
@@ -245,8 +235,8 @@ export default function TourismPage() {
                   "Every journey is built individually."
                 </p>
                 <p className="font-sans font-light text-[#3A3A3A] text-sm leading-relaxed max-w-sm">
-                  We orchestrate complex logistics seamlessly,<br />
-                  allowing you to focus purely on the experience.
+                  We handle every detail quietly, so you can focus on the
+                  experience.
                 </p>
                 <div className="pt-2">
                   <Link
@@ -264,7 +254,7 @@ export default function TourismPage() {
       </section>
 
       {/* ── 04 EVERY DETAIL INTENTIONALLY CONSIDERED ── */}
-      <section className="border-t border-[#D8D4CC] py-24 lg:py-36 px-8 lg:px-16 bg-[#F8F5EF]">
+      <section className="border-t border-lg py-24 lg:py-36 px-8 lg:px-16 bg-offwhite">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
