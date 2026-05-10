@@ -127,7 +127,7 @@ export default function ApproachPage() {
       <div className="px-8 lg:px-16 pb-16 lg:pb-20">
         <div className="max-w-screen-2xl mx-auto">
           <motion.p
-            className="font-sans font-light text-dark text-lg leading-relaxed max-w-xl"
+            className="font-sans font-light text-black text-lg leading-relaxed max-w-xl"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -169,7 +169,7 @@ export default function ApproachPage() {
               >
                 {/* Numara — col 1 */}
                 <div className="col-span-1">
-                  <span className="font-mono text-[9px] text-black/50 tracking-[0.2em]">
+                  <span className="font-mono text-[9px] text-mg tracking-[0.2em]">
                     {step.num}
                   </span>
                 </div>
@@ -216,7 +216,7 @@ export default function ApproachPage() {
 
                 {/* Body — col 6 */}
                 <div className="col-span-6">
-                  <p className="font-sans font-light text-dark/70 text-sm lg:text-base leading-relaxed">
+                  <p className="font-sans font-light text-dg text-sm lg:text-base leading-relaxed">
                     {step.body}
                   </p>
                 </div>
