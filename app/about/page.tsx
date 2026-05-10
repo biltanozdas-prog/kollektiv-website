@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white pt-[108px]">
+    <main className="min-h-screen bg-white pt-[88px]">
 
       {/* Hero */}
       <section className="py-28 lg:py-44 px-8 lg:px-16">
@@ -49,34 +49,44 @@ export default function AboutPage() {
               {
                 label: 'Tourism & Concierge',
                 body: 'Curated journeys across Turkey and beyond. Private transfers, bespoke itineraries, and cultural concierge services for those who travel with intention.',
+                href: '/tourism',
+                linkLabel: 'Explore Tourism',
               },
               {
                 label: 'Entertainment',
                 body: 'Event production, artist management, and venue operations. Building the infrastructure for live culture — from a single night to permanent spaces.',
+                href: '/entertainment',
+                linkLabel: 'Explore Entertainment',
               },
               {
                 label: 'Innovation',
                 body: "Ventures at the edge of what's next. Partnerships, platforms, and ideas built for longevity, not trend cycles.",
+                href: '/innovation',
+                linkLabel: 'Explore Innovation',
               },
             ].map((item, i) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.09, ease: "easeOut" as const }}
-                className="border-r border-black/15 px-10 lg:px-14 py-10"
-              >
-                <span className="font-mono text-[9px] text-yellow-600 tracking-[0.22em] uppercase block mb-5">{item.label}</span>
-                <p className="font-sans font-normal !text-[#2A2A2A] text-base leading-relaxed">{item.body}</p>
-              </motion.div>
+              <Link href={item.href} key={item.label} className="block">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: i * 0.09, ease: "easeOut" as const }}
+                  className="border-r border-black/15 px-10 lg:px-14 py-10 hover:bg-black/[0.02] transition-colors cursor-pointer"
+                >
+                  <span className="font-mono text-[9px] text-yellow tracking-[0.22em] uppercase block mb-5">{item.label}</span>
+                  <p className="font-sans font-normal !text-[#2A2A2A] text-base leading-relaxed">{item.body}</p>
+                  <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-dark/40 hover:text-black transition-colors mt-6 inline-flex items-center gap-2">
+                    {item.linkLabel} <span className="text-yellow">→</span>
+                  </span>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* Why 26 */}
-      <section id="why-26" className="border-t border-black/15 py-28 lg:py-44 px-8 lg:px-16 bg-[#FBFBFB]">
+      <section id="why-26" className="border-t border-black/15 py-28 lg:py-44 px-8 lg:px-16 bg-offwhite">
         <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
 
           {/* Left: Text */}
@@ -265,12 +275,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-black/15 py-24 px-8 lg:px-16 bg-[#F9F9F9]">
+      <section className="border-t border-black/15 py-24 px-8 lg:px-16 bg-offwhite">
         <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div>
             <span className="font-mono text-[9px] !text-[#6A6A6A] tracking-[0.22em] uppercase block mb-4">Work with us</span>
             <h2 className="font-sans font-bold text-black text-3xl lg:text-4xl" style={{ letterSpacing: '-0.02em' }}>
-              Let&apos;s build something together.
+              If something here resonates, we&apos;d like to hear from you.
             </h2>
           </div>
           <Link
