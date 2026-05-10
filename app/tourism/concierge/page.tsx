@@ -37,7 +37,7 @@ const services = [
     num: '04',
     title: 'Ground Transportation',
     body: 'Professional drivers, premium vehicles, and routes planned around your schedule — not ours.',
-    image: '/images/general%20photo.png',
+    image: '/images/concierge-ground-transportation.png',
     tag: 'City · Region · Coast',
   },
   {
@@ -46,13 +46,6 @@ const services = [
     body: "Private site visits, studio tours with working artists, and reservations at the places that don't take reservations publicly.",
     image: '/images/dining%20bodrum.png',
     tag: 'Art · Heritage · Local',
-  },
-  {
-    num: '06',
-    title: '24/7 Concierge',
-    body: 'On-call throughout your stay. Last-minute changes, special requests, anything that comes up. You travel — we handle.',
-    image: '/images/concierge-24-7-support.png',
-    tag: 'Always available',
   },
 ]
 
@@ -76,7 +69,7 @@ const days = [
 
 export default function ConciergePage() {
   return (
-    <main className="min-h-screen bg-[#F8F5EF] pt-[108px]">
+    <main className="min-h-screen bg-offwhite pt-[108px]">
 
       {/* ── HERO ── */}
       <section className="py-20 lg:py-28 px-8 lg:px-16">
@@ -90,7 +83,7 @@ export default function ConciergePage() {
               transition={{ duration: 0.7 }}
             >
               <span className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8">
-                Bespoke Concierge Services
+                Concierge
               </span>
               <div className="w-8 h-[2px] bg-yellow mb-10" />
               <motion.h1
@@ -106,7 +99,7 @@ export default function ConciergePage() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="font-sans font-light text-[#3A3A3A] text-xl leading-relaxed"
+                className="font-sans font-light text-dg text-xl leading-relaxed"
               >
                 Logistics shouldn&apos;t be part of your mental load. We handle transport, accommodation, access, and coordination — so you show up and experience.
               </motion.p>
@@ -121,7 +114,7 @@ export default function ConciergePage() {
               style={{ height: 'clamp(240px, 48vw, 560px)' }}
             >
               <img
-                src="/images/Tourism%20Newsletter%20Banner%202.png"
+                src="/images/concierge%201.png"
                 alt="Concierge experience"
                 className="w-full h-full object-cover"
               />
@@ -132,7 +125,7 @@ export default function ConciergePage() {
       </section>
 
       {/* ── SERVICES GRID ── */}
-      <section className="border-t border-[#D8D4CC] py-24 lg:py-32 px-8 lg:px-16">
+      <section className="border-t border-lg py-24 lg:py-32 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto">
           <motion.span
             initial={{ opacity: 0, y: 12 }}
@@ -151,7 +144,7 @@ export default function ConciergePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: (i % 2) * 0.1, ease: "easeOut" as const }}
-                className="group"
+                className={`group${i === services.length - 1 ? ' lg:col-span-2' : ''}`}
               >
                 <div
                   className="relative mb-6 rounded-sm overflow-hidden"
@@ -170,10 +163,10 @@ export default function ConciergePage() {
                     <span className="font-mono text-[9px] text-white/50 tracking-[0.12em]">{s.num}</span>
                   </div>
                 </div>
-                <h3 className="font-sans font-semibold text-[#1A1A1A] text-xl leading-snug mb-3 group-hover:opacity-60 transition-opacity">
+                <h3 className="font-sans font-semibold text-dark text-xl leading-snug mb-3 group-hover:opacity-60 transition-opacity">
                   {s.title}
                 </h3>
-                <p className="font-sans font-light text-[#3A3A3A] text-base leading-relaxed">
+                <p className="font-sans font-light text-dg text-base leading-relaxed">
                   {s.body}
                 </p>
               </motion.div>
@@ -183,7 +176,7 @@ export default function ConciergePage() {
       </section>
 
       {/* ── A SAMPLE FLOW ── */}
-      <section className="border-t border-[#D8D4CC] py-24 lg:py-32 px-8 lg:px-16">
+      <section className="border-t border-lg py-24 lg:py-32 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
@@ -200,14 +193,14 @@ export default function ConciergePage() {
               </span>
               <div className="w-8 h-[2px] bg-yellow mb-10" />
               <h2
-                className="font-serif text-[#0A0A0A] leading-tight mb-7"
+                className="font-serif text-black leading-tight mb-7"
                 style={{ fontSize: 'clamp(2rem, 3.5vw, 3.5rem)' }}
               >
                 A Sample Flow.
               </h2>
-              <p className="font-sans font-light text-[#3A3A3A] text-base leading-relaxed mb-10">
-                This is what our planning looks like in practice. A balance of
-                structure and breathing room, carefully paced.
+              <p className="font-sans font-light text-dg text-base leading-relaxed mb-10">
+                Not a package. A starting point. Every itinerary begins with a
+                conversation and ends differently.
               </p>
               <div className="overflow-hidden rounded-sm" style={{ height: 'clamp(220px, 22vw, 300px)' }}>
                 <img
@@ -241,16 +234,16 @@ export default function ConciergePage() {
                     </div>
                     <div className="col-span-11">
                       <span className="font-mono text-[9px] text-black/35 tracking-[0.22em] uppercase block mb-2">{d.day}</span>
-                      <h3 className="font-sans font-medium text-[#1A1A1A] text-base leading-snug mb-3">{d.title}</h3>
-                      <p className="font-sans font-light text-[#3A3A3A] text-sm leading-relaxed">{d.body}</p>
+                      <h3 className="font-sans font-medium text-dark text-base leading-snug mb-3">{d.title}</h3>
+                      <p className="font-sans font-light text-dg text-sm leading-relaxed">{d.body}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="pt-8 border-t border-[#D8D4CC]">
-                <p className="font-serif text-[#3A3A3A] text-sm leading-relaxed mb-5">
-                  Every journey is built individually. This is merely a starting point.
+              <div className="pt-8 border-t border-lg">
+                <p className="font-serif text-dg text-sm leading-relaxed mb-5">
+                  Every journey is built individually.
                 </p>
                 <Link
                   href="/contact"
@@ -266,7 +259,7 @@ export default function ConciergePage() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="border-t border-[#D8D4CC] py-20 lg:py-24 px-8 lg:px-16 bg-black">
+      <section className="border-t border-lg py-20 lg:py-24 px-8 lg:px-16 bg-black">
         <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div>
             <span className="font-mono text-[9px] text-white/35 tracking-[0.22em] uppercase block mb-4">Ready to plan?</span>
