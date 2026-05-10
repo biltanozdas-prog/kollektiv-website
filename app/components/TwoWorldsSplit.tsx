@@ -16,21 +16,14 @@ const fadeScale = {
   show: { opacity: 1, scale: 1, transition: { duration: 1, ease: "easeOut" as const } },
 }
 
-const tourismLinks = [
-  { label: 'Bespoke Itineraries', href: '/tourism/concierge' },
-  { label: 'Private Transfers', href: '/tourism/concierge' },
-  { label: 'Cultural Concierge', href: '/tourism/concierge' },
-  { label: 'Aegean & Istanbul', href: '/tourism' },
-  { label: 'Cultural Access', href: '/tourism/concierge' },
-]
 
 export default function TwoWorldsSplit() {
   return (
     <section>
 
-      {/* ── TOURISM — 3-column: text | image | nav ── */}
+      {/* ── TOURISM — 2-column: text | image ── */}
       <div
-        className="grid lg:grid-cols-[1fr_1.4fr_1fr] xl:grid-cols-[1fr_2fr_1fr]"
+        className="grid lg:grid-cols-[1fr_1.4fr] xl:grid-cols-[1fr_2fr]"
         style={{ minHeight: '92vh' }}
       >
         {/* Col 1 — Text content */}
@@ -68,7 +61,7 @@ export default function TwoWorldsSplit() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="font-sans font-light text-dg text-base leading-relaxed mb-12 max-w-[320px]"
           >
-            Bespoke itineraries, private transfers, and cultural concierge — across Istanbul, the Aegean, and beyond.
+            Travel shaped around context, where place, timing and access come together.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -99,61 +92,6 @@ export default function TwoWorldsSplit() {
           />
         </motion.div>
 
-        {/* Col 3 — Navigation links */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: "easeOut" as const }}
-          className="bg-white flex flex-col justify-center px-5 sm:px-8 lg:px-14 xl:px-16 py-20 lg:py-32 border-t lg:border-t-0 border-l-0 lg:border-l border-lg/40"
-        >
-          <motion.span
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="font-mono text-[9px] text-mg tracking-[0.22em] uppercase block mb-10"
-          >
-            What we offer
-          </motion.span>
-
-          <nav className="flex flex-col gap-0">
-            {tourismLinks.map((link, i) => (
-              <motion.div
-                key={link.label}
-                initial={{ opacity: 0, x: 16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.25 + i * 0.08, duration: 0.5, ease: "easeOut" as const }}
-              >
-                <Link
-                  href={link.href}
-                  className="group flex items-center justify-between py-4 border-b border-lg/50 hover:border-black/20 transition-colors"
-                >
-                  <span className="font-sans font-light text-black text-[15px] tracking-[0.01em] group-hover:opacity-50 transition-opacity">
-                    {link.label}
-                  </span>
-                  <motion.span
-                    whileHover={{ x: 3 }}
-                    className="text-black/30 group-hover:text-black/60 transition-colors"
-                  >
-                    <Arrow />
-                  </motion.span>
-                </Link>
-              </motion.div>
-            ))}
-          </nav>
-
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.7, duration: 0.5 }}
-            className="font-mono text-[9px] text-mg tracking-[0.14em] uppercase mt-10"
-          >
-            Istanbul · Aegean · Global
-          </motion.p>
-        </motion.div>
       </div>
 
       {/* ── WHAT CONNECTS CULTURE DIVIDER ── */}
@@ -229,7 +167,7 @@ export default function TwoWorldsSplit() {
             className="font-sans font-bold text-white leading-[1.08] mb-10"
             style={{ fontSize: 'clamp(2.6rem, 5.5vw, 4.5rem)' }}
           >
-            Live moments.<br />Lasting impact.
+            Music has always moved alongside culture.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -238,7 +176,7 @@ export default function TwoWorldsSplit() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="font-sans font-light text-white/50 text-lg leading-relaxed mb-12 max-w-[400px]"
           >
-            Live music, curated events, and cultural programming — from intimate venues to landmark occasions.
+            We&apos;re building the space where sound moves alongside everything else we do. Music programming, private gatherings, curated activations.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -253,6 +191,57 @@ export default function TwoWorldsSplit() {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* ── INNOVATION ── */}
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' as const }}
+        className="bg-black px-8 lg:px-24 py-24 lg:py-32 border-t border-white/[0.06]"
+      >
+        <div className="max-w-screen-2xl mx-auto">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
+
+            {/* Sol: metin */}
+            <div className="max-w-xl">
+              <p className="font-mono text-[9px] tracking-[0.22em] text-yellow/60 uppercase mb-6">
+                Innovation
+              </p>
+              <div className="w-8 h-[1px] bg-yellow/40 mb-8" />
+              <h2
+                className="font-sans font-bold text-white uppercase"
+                style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', letterSpacing: '-0.02em', lineHeight: 0.92 }}
+              >
+                Something<br />is forming.
+              </h2>
+              <p className="font-sans font-light text-white/40 text-base mt-6 max-w-sm">
+                More when the time is right.
+              </p>
+            </div>
+
+            {/* Sağ: glow + CTA */}
+            <div className="flex flex-col items-start lg:items-end gap-8">
+              <div
+                style={{
+                  width: 160,
+                  height: 160,
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle, rgba(232,200,50,0.18) 0%, rgba(232,200,50,0.04) 60%, transparent 100%)',
+                  filter: 'blur(24px)',
+                }}
+              />
+              <Link
+                href="/contact"
+                className="font-mono text-[11px] tracking-[0.18em] text-yellow/70 hover:text-yellow transition-colors uppercase"
+              >
+                Join the list →
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </motion.section>
 
     </section>
   )

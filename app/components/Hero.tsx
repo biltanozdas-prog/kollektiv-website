@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 type Circle = {
@@ -88,26 +87,9 @@ export default function Hero() {
               animate="show"
               className="font-sans font-light text-dark/55 text-[16px] xl:text-lg 2xl:text-xl leading-relaxed mb-16 max-w-[300px] xl:max-w-[340px]"
             >
-              Curated journeys in culture, design, and entertainment. Meaningful by design. Unforgettable by nature.
+              Travel. Culture. Music. Experience.
             </motion.p>
 
-            <motion.div
-              custom={2}
-              variants={textReveal}
-              initial="hidden"
-              animate="show"
-            >
-              <Link
-                href="/tourism"
-                className="inline-flex items-center gap-3 font-sans text-[12px] xl:text-[13px] tracking-[0.1em] uppercase text-black border border-black/15 rounded-full px-7 xl:px-9 py-3 xl:py-4 hover:bg-black hover:text-white hover:border-black transition-all group"
-              >
-                Explore the worlds
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-yellow group-hover:text-white transition-colors">
-                  <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
-                  <path d="M5 7h4M7.5 5.5l1.5 1.5-1.5 1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-                </svg>
-              </Link>
-            </motion.div>
           </div>
 
           {/* RIGHT: h1 + circles spread across — intentional text overlap */}
@@ -221,25 +203,6 @@ export default function Hero() {
 
         {/* Button + h1 — bottom, circles overlay intentionally */}
         <div className="px-5 pb-8 flex flex-col gap-8">
-          <motion.div
-            custom={2}
-            variants={textReveal}
-            initial="hidden"
-            animate="show"
-            className="relative z-10"
-          >
-            <Link
-              href="/tourism"
-              className="inline-flex items-center gap-3 font-sans text-[12px] tracking-[0.1em] uppercase text-black border border-black/15 rounded-full px-7 py-3 hover:bg-black hover:text-white hover:border-black transition-all group"
-            >
-              Explore the worlds
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-yellow group-hover:text-white transition-colors">
-                <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
-                <path d="M5 7h4M7.5 5.5l1.5 1.5-1.5 1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-              </svg>
-            </Link>
-          </motion.div>
-
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

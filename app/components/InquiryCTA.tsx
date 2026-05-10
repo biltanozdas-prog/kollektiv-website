@@ -20,7 +20,7 @@ export default function InquiryCTA() {
             </span>
             {/* Sans only — homepage rule */}
             <h2 className="font-sans font-medium text-black leading-[1.1]" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.8rem)' }}>
-              Let&apos;s build something<br />remarkable together
+              Begin a conversation.
             </h2>
           </motion.div>
 
@@ -35,7 +35,7 @@ export default function InquiryCTA() {
               href="/contact"
               className="inline-flex items-center gap-3 font-sans text-sm tracking-[0.07em] bg-black text-white rounded-full px-12 py-5 hover:bg-dg transition-colors group"
             >
-              Enquire now
+              Start an inquiry
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="group-hover:translate-x-1 transition-transform">
                 <path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
