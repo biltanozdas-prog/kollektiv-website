@@ -171,7 +171,7 @@ export default function TourismPage() {
             </div>
           </div>
 
-          <div className="mt-16 pt-10 border-t border-lg flex justify-end">
+          <div className="mt-16 flex justify-end">
             <Link
               href="/tourism/concierge"
               className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-black border border-black/20 rounded-full px-8 py-3 hover:bg-black hover:text-white hover:border-black transition-all"
