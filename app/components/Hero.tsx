@@ -85,6 +85,19 @@ export default function Hero() {
               variants={textReveal}
               initial="hidden"
               animate="show"
+              className="font-sans font-light text-dark/50 text-sm leading-relaxed max-w-[300px] xl:max-w-[340px] mt-4 mb-6"
+              style={{ fontSize: 'clamp(12px, 1.1vw, 14px)' }}
+            >
+              A platform for those who move between worlds.
+              Travel with cultural depth, entertainment with
+              artistic rigour, ventures focused on the future.
+            </motion.p>
+
+            <motion.p
+              custom={2}
+              variants={textReveal}
+              initial="hidden"
+              animate="show"
               className="font-sans font-light text-dark/55 text-[16px] xl:text-lg 2xl:text-xl leading-relaxed mb-16 max-w-[300px] xl:max-w-[340px]"
             >
               Travel. Culture. Music. Experience.
@@ -196,6 +209,11 @@ export default function Hero() {
           >
             A Contemporary Cultural Platform
           </motion.p>
+          <p className="font-sans font-light text-dark/50 text-sm leading-relaxed mt-3 mb-4 max-w-[280px]">
+            A platform for those who move between worlds.
+            Travel with cultural depth, entertainment with
+            artistic rigour, ventures focused on the future.
+          </p>
         </div>
 
         {/* Spacer */}

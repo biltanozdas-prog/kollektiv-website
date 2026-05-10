@@ -198,24 +198,24 @@ export default function TwoWorldsSplit() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: 'easeOut' as const }}
-        className="bg-black px-8 lg:px-24 py-24 lg:py-32 border-t border-white/[0.06]"
+        className="bg-offwhite px-8 lg:px-24 py-24 lg:py-32 border-t border-black/[0.06]"
       >
         <div className="max-w-screen-2xl mx-auto">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
 
             {/* Sol: metin */}
             <div className="max-w-xl">
-              <p className="font-mono text-[9px] tracking-[0.22em] text-yellow/60 uppercase mb-6">
+              <p className="font-mono text-[9px] tracking-[0.22em] text-yellow uppercase mb-6">
                 Innovation
               </p>
-              <div className="w-8 h-[1px] bg-yellow/40 mb-8" />
+              <div className="w-8 h-[1px] bg-yellow mb-8" />
               <h2
-                className="font-sans font-bold text-white uppercase"
+                className="font-sans font-bold text-black uppercase"
                 style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', letterSpacing: '-0.02em', lineHeight: 0.92 }}
               >
                 Something<br />is forming.
               </h2>
-              <p className="font-sans font-light text-white/40 text-base mt-6 max-w-sm">
+              <p className="font-sans font-light text-dark/50 text-base mt-6 max-w-sm">
                 More when the time is right.
               </p>
             </div>
@@ -227,13 +227,13 @@ export default function TwoWorldsSplit() {
                   width: 160,
                   height: 160,
                   borderRadius: '50%',
-                  background: 'radial-gradient(circle, rgba(232,200,50,0.18) 0%, rgba(232,200,50,0.04) 60%, transparent 100%)',
+                  background: 'radial-gradient(circle, rgba(232,200,50,0.35) 0%, rgba(232,200,50,0.08) 60%, transparent 100%)',
                   filter: 'blur(24px)',
                 }}
               />
               <Link
                 href="/contact"
-                className="font-mono text-[11px] tracking-[0.18em] text-yellow/70 hover:text-yellow transition-colors uppercase"
+                className="font-mono text-[11px] tracking-[0.18em] text-dark/50 hover:text-black transition-colors uppercase"
               >
                 Join the list →
               </Link>
