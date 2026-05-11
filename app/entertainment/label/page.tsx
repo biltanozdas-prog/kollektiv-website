@@ -38,6 +38,10 @@ const PROCESS = [
     title: 'MESAM, MSG, royalties — we track it',
     body: 'The artist should focus on one thing: making work. We handle the rest because we know how.',
   },
+  {
+    title: 'Reach is built, not assumed',
+    body: "We don't wait for the music to be finished to think about the audience. Playlist positioning, press, digital presence — these run alongside production, not after it.",
+  },
 ]
 
 export default function LabelPage() {
@@ -46,7 +50,7 @@ export default function LabelPage() {
 
       {/* ── 01 HERO ──────────────────────────────────────────────────────────── */}
       <section
-        className="relative bg-[#0A0A0A] overflow-hidden flex flex-col"
+        className="relative bg-black overflow-hidden flex flex-col"
         style={{ minHeight: 'calc(100vh + 108px)', marginTop: '-108px' }}
       >
         <img
@@ -100,59 +104,15 @@ export default function LabelPage() {
                 href="/contact"
                 className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-white border border-white/30 px-7 py-3.5 hover:bg-white hover:text-black transition-colors duration-300"
               >
-                LET'S TALK <ArrowRight />
+                GET IN TOUCH <ArrowRight />
               </Link>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── 02 DARK BRIDGE ───────────────────────────────────────────────────── */}
-      <section className="bg-[#0A0A0A] relative overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.04]"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }}
-        />
-        <div className="relative z-10 max-w-screen-2xl mx-auto px-8 lg:px-16 pt-10 lg:pt-14">
-          <div className="flex items-center justify-between pb-10 lg:pb-14">
-            <div className="flex items-center gap-4">
-              <Bars heights={SIGNAL} className="text-yellow/35" />
-              <span className="font-mono text-[9px] text-white/25 tracking-[0.28em] uppercase">Artist — Release — Rights</span>
-            </div>
-            <div className="hidden sm:flex items-center gap-2.5">
-              <K26Mark size={12} className="text-white/15" />
-              <span className="font-mono text-[9px] text-white/20 tracking-[0.22em] uppercase">Label</span>
-            </div>
-          </div>
-          <div className="flex border-t border-white/[0.05]">
-            {([
-              { n: '01', label: 'ARTIST' },
-              { n: '02', label: 'RELEASE' },
-              { n: '03', label: 'RIGHTS' },
-            ] as { n: string; label: string }[]).map((item, i) => (
-              <div
-                key={item.n}
-                className={`flex-1 flex items-center gap-2 lg:gap-3 py-4 ${i > 0 ? 'border-l border-white/[0.05] pl-4 lg:pl-8' : ''}`}
-              >
-                <span className="font-mono text-[8px] text-yellow/30 tracking-[0.2em]">{item.n}</span>
-                <span className="font-mono text-[11px] text-white/20 tracking-[0.26em] uppercase">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="h-16 lg:h-28" />
-      </section>
-
-      <div
-        aria-hidden="true"
-        className="h-24 bg-gradient-to-b from-[#0A0A0A] to-transparent -mt-24 relative z-10 pointer-events-none"
-      />
-
-      {/* ── 03 INTRO ─────────────────────────────────────────────────────────── */}
-      <section className="bg-[#F8F5EF] relative overflow-hidden">
+      {/* ── 02 INTRO ─────────────────────────────────────────────────────────── */}
+      <section className="bg-offwhite relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
@@ -173,10 +133,10 @@ export default function LabelPage() {
             >
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-8 h-[1.5px] bg-yellow" />
-                <span className="font-mono text-[10px] text-[#8C8C8C] tracking-[0.28em] uppercase">Our System</span>
+                <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">Our System</span>
               </div>
               <h2
-                className="font-sans font-bold text-[#0A0A0A] leading-[0.88] tracking-tighter"
+                className="font-sans font-bold text-black leading-[0.88] tracking-tighter"
                 style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
               >
                 FROM<br />
@@ -193,40 +153,25 @@ export default function LabelPage() {
             className="lg:col-span-6 lg:col-start-7 flex flex-col lg:flex-row gap-10 items-start lg:items-end"
           >
             <div className="flex-1">
-              <p className="font-sans text-[#0A0A0A]/55 text-base leading-relaxed mb-8">
+              <p className="font-sans text-black/55 text-base leading-relaxed mb-8">
                 We focus on one thing: what does this artist need to exist at their best? Sometimes it's production. Sometimes it's legal structure. Sometimes it's visibility. Sometimes it's just being in the right room with the right people. We build that room.
               </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] uppercase text-[#0A0A0A] hover:opacity-50 transition-opacity"
-              >
-                GET IN TOUCH <ArrowRight size={13} />
-              </Link>
-            </div>
-            <div className="flex items-stretch shrink-0">
-              <div className="bg-[#0A0A0A] px-5 py-4 flex flex-col justify-between w-32 h-20">
-                <span className="font-mono text-[8px] text-yellow/70 tracking-[0.22em] uppercase">Signal</span>
-                <Bars heights={SIGNAL.slice(0, 9)} className="text-yellow/60" />
-              </div>
-              <div className="bg-yellow w-12 h-20 flex items-end justify-end p-1.5">
-                <span className="font-mono text-[7px] text-black/30 tracking-widest" style={{ writingMode: 'vertical-rl' }}>K26</span>
-              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ── 04 THREE CARDS ───────────────────────────────────────────────────── */}
-      <section className="bg-[#F8F5EF] border-t border-[#D8D4CC] px-8 lg:px-16 pt-14 lg:pt-16 pb-24 lg:pb-32">
+      {/* ── 03 THREE CARDS ───────────────────────────────────────────────────── */}
+      <section className="bg-offwhite border-t border-lg px-8 lg:px-16 pt-14 lg:pt-16 pb-24 lg:pb-32">
         <div className="max-w-screen-2xl mx-auto">
           <div className="flex items-center gap-3 mb-14">
             <div className="w-8 h-[1.5px] bg-yellow" />
-            <span className="font-mono text-[10px] text-[#8C8C8C] tracking-[0.28em] uppercase">What We Do</span>
+            <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">What We Do</span>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-l border-[#D8D4CC]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-l border-lg">
 
             {/* A&R — light 5 cols */}
-            <div className="lg:col-span-5 border-r border-b border-[#D8D4CC] p-10 lg:p-14 flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
+            <div className="lg:col-span-5 border-r border-b border-lg p-10 lg:p-14 flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
               <div className="absolute bottom-6 right-6 pointer-events-none" aria-hidden="true">
                 <svg width="100" height="100" viewBox="0 0 100 100" fill="none" opacity="0.06">
                   <circle cx="50" cy="50" r="46" stroke="#0A0A0A" strokeWidth="1" />
@@ -237,21 +182,21 @@ export default function LabelPage() {
               </div>
               <div className="flex-1">
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
-                <p className="font-mono text-[9px] text-[#8C8C8C] tracking-[0.24em] uppercase mb-6">01</p>
-                <h3 className="font-sans font-bold text-[#0A0A0A] text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
+                <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">01</p>
+                <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
                   A&amp;R
                 </h3>
-                <p className="font-sans text-[#0A0A0A]/55 text-[15px] leading-relaxed max-w-[30ch]">
+                <p className="font-sans text-black/55 text-[15px] leading-relaxed max-w-[30ch]">
                   We don't search for talent. We see what's already there and put it in the right frame. Before the first conversation, we listen to the music. Then we listen to the person.
                 </p>
               </div>
-              <div className="mt-10 font-mono text-[9px] text-[#8C8C8C] tracking-[0.12em] uppercase">
+              <div className="mt-10 font-mono text-[9px] text-mg tracking-[0.12em] uppercase">
                 Recognition before negotiation.
               </div>
             </div>
 
             {/* Production — dark 4 cols */}
-            <div className="lg:col-span-4 border-r border-b border-[#0A0A0A]/20 p-10 lg:p-12 bg-[#0A0A0A] flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
+            <div className="lg:col-span-4 border-r border-b border-[#0A0A0A]/20 p-10 lg:p-12 bg-black flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
               <div className="absolute bottom-6 right-6 pointer-events-none" aria-hidden="true">
                 <Bars heights={[3,5,8,4,10,6,7,3,9,5,8,4,6,3,7,5,9,4,6,8]} className="text-white/[0.06]" />
               </div>
@@ -271,7 +216,7 @@ export default function LabelPage() {
             </div>
 
             {/* Release — light 3 cols */}
-            <div className="lg:col-span-3 border-r border-b border-[#D8D4CC] p-10 bg-[#F8F5EF] flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
+            <div className="lg:col-span-3 border-r border-b border-lg p-10 bg-offwhite flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
               <div className="absolute bottom-6 right-4 pointer-events-none opacity-[0.05]" aria-hidden="true">
                 <svg width="64" height="80" viewBox="0 0 64 80" fill="none">
                   <rect x="8" y="8" width="48" height="64" stroke="#0A0A0A" strokeWidth="1" />
@@ -282,22 +227,25 @@ export default function LabelPage() {
               </div>
               <div className="flex-1">
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
-                <p className="font-mono text-[9px] text-[#8C8C8C] tracking-[0.24em] uppercase mb-6">03</p>
-                <h3 className="font-sans font-bold text-[#0A0A0A] text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
+                <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">03</p>
+                <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
                   RELEASE
                 </h3>
-                <p className="font-sans text-[#0A0A0A]/55 text-[15px] leading-relaxed">
-                  Distribution, live performance rights, publishing — we build separate structures for each because every right has its own value.
+                <p className="font-sans text-black/55 text-[15px] leading-relaxed">
+                  Distribution across digital platforms, live performance rights, publishing — we build separate structures for each. Spotify, Apple Music, the physical format if it matters. Every right has its own value and its own timeline.
                 </p>
               </div>
+              <span className="font-mono text-[9px] text-mg tracking-[0.12em] uppercase mt-10 block">
+                Every right, its own structure.
+              </span>
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* ── 05 DARK PROCESS SECTION ──────────────────────────────────────────── */}
-      <section className="bg-[#0A0A0A] relative overflow-hidden border-y border-white/[0.06]">
+      {/* ── 04 DARK PROCESS SECTION ──────────────────────────────────────────── */}
+      <section className="bg-black relative overflow-hidden border-y border-white/[0.06]">
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.03]"
           style={{
@@ -315,7 +263,7 @@ export default function LabelPage() {
               className="absolute inset-0 w-full h-full object-cover"
               style={{ filter: 'grayscale(70%) contrast(1.15)', opacity: 0.6 }}
             />
-            <div className="absolute inset-0 bg-[#0A0A0A]/40 pointer-events-none" />
+            <div className="absolute inset-0 bg-black/40 pointer-events-none" />
             {/* Bottom identity bar */}
             <div className="absolute bottom-0 left-0 right-0 p-6 z-10 border-t border-white/[0.06]">
               <div className="flex items-center gap-3">
@@ -365,11 +313,11 @@ export default function LabelPage() {
 
       <div
         aria-hidden="true"
-        className="h-24 bg-gradient-to-b from-[#0A0A0A] to-transparent -mt-24 relative z-10 pointer-events-none"
+        className="h-24 bg-gradient-to-b from-black to-transparent -mt-24 relative z-10 pointer-events-none"
       />
 
-      {/* ── 06 FINAL CTA ─────────────────────────────────────────────────────── */}
-      <section className="bg-[#F8F5EF] px-8 lg:px-16 py-24 lg:py-40 border-t border-[#D8D4CC]">
+      {/* ── 05 FINAL CTA ─────────────────────────────────────────────────────── */}
+      <section className="bg-offwhite px-8 lg:px-16 py-24 lg:py-40 border-t border-lg">
         <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-end">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -383,9 +331,9 @@ export default function LabelPage() {
               className="font-sans font-bold leading-[0.88] tracking-tighter"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 5.5rem)' }}
             >
-              <span className="text-[#0A0A0A] block">IF YOU'RE BUILDING</span>
-              <span className="text-[#0A0A0A] block">SOMETHING,</span>
-              <span className="text-[#8C8C8C] block">LET'S TALK.</span>
+              <span className="text-black block">IF YOU'RE BUILDING</span>
+              <span className="text-black block">SOMETHING,</span>
+              <span className="text-mg block">LET'S TALK.</span>
             </h2>
           </motion.div>
           <motion.div
@@ -393,12 +341,12 @@ export default function LabelPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" as const }}
-            className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-[#D8D4CC] lg:pl-10"
+            className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-lg lg:pl-10"
           >
-            <p className="font-sans text-[#8C8C8C] text-sm mb-8">Start with a conversation.</p>
+            <p className="font-sans text-mg text-sm mb-8">Start with a conversation.</p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-[#0A0A0A] hover:text-white hover:border-[#0A0A0A] transition-colors duration-300 w-full"
+              className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-black hover:text-white hover:border-black transition-colors duration-300 w-full"
             >
               GET IN TOUCH <ArrowRight size={14} />
             </Link>
@@ -406,8 +354,8 @@ export default function LabelPage() {
         </div>
       </section>
 
-      {/* ── 07 FOOTER STRIP ──────────────────────────────────────────────────── */}
-      <div className="bg-[#0A0A0A] border-t border-white/[0.06] px-8 lg:px-16 py-6">
+      {/* ── 06 FOOTER STRIP ──────────────────────────────────────────────────── */}
+      <div className="bg-black border-t border-white/[0.06] px-8 lg:px-16 py-6">
         <div className="max-w-screen-2xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
             <K26Mark size={14} className="text-yellow/60" />
@@ -417,10 +365,10 @@ export default function LabelPage() {
             Label — Artist Development
           </span>
           <a
-            href="mailto:info@kollektiv26.com"
+            href="mailto:entertainment@kollektiv26.com"
             className="font-mono text-[9px] text-white/35 tracking-[0.1em] hover:text-white/60 transition-colors lowercase"
           >
-            info@kollektiv26.com
+            entertainment@kollektiv26.com
           </a>
         </div>
       </div>
