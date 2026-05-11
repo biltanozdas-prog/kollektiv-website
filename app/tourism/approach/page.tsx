@@ -69,7 +69,7 @@ export default function ApproachPage() {
     <main className="min-h-screen bg-offwhite pt-[108px]">
 
       {/* ── HERO ── */}
-      <section className="py-20 lg:py-28 px-8 lg:px-16">
+      <section className="py-16 lg:py-20 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
@@ -91,7 +91,7 @@ export default function ApproachPage() {
                 className="font-serif text-black leading-[1.05] mb-10"
                 style={{ fontSize: 'clamp(3rem, 5.5vw, 5.5rem)' }}
               >
-                How we design travel.
+                How we design travel?
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
@@ -124,10 +124,10 @@ export default function ApproachPage() {
       </section>
 
       {/* ── BRIDGE ── */}
-      <div className="px-8 lg:px-16 pb-16 lg:pb-20">
+      <div className="px-8 lg:px-16 pb-8 lg:pb-10">
         <div className="max-w-screen-2xl mx-auto">
           <motion.p
-            className="font-sans font-light text-black text-lg leading-relaxed max-w-xl"
+            className="font-sans font-normal text-black text-lg leading-relaxed max-w-xl"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -139,11 +139,11 @@ export default function ApproachPage() {
       </div>
 
       {/* ── OPERATIONAL PROCESS ── */}
-      <section className="bg-nw px-8 lg:px-16 py-24 lg:py-32">
+      <section className="bg-nw px-8 lg:px-16 py-16 lg:py-24">
         <div className="max-w-screen-2xl mx-auto">
 
           {/* Header */}
-          <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-16 lg:mb-20">
+          <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-10 lg:mb-14">
             <p className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase">
               Operational Process
             </p>
@@ -169,7 +169,7 @@ export default function ApproachPage() {
               >
                 {/* Numara — col 1 */}
                 <div className="col-span-1">
-                  <span className="font-mono text-[9px] text-mg tracking-[0.2em]">
+                  <span className="font-mono text-[9px] text-black/55 tracking-[0.2em]">
                     {step.num}
                   </span>
                 </div>
@@ -209,14 +209,14 @@ export default function ApproachPage() {
 
                 {/* Başlık — col 4 */}
                 <div className="col-span-4">
-                  <h3 className="font-sans font-medium text-black text-base lg:text-lg leading-snug">
+                  <h3 className="font-sans font-semibold text-black text-base lg:text-lg leading-snug">
                     {step.title}
                   </h3>
                 </div>
 
                 {/* Body — col 6 */}
                 <div className="col-span-6">
-                  <p className="font-sans font-light text-dg text-sm lg:text-base leading-relaxed">
+                  <p className="font-sans font-normal text-dark text-sm lg:text-base leading-relaxed">
                     {step.body}
                   </p>
                 </div>
@@ -229,8 +229,8 @@ export default function ApproachPage() {
       </section>
 
       {/* ── 5 STAGES — zig-zag ── */}
-      <section className="border-t border-lg pt-24 lg:pt-32 pb-4 px-8 lg:px-16">
-        <div className="max-w-screen-2xl mx-auto mb-16 lg:mb-20">
+      <section className="border-t border-lg pt-16 lg:pt-20 pb-4 px-8 lg:px-16">
+        <div className="max-w-screen-2xl mx-auto mb-10 lg:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -245,7 +245,7 @@ export default function ApproachPage() {
               className="font-serif text-black leading-tight max-w-xl"
               style={{ fontSize: 'clamp(2.2rem, 3.5vw, 3.5rem)', letterSpacing: '-0.02em' }}
             >
-              How we think<br />about travel.
+              How we think<br />about travel?
             </h2>
           </motion.div>
         </div>
