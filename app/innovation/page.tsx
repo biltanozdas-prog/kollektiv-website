@@ -98,15 +98,12 @@ export default function InnovationPage() {
               href="/contact"
               className="inline-flex items-center gap-3 font-sans text-[12px] tracking-[0.1em] uppercase text-black border border-black/15 rounded-full px-7 py-3 hover:bg-black hover:text-white hover:border-black transition-all group"
             >
-              Get in touch
+              GET IN TOUCH
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-yellow group-hover:text-white transition-colors">
                 <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
                 <path d="M5 7h4M7.5 5.5l1.5 1.5-1.5 1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
               </svg>
             </Link>
-            <span className="font-mono text-[10px] text-yellow tracking-[0.2em] uppercase">
-              First projects — 2027
-            </span>
           </motion.div>
         </div>
       </section>
@@ -120,7 +117,7 @@ export default function InnovationPage() {
             viewport={{ once: true }}
             className="font-mono text-[9px] text-yellow/60 tracking-[0.22em] uppercase block mb-16"
           >
-            What we&apos;re exploring
+            WHAT WE&apos;RE EXPLORING
           </motion.span>
 
           <div className="grid lg:grid-cols-3 gap-0 border-l border-white/[0.07]">
@@ -159,7 +156,7 @@ export default function InnovationPage() {
               viewport={{ once: true }}
               className="font-mono text-[9px] text-mg tracking-[0.22em] uppercase block mb-10"
             >
-              Our position
+              OUR POSITION
             </motion.span>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -177,9 +174,59 @@ export default function InnovationPage() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="font-sans font-light text-dark/40 text-base leading-relaxed"
             >
-              If you&apos;re working on something that defies easy definition — we&apos;d like to hear about it.
+              If you&apos;re working on something that defies easy definition —{' '}
+              <Link
+                href="/contact"
+                className="text-dark/70 underline underline-offset-4 decoration-yellow hover:text-black transition-colors"
+              >
+                we&apos;d like to hear about it.
+              </Link>
             </motion.p>
           </div>
+        </div>
+      </section>
+
+      {/* Footer CTA */}
+      <section className="border-t border-black/[0.06] px-8 lg:px-16 py-24 lg:py-36 bg-offwhite">
+        <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-end">
+
+          <motion.div
+            className="lg:col-span-7"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: 'easeOut' as const }}
+          >
+            <div className="w-8 h-[1.5px] bg-yellow mb-10" />
+            <h2
+              className="font-sans font-bold text-black leading-[0.92] tracking-tight"
+              style={{ fontSize: 'clamp(2.5rem, 5.5vw, 6rem)', letterSpacing: '-0.02em' }}
+            >
+              <span className="block text-black">SOMETHING IS</span>
+              <span className="block text-black/30">FORMING.</span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-black/[0.06] lg:pl-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' as const }}
+          >
+            <p className="font-sans font-light text-dark/50 text-sm mb-8">Start a conversation.</p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-black hover:text-white hover:border-black transition-colors duration-300 w-full"
+            >
+              GET IN TOUCH
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0">
+                <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
+                <path d="M5 7h4M7.5 5.5l1.5 1.5-1.5 1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+              </svg>
+            </Link>
+          </motion.div>
+
         </div>
       </section>
 
