@@ -216,8 +216,8 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Spacer */}
-        <div className="flex-1 min-h-[80px] lg:min-h-[280px]" />
+        {/* Spacer — capped so h1 stays visible on tall phones */}
+        <div className="flex-1 min-h-[60px] max-h-[35vh]" />
 
         {/* Button + h1 — bottom, circles overlay intentionally */}
         <div className="px-5 pb-8 flex flex-col gap-8">
