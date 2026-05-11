@@ -121,7 +121,7 @@ export default function TourismPage() {
               style={{ height: 'clamp(280px, 52vw, 500px)' }}
             >
               <img
-                src="/images/concierge-yacht-charters.png"
+                src="/images/kap%202.png"
                 alt="Curated travel"
                 className="w-full h-full object-cover"
               />
@@ -228,7 +228,7 @@ export default function TourismPage() {
             >
               <div className="overflow-hidden rounded-sm" style={{ height: 'clamp(360px, 50vw, 620px)' }}>
                 <img
-                  src="/images/concierge-private-villas.png"
+                  src="/images/mimari%20g%C3%B6rsel.jpg"
                   alt="Private concierge access"
                   className="w-full h-full object-cover"
                 />
