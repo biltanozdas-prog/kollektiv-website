@@ -30,7 +30,7 @@ export default function VenuesPage() {
 
       {/* ── 01 HERO ──────────────────────────────────────────────────────────── */}
       <section
-        className="relative bg-[#0A0A0A] overflow-hidden flex flex-col"
+        className="relative bg-black overflow-hidden flex flex-col"
         style={{ minHeight: 'calc(100vh + 108px)', marginTop: '-108px' }}
       >
         <img
@@ -91,52 +91,8 @@ export default function VenuesPage() {
         </div>
       </section>
 
-      {/* ── 02 DARK BRIDGE ───────────────────────────────────────────────────── */}
-      <section className="bg-[#0A0A0A] relative overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.04]"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }}
-        />
-        <div className="relative z-10 max-w-screen-2xl mx-auto px-8 lg:px-16 pt-10 lg:pt-14">
-          <div className="flex items-center justify-between pb-10 lg:pb-14">
-            <div className="flex items-center gap-4">
-              <Bars heights={SIGNAL} className="text-yellow/35" />
-              <span className="font-mono text-[9px] text-white/25 tracking-[0.28em] uppercase">Space — System — Culture</span>
-            </div>
-            <div className="hidden sm:flex items-center gap-2.5">
-              <K26Mark size={12} className="text-white/15" />
-              <span className="font-mono text-[9px] text-white/20 tracking-[0.22em] uppercase">Venues</span>
-            </div>
-          </div>
-          <div className="flex border-t border-white/[0.05]">
-            {([
-              { n: '01', label: 'SPACE' },
-              { n: '02', label: 'SYSTEM' },
-              { n: '03', label: 'CULTURE' },
-            ] as { n: string; label: string }[]).map((item, i) => (
-              <div
-                key={item.n}
-                className={`flex-1 flex items-center gap-2 lg:gap-3 py-4 ${i > 0 ? 'border-l border-white/[0.05] pl-4 lg:pl-8' : ''}`}
-              >
-                <span className="font-mono text-[8px] text-yellow/30 tracking-[0.2em]">{item.n}</span>
-                <span className="font-mono text-[11px] text-white/20 tracking-[0.26em] uppercase">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="h-16 lg:h-28" />
-      </section>
-
-      <div
-        aria-hidden="true"
-        className="h-24 bg-gradient-to-b from-[#0A0A0A] to-transparent -mt-24 relative z-10 pointer-events-none"
-      />
-
-      {/* ── 03 INTRO ─────────────────────────────────────────────────────────── */}
-      <section className="bg-[#F8F5EF] relative overflow-hidden">
+      {/* ── 02 INTRO ─────────────────────────────────────────────────────────── */}
+      <section className="bg-offwhite relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
@@ -157,10 +113,10 @@ export default function VenuesPage() {
             >
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-8 h-[1.5px] bg-yellow" />
-                <span className="font-mono text-[10px] text-[#8C8C8C] tracking-[0.28em] uppercase">Space as Infrastructure</span>
+                <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">Space as Infrastructure</span>
               </div>
               <h2
-                className="font-sans font-bold text-[#0A0A0A] leading-[0.88] tracking-tighter"
+                className="font-sans font-bold text-black leading-[0.88] tracking-tighter"
                 style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
               >
                 BUILT FOR<br />
@@ -177,40 +133,25 @@ export default function VenuesPage() {
             className="lg:col-span-6 lg:col-start-7 flex flex-col lg:flex-row gap-10 items-start lg:items-end"
           >
             <div className="flex-1">
-              <p className="font-sans text-[#0A0A0A]/55 text-base leading-relaxed mb-8">
+              <p className="font-sans text-black/55 text-base leading-relaxed mb-8">
                 Infrastructure for spaces where culture happens. Kollektiv 26's own operated venues are in development. We're taking the time to build this properly — the right acoustics, the right operations, the right character.
               </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] uppercase text-[#0A0A0A] hover:opacity-50 transition-opacity"
-              >
-                GET IN TOUCH <ArrowRight size={13} />
-              </Link>
-            </div>
-            <div className="flex items-stretch shrink-0">
-              <div className="bg-[#0A0A0A] px-5 py-4 flex flex-col justify-between w-32 h-20">
-                <span className="font-mono text-[8px] text-yellow/70 tracking-[0.22em] uppercase">System</span>
-                <Bars heights={SIGNAL.slice(0, 9)} className="text-yellow/60" />
-              </div>
-              <div className="bg-yellow w-12 h-20 flex items-end justify-end p-1.5">
-                <span className="font-mono text-[7px] text-black/30 tracking-widest" style={{ writingMode: 'vertical-rl' }}>K26</span>
-              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ── 04 THREE CARDS ───────────────────────────────────────────────────── */}
-      <section className="bg-[#F8F5EF] border-t border-[#D8D4CC] px-8 lg:px-16 pt-14 lg:pt-16 pb-24 lg:pb-32">
+      {/* ── 03 THREE CARDS ───────────────────────────────────────────────────── */}
+      <section className="bg-offwhite border-t border-lg px-8 lg:px-16 pt-14 lg:pt-16 pb-24 lg:pb-32">
         <div className="max-w-screen-2xl mx-auto">
           <div className="flex items-center gap-3 mb-14">
             <div className="w-8 h-[1.5px] bg-yellow" />
-            <span className="font-mono text-[10px] text-[#8C8C8C] tracking-[0.28em] uppercase">What We're Building</span>
+            <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">What We're Building</span>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-l border-[#D8D4CC]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-l border-lg">
 
             {/* Venue Partnerships — light 5 cols */}
-            <div className="lg:col-span-5 border-r border-b border-[#D8D4CC] p-10 lg:p-14 flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
+            <div className="lg:col-span-5 border-r border-b border-lg p-10 lg:p-14 flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
               <div className="absolute bottom-6 right-6 pointer-events-none opacity-[0.06]" aria-hidden="true">
                 <svg width="100" height="80" viewBox="0 0 100 80" fill="none">
                   <rect x="8" y="24" width="84" height="48" stroke="#0A0A0A" strokeWidth="1" />
@@ -224,21 +165,21 @@ export default function VenuesPage() {
               </div>
               <div className="flex-1">
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
-                <p className="font-mono text-[9px] text-[#8C8C8C] tracking-[0.24em] uppercase mb-6">01</p>
-                <h3 className="font-sans font-bold text-[#0A0A0A] text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
+                <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">01</p>
+                <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
                   VENUE<br />PARTNERSHIPS
                 </h3>
-                <p className="font-sans text-[#0A0A0A]/55 text-[15px] leading-relaxed max-w-[30ch]">
+                <p className="font-sans text-black/55 text-[15px] leading-relaxed max-w-[30ch]">
                   In talks with spaces across Istanbul that prioritise acoustics and atmosphere. Clubs, galleries, unconventional locations that shape how an event feels.
                 </p>
               </div>
-              <div className="mt-10 font-mono text-[9px] text-[#8C8C8C] tracking-[0.12em] uppercase">
+              <div className="mt-10 font-mono text-[9px] text-mg tracking-[0.12em] uppercase">
                 Location as a design decision.
               </div>
             </div>
 
             {/* Technical Infrastructure — dark 4 cols */}
-            <div className="lg:col-span-4 border-r border-b border-[#0A0A0A]/20 p-10 lg:p-12 bg-[#0A0A0A] flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
+            <div className="lg:col-span-4 border-r border-b border-black/20 p-10 lg:p-12 bg-black flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
               <div className="absolute bottom-6 right-6 pointer-events-none" aria-hidden="true">
                 <Bars heights={[3,5,8,4,10,6,7,3,9,5,8,4,6,3,7,5,9,4,6,8]} className="text-white/[0.06]" />
               </div>
@@ -258,7 +199,7 @@ export default function VenuesPage() {
             </div>
 
             {/* Operational Systems — light 3 cols */}
-            <div className="lg:col-span-3 border-r border-b border-[#D8D4CC] p-10 bg-[#F8F5EF] flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
+            <div className="lg:col-span-3 border-r border-b border-lg p-10 bg-offwhite flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
               <div className="absolute bottom-6 right-4 pointer-events-none opacity-[0.05]" aria-hidden="true">
                 <svg width="64" height="80" viewBox="0 0 64 80" fill="none">
                   <rect x="6" y="6" width="52" height="68" stroke="#0A0A0A" strokeWidth="1" />
@@ -269,22 +210,25 @@ export default function VenuesPage() {
               </div>
               <div className="flex-1">
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
-                <p className="font-mono text-[9px] text-[#8C8C8C] tracking-[0.24em] uppercase mb-6">03</p>
-                <h3 className="font-sans font-bold text-[#0A0A0A] text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
+                <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">03</p>
+                <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
                   OPERATIONAL<br />SYSTEMS
                 </h3>
-                <p className="font-sans text-[#0A0A0A]/55 text-[15px] leading-relaxed">
+                <p className="font-sans text-black/55 text-[15px] leading-relaxed">
                   Staffing models, programming calendars, membership structures. The scaffolding that lets a venue run consistently without losing its character.
                 </p>
               </div>
+              <span className="font-mono text-[9px] text-mg tracking-[0.12em] uppercase mt-10 block">
+                Structure enables character.
+              </span>
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* ── 05 DARK SECTION — First Projects + Opening a Venue ───────────────── */}
-      <section className="bg-[#0A0A0A] relative overflow-hidden border-y border-white/[0.06]">
+      {/* ── 04 DARK SECTION — First Projects + Venue Consultation ───────────── */}
+      <section className="bg-black relative overflow-hidden border-y border-white/[0.06]">
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.03]"
           style={{
@@ -300,7 +244,7 @@ export default function VenuesPage() {
             <div>
               <div className="flex items-center gap-3 mb-12">
                 <div className="w-8 h-[1.5px] bg-yellow" />
-                <span className="font-mono text-[10px] text-yellow/60 tracking-[0.28em] uppercase">Timeline</span>
+                <span className="font-mono text-[10px] text-yellow/60 tracking-[0.28em] uppercase">In Development</span>
               </div>
               <h2
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
@@ -312,13 +256,12 @@ export default function VenuesPage() {
                 We're taking the time to build this properly. Rushing doesn't serve anyone — not the artists, not the audience, not the culture.
               </p>
             </div>
-            <div className="mt-14 flex items-center gap-4 border-t border-white/[0.06] pt-8">
-              <Bars heights={SIGNAL} className="text-yellow/30" />
-              <span className="font-mono text-[9px] text-white/20 tracking-[0.22em] uppercase">In Development</span>
-            </div>
+            <p className="mt-14 font-sans font-light text-white/30 text-sm leading-relaxed border-t border-white/[0.06] pt-8 max-w-[32ch]">
+              When we open, it will be worth the wait.
+            </p>
           </div>
 
-          {/* Right — Opening a venue? */}
+          {/* Right — Venue Consultation */}
           <div className="lg:col-span-6 p-10 lg:p-16 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-12">
@@ -329,15 +272,15 @@ export default function VenuesPage() {
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
                 style={{ fontSize: 'clamp(2rem, 4vw, 3.8rem)' }}
               >
-                OPENING<br />A VENUE?
+                VENUE<br />CONSULTATION.
               </h2>
               <p className="font-sans text-white/45 text-base leading-relaxed mb-10 max-w-[38ch]">
                 From licensing to concept, interior design to equipment, staffing to opening night. We know the process because we're in it. Not consultancy — partnership.
               </p>
               <div className="grid grid-cols-1 gap-6 border-t border-white/[0.06] pt-8">
                 {[
-                  { label: 'What we cover', text: 'Licensing & legal structure, concept development, space design, technical infrastructure, operational systems, launch strategy.' },
-                  { label: 'Who it\'s for', text: 'Bars, clubs, cultural venues, hybrid spaces. Projects where experience matters as much as operations.' },
+                  { label: 'What we handle', text: 'Licensing & legal structure, concept development, space design, technical infrastructure, operational systems, launch strategy.' },
+                  { label: 'Who comes to us', text: 'Bars, clubs, cultural venues, hybrid spaces. Projects where experience matters as much as operations.' },
                 ].map(item => (
                   <div key={item.label}>
                     <span className="font-mono text-[9px] text-yellow/50 tracking-[0.18em] uppercase block mb-2">{item.label}</span>
@@ -361,11 +304,11 @@ export default function VenuesPage() {
 
       <div
         aria-hidden="true"
-        className="h-24 bg-gradient-to-b from-[#0A0A0A] to-transparent -mt-24 relative z-10 pointer-events-none"
+        className="h-24 bg-gradient-to-b from-black to-transparent -mt-24 relative z-10 pointer-events-none"
       />
 
-      {/* ── 06 VISUAL COMPOSITION ────────────────────────────────────────────── */}
-      <section className="bg-[#F2EFE8] relative">
+      {/* ── 05 VISUAL COMPOSITION ────────────────────────────────────────────── */}
+      <section className="bg-nw relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 lg:min-h-[500px]">
 
           <div className="lg:col-span-8 relative min-h-[280px] overflow-hidden">
@@ -383,7 +326,7 @@ export default function VenuesPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-4 bg-[#111] flex flex-col p-10 justify-between border-l border-white/[0.06]">
+          <div className="lg:col-span-4 bg-black flex flex-col p-10 justify-between border-l border-white/[0.06]">
             <div>
               <K26Mark size={20} className="text-white/15 mb-8" />
               <h3
@@ -402,25 +345,10 @@ export default function VenuesPage() {
           </div>
 
         </div>
-
-        <div className="bg-[#0A0A0A] px-8 lg:px-16 py-10 lg:py-12">
-          <div className="max-w-screen-2xl mx-auto flex flex-col sm:flex-row gap-8 sm:gap-14">
-            {[
-              { title: 'SPACE',     body: 'Movement, access and atmosphere inside the room.' },
-              { title: 'SYSTEM',    body: 'The operational structure that keeps the culture running.' },
-              { title: 'CULTURE',   body: 'Spaces designed to let the programme define the identity.' },
-            ].map(col => (
-              <div key={col.title} className="flex-1 min-w-0">
-                <span className="font-mono text-[8px] text-yellow/70 tracking-[0.22em] uppercase block mb-2">{col.title}</span>
-                <p className="font-sans text-white/40 text-[12px] leading-relaxed">{col.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
-      {/* ── 07 FINAL CTA ─────────────────────────────────────────────────────── */}
-      <section className="bg-[#F8F5EF] px-8 lg:px-16 py-24 lg:py-40 border-t border-[#D8D4CC]">
+      {/* ── 06 FINAL CTA ─────────────────────────────────────────────────────── */}
+      <section className="bg-offwhite px-8 lg:px-16 py-24 lg:py-40 border-t border-lg">
         <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-end">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -434,8 +362,8 @@ export default function VenuesPage() {
               className="font-sans font-bold leading-[0.88] tracking-tighter"
               style={{ fontSize: 'clamp(2.5rem, 5.5vw, 6rem)' }}
             >
-              <span className="text-[#0A0A0A] block">GET NOTIFIED</span>
-              <span className="text-[#8C8C8C] block">WHEN WE LAUNCH.</span>
+              <span className="text-black block">GET NOTIFIED</span>
+              <span className="text-mg block">WHEN WE LAUNCH.</span>
             </h2>
           </motion.div>
           <motion.div
@@ -443,29 +371,23 @@ export default function VenuesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" as const }}
-            className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-[#D8D4CC] lg:pl-10"
+            className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-lg lg:pl-10"
           >
-            <p className="font-sans text-[#8C8C8C] text-sm mb-8">Stay close to what we're building.</p>
+            <p className="font-sans text-mg text-sm mb-8">Stay close to what we're building.</p>
             <div className="flex flex-col gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-[#0A0A0A] hover:text-white hover:border-[#0A0A0A] transition-colors duration-300 w-full"
+                className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-black hover:text-white hover:border-black transition-colors duration-300 w-full"
               >
                 GET UPDATES <ArrowRight size={14} />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-[#0A0A0A] px-6 py-4 border border-[#D8D4CC] hover:border-[#0A0A0A] transition-colors duration-300 w-full"
-              >
-                LET'S TALK ABOUT SPACE <ArrowRight size={14} />
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ── 08 FOOTER STRIP ──────────────────────────────────────────────────── */}
-      <div className="bg-[#0A0A0A] border-t border-white/[0.06] px-8 lg:px-16 py-6">
+      {/* ── 07 FOOTER STRIP ──────────────────────────────────────────────────── */}
+      <div className="bg-black border-t border-white/[0.06] px-8 lg:px-16 py-6">
         <div className="max-w-screen-2xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
             <K26Mark size={14} className="text-yellow/60" />
@@ -475,10 +397,10 @@ export default function VenuesPage() {
             Venues — Space & Infrastructure
           </span>
           <a
-            href="mailto:info@kollektiv26.com"
+            href="mailto:entertainment@kollektiv26.com"
             className="font-mono text-[9px] text-white/35 tracking-[0.1em] hover:text-white/60 transition-colors lowercase"
           >
-            info@kollektiv26.com
+            entertainment@kollektiv26.com
           </a>
         </div>
       </div>
