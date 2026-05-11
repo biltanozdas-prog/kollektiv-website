@@ -114,353 +114,213 @@ export default function EntertainmentPage() {
 
       </section>
 
-      {/* ── 02 DARK BRIDGE ───────────────────────────────────────────────────── */}
+      {/* ── 02 SYSTEM — bg-black unified ───────────────────────────────────── */}
       <section className="bg-black relative overflow-hidden">
 
         {/* Grid overlay */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-[0.04]"
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
             backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
             backgroundSize: '80px 80px',
           }}
         />
 
-        {/* Content */}
-        <div className="relative z-10 max-w-screen-2xl mx-auto px-8 lg:px-16 pt-10 lg:pt-14">
-
-          {/* Top signal row */}
-          <div className="flex items-center justify-between pb-10 lg:pb-14">
-            <div className="flex items-center gap-4">
-              <Bars heights={SIGNAL} className="text-yellow/35" />
-              <span className="font-mono text-[9px] text-white/25 tracking-[0.28em] uppercase">Sound — Space — Trace</span>
-            </div>
-            <div className="hidden sm:flex items-center gap-2.5">
-              <K26Mark size={12} className="text-white/15" />
-              <span className="font-mono text-[9px] text-white/20 tracking-[0.22em] uppercase">Entertainment</span>
-            </div>
-          </div>
-
-          {/* Three system dimension labels */}
-          <div className="flex border-t border-white/[0.05]">
-            {([
-              { n: '01', label: 'SOUND' },
-              { n: '02', label: 'SPACE' },
-              { n: '03', label: 'TRACE' },
-            ] as { n: string; label: string }[]).map((item, i) => (
-              <div
-                key={item.n}
-                className={`flex-1 flex items-center gap-2 lg:gap-3 py-4 ${i > 0 ? 'border-l border-white/[0.05] pl-4 lg:pl-8' : ''}`}
-              >
-                <span className="font-mono text-[8px] text-yellow/30 tracking-[0.2em]">{item.n}</span>
-                <span className="font-mono text-[11px] text-white/20 tracking-[0.26em] uppercase">{item.label}</span>
-              </div>
-            ))}
-          </div>
-
-        </div>
-
-        {/* Atmospheric breathing space */}
-        <div className="h-16 lg:h-28" />
-
-      </section>
-
-      <div
-        aria-hidden="true"
-        className="h-24 bg-gradient-to-b from-[#0A0A0A] to-transparent -mt-24 relative z-10 pointer-events-none"
-      />
-
-      {/* ── 03 SYSTEM + PILLARS — UNIFIED ──────────────────────────────────── */}
-      <section className="bg-offwhite relative overflow-hidden">
-
-        {/* Dot texture */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <defs>
-            <pattern id="dots-unified" width="28" height="28" patternUnits="userSpaceOnUse">
-              <circle cx="1.5" cy="1.5" r="1" fill="#0A0A0A" opacity="0.08" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#dots-unified)" />
-        </svg>
-
         <div className="relative z-10 max-w-screen-2xl mx-auto px-8 lg:px-16 py-24 lg:py-36">
+          <div className="grid lg:grid-cols-12 gap-0 items-stretch">
 
-          {/* ÜST BAŞLIK — tam genişlik */}
-          <div className="border-b border-lg pb-10 lg:pb-14 mb-14 lg:mb-20">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-8 h-[1.5px] bg-yellow" />
-              <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">
-                Our System
-              </span>
-            </div>
-            <motion.h2
-              className="font-sans font-bold text-black leading-[0.88] tracking-tighter"
-              style={{ fontSize: 'clamp(2.8rem, 5.5vw, 5.5rem)' }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: 'easeOut' as const }}
-            >
-              FROM SOUND<br />TO SCENE<br />TO ARCHIVE.
-            </motion.h2>
-          </div>
-
-          {/* ANA GRID — sol metin, sağ kartlar */}
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-
-            {/* SOL KOLON — col-span-4 */}
+            {/* SOL KOLON — col-span-5 */}
             <motion.div
-              className="lg:col-span-4 flex flex-col justify-between gap-12"
+              className="lg:col-span-5 flex flex-col justify-between pr-0 lg:pr-16 pb-12 lg:pb-0 border-b border-white/[0.06] lg:border-b-0 lg:border-r lg:border-white/[0.06]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: 'easeOut' as const }}
+              transition={{ duration: 0.8, ease: 'easeOut' as const }}
             >
-              <div>
-                <p className="font-sans text-black/55 text-base leading-relaxed mb-10">
-                  We operate between sound, culture and contemporary gathering. Built around
-                  atmosphere, spatial rhythm and the people that shape a night — from concept
-                  to close, from the room to what remains after.
-                </p>
-
-                <div className="space-y-4 mb-10">
-                  {['Sound', 'Space', 'Trace'].map((item) => (
-                    <div key={item} className="flex items-center gap-3">
-                      <div className="w-[2px] h-4 bg-yellow shrink-0" />
-                      <span className="font-sans text-black/70 text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Link
-                  href="/entertainment/events"
-                  className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] uppercase text-black hover:opacity-50 transition-opacity"
-                >
-                  VIEW THE SYSTEM <ArrowRight size={13} />
-                </Link>
+              <div className="flex items-center gap-3 mb-12">
+                <div className="w-8 h-[1.5px] bg-yellow" />
+                <span className="font-mono text-[10px] text-white/30 tracking-[0.28em] uppercase">
+                  Our System
+                </span>
               </div>
+
+              <h2
+                className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-12"
+                style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
+              >
+                FROM SOUND<br />
+                TO SCENE<br />
+                TO ARCHIVE.
+              </h2>
+
+              <p className="font-sans text-white/45 text-base leading-relaxed mb-10 max-w-sm">
+                We operate between sound, culture and contemporary gathering. Built around
+                atmosphere, spatial rhythm and the people that shape a night — from concept
+                to close, from the room to what remains after.
+              </p>
+
+              <div className="space-y-4 mb-12">
+                {['Sound', 'Space', 'Trace'].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <div className="w-[2px] h-4 bg-yellow shrink-0" />
+                    <span className="font-sans text-white/60 text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/entertainment/events"
+                className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] uppercase text-white/60 hover:text-white transition-colors mt-auto"
+              >
+                VIEW THE SYSTEM <ArrowRight size={13} />
+              </Link>
             </motion.div>
 
-            {/* SAĞ KOLON — col-span-8 */}
-            <div className="lg:col-span-8">
+            {/* SAĞ KOLON — col-span-7 */}
+            <div className="lg:col-span-7 grid grid-cols-12 grid-rows-3 border-t border-white/[0.06] lg:border-t-0">
 
-              {/* ÜST SATIR — Events + Label yan yana */}
-              <div className="grid grid-cols-12 border-t border-l border-lg">
-
-                {/* EVENTS — col-span-7, açık */}
-                <Link
-                  href="/entertainment/events"
-                  className="group block col-span-7 border-r border-b border-lg p-8 lg:p-10 bg-offwhite hover:bg-white transition-colors duration-300 flex flex-col min-h-[320px] relative overflow-hidden"
+              {/* EVENTS — col-span-7, row-1 */}
+              <Link
+                href="/entertainment/events"
+                className="group col-span-7 row-span-1 border-b border-r border-white/[0.06] p-8 lg:p-10 flex flex-col bg-white/[0.03] hover:bg-white/[0.07] transition-colors duration-300 relative overflow-hidden min-h-[160px]"
+              >
+                <svg
+                  className="absolute bottom-3 right-3 opacity-[0.08]"
+                  width="80" height="80"
+                  viewBox="0 0 120 120" fill="none"
                 >
-                  <svg
-                    className="absolute bottom-4 right-4 opacity-[0.06]"
-                    width="100" height="100"
-                    viewBox="0 0 120 120" fill="none"
-                  >
-                    <circle cx="60" cy="60" r="56" stroke="#0A0A0A" strokeWidth="1" />
-                    <circle cx="60" cy="60" r="38" stroke="#0A0A0A" strokeWidth="1" />
-                    <circle cx="60" cy="60" r="20" stroke="#0A0A0A" strokeWidth="1" />
-                    <circle cx="60" cy="60" r="4" fill="#0A0A0A" />
-                    <line x1="60" y1="4" x2="60" y2="116" stroke="#0A0A0A" strokeWidth="1" />
-                    <line x1="4" y1="60" x2="116" y2="60" stroke="#0A0A0A" strokeWidth="1" />
-                  </svg>
-                  <div className="w-8 h-[1.5px] bg-yellow mb-5" />
-                  <span className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-5">01</span>
-                  <h3 className="font-sans font-bold text-black text-xl lg:text-2xl tracking-tight leading-[1.0] mb-4">
-                    EVENTS
-                  </h3>
-                  <p className="font-sans text-black/55 text-[14px] leading-relaxed max-w-[28ch] flex-1">
-                    Sound-led gatherings shaped by concept, flow and atmosphere.
-                  </p>
-                  <div className="flex items-center gap-2 font-mono text-[10px] text-black tracking-[0.1em] uppercase group-hover:gap-4 transition-all duration-300 mt-8">
-                    EXPLORE EVENTS <ArrowRight size={13} />
-                  </div>
-                </Link>
+                  <circle cx="60" cy="60" r="56" stroke="white" strokeWidth="1" />
+                  <circle cx="60" cy="60" r="38" stroke="white" strokeWidth="1" />
+                  <circle cx="60" cy="60" r="20" stroke="white" strokeWidth="1" />
+                  <circle cx="60" cy="60" r="4" fill="white" />
+                  <line x1="60" y1="4" x2="60" y2="116" stroke="white" strokeWidth="1" />
+                  <line x1="4" y1="60" x2="116" y2="60" stroke="white" strokeWidth="1" />
+                </svg>
+                <div className="flex items-start justify-between mb-4">
+                  <span className="font-mono text-[9px] text-yellow/50 tracking-[0.24em] uppercase">01</span>
+                </div>
+                <h3 className="font-sans font-bold text-white text-xl tracking-tight leading-[1.0] mb-3">
+                  EVENTS
+                </h3>
+                <p className="font-sans text-white/40 text-[13px] leading-relaxed flex-1">
+                  Sound-led gatherings shaped by concept, flow and atmosphere.
+                </p>
+                <div className="flex items-center gap-2 font-mono text-[10px] text-white/40 tracking-[0.1em] uppercase group-hover:text-white group-hover:gap-4 transition-all duration-300 mt-6">
+                  EXPLORE EVENTS <ArrowRight size={12} />
+                </div>
+              </Link>
 
-                {/* LABEL — col-span-5, siyah */}
-                <Link
-                  href="/entertainment/label"
-                  className="group block col-span-5 border-r border-b border-black/20 p-8 lg:p-10 bg-black hover:bg-[#111] transition-colors duration-300 flex flex-col min-h-[320px] relative overflow-hidden"
-                >
-                  <div className="absolute bottom-4 right-4 opacity-[0.06]">
-                    <Bars heights={[3,5,8,4,10,6,7,3,9,5,8,4,6,3,7,5,9,4,6,8]} className="text-white" />
+              {/* DETAY PANELİ — col-span-5, row-1+2 */}
+              <div className="col-span-5 row-span-2 flex flex-col border-b border-white/[0.06]">
+
+                <div className="flex flex-1">
+                  {/* Koyu panel */}
+                  <div className="flex-1 bg-black/60 p-6 flex flex-col justify-between border-r border-white/[0.06]">
+                    <div>
+                      <span className="font-mono text-[8px] text-yellow tracking-[0.22em] uppercase block mb-1">Mode 02</span>
+                      <span className="font-mono text-[8px] text-white/30 tracking-[0.18em] uppercase">Entertainment</span>
+                    </div>
+                    <div className="space-y-3">
+                      <K26Mark size={24} className="text-white/15" />
+                      <Bars heights={SIGNAL} className="text-yellow/25" />
+                    </div>
                   </div>
-                  <div className="w-8 h-[1.5px] bg-yellow mb-5" />
-                  <span className="font-mono text-[9px] text-yellow/60 tracking-[0.24em] uppercase mb-5">02</span>
-                  <h3 className="font-sans font-bold text-white text-xl lg:text-2xl tracking-tight leading-[1.0] mb-4">
-                    LABEL
-                  </h3>
-                  <p className="font-sans text-white/50 text-[14px] leading-relaxed max-w-[24ch] flex-1">
-                    Artist development, releases and the context around the work.
-                  </p>
-                  <div className="flex items-center gap-2 font-mono text-[10px] text-yellow tracking-[0.1em] uppercase group-hover:gap-4 transition-all duration-300 mt-8">
-                    EXPLORE LABEL <ArrowRight size={13} />
+                  {/* Sarı aksan */}
+                  <div className="w-10 bg-yellow flex flex-col items-center justify-between py-4 px-2">
+                    <span
+                      className="font-mono text-[7px] text-black/40 tracking-widest"
+                      style={{ writingMode: 'vertical-rl' }}
+                    >
+                      K26
+                    </span>
+                    <K26Mark size={16} className="text-black/25" />
+                    <Bars heights={[4,6,3,7,4]} className="text-black/20" />
                   </div>
-                </Link>
+                </div>
+
+                {/* DJ konsol görseli */}
+                <div className="relative overflow-hidden" style={{ minHeight: '180px' }}>
+                  <img
+                    src="/images/05-entertainment-dj-console-fragment-01.jpg.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="w-full h-full object-cover"
+                    style={{ filter: 'grayscale(60%) contrast(1.1)' }}
+                  />
+                  <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+                </div>
 
               </div>
 
-              {/* ALT SATIR — Venues tam genişlik */}
+              {/* LABEL — col-span-7, row-2 */}
+              <Link
+                href="/entertainment/label"
+                className="group col-span-7 row-span-1 border-b border-r border-white/[0.06] p-8 lg:p-10 flex flex-col bg-yellow hover:bg-yellow/90 transition-colors duration-300 relative overflow-hidden min-h-[160px]"
+              >
+                <div className="absolute bottom-3 right-3 opacity-[0.12]">
+                  <Bars heights={[3,5,8,4,10,6,7,3,9,5,8,4,6,3,7,5,9,4,6,8]} className="text-black" />
+                </div>
+                <div className="flex items-start justify-between mb-4">
+                  <span className="font-mono text-[9px] text-black/40 tracking-[0.24em] uppercase">02</span>
+                </div>
+                <h3 className="font-sans font-bold text-black text-xl tracking-tight leading-[1.0] mb-3">
+                  LABEL
+                </h3>
+                <p className="font-sans text-black/60 text-[13px] leading-relaxed flex-1">
+                  Artist development, releases and the context around the work.
+                </p>
+                <div className="flex items-center gap-2 font-mono text-[10px] text-black/50 tracking-[0.1em] uppercase group-hover:text-black group-hover:gap-4 transition-all duration-300 mt-6">
+                  EXPLORE LABEL <ArrowRight size={12} />
+                </div>
+              </Link>
+
+              {/* VENUES — col-span-12, row-3 */}
               <Link
                 href="/entertainment/venues"
-                className="group block border-t-0 border border-lg bg-offwhite hover:bg-white transition-colors duration-300 grid grid-cols-12 overflow-hidden"
-                style={{ minHeight: '260px' }}
+                className="group col-span-12 row-span-1 border-r border-white/[0.06] grid grid-cols-12 bg-white/[0.02] hover:bg-white/[0.05] transition-colors duration-300 relative overflow-hidden min-h-[180px]"
               >
-                <div className="col-span-7 p-8 lg:p-10 flex flex-col justify-between relative overflow-hidden">
+                <div className="col-span-8 p-8 lg:p-10 flex flex-col justify-between relative overflow-hidden">
                   <svg
-                    className="absolute bottom-4 right-4 opacity-[0.06]"
-                    width="80" height="64"
+                    className="absolute bottom-3 right-3 opacity-[0.06]"
+                    width="70" height="56"
                     viewBox="0 0 80 64" fill="none"
                   >
-                    <rect x="6" y="20" width="68" height="38" stroke="#0A0A0A" strokeWidth="1" />
-                    <line x1="6" y1="20" x2="40" y2="4" stroke="#0A0A0A" strokeWidth="1" />
-                    <line x1="74" y1="20" x2="40" y2="4" stroke="#0A0A0A" strokeWidth="1" />
-                    <line x1="34" y1="58" x2="34" y2="38" stroke="#0A0A0A" strokeWidth="1" />
-                    <line x1="46" y1="58" x2="46" y2="38" stroke="#0A0A0A" strokeWidth="1" />
-                    <rect x="14" y="30" width="18" height="14" stroke="#0A0A0A" strokeWidth="0.75" />
-                    <rect x="48" y="30" width="18" height="14" stroke="#0A0A0A" strokeWidth="0.75" />
+                    <rect x="6" y="20" width="68" height="38" stroke="white" strokeWidth="1" />
+                    <line x1="6" y1="20" x2="40" y2="4" stroke="white" strokeWidth="1" />
+                    <line x1="74" y1="20" x2="40" y2="4" stroke="white" strokeWidth="1" />
+                    <line x1="34" y1="58" x2="34" y2="38" stroke="white" strokeWidth="1" />
+                    <line x1="46" y1="58" x2="46" y2="38" stroke="white" strokeWidth="1" />
+                    <rect x="14" y="30" width="18" height="14" stroke="white" strokeWidth="0.75" />
+                    <rect x="48" y="30" width="18" height="14" stroke="white" strokeWidth="0.75" />
                   </svg>
                   <div>
-                    <div className="w-8 h-[1.5px] bg-yellow mb-5" />
-                    <span className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase block mb-5">03</span>
-                    <h3 className="font-sans font-bold text-black text-xl lg:text-2xl tracking-tight leading-[1.0] mb-4">
+                    <span className="font-mono text-[9px] text-yellow/50 tracking-[0.24em] uppercase block mb-4">03</span>
+                    <h3 className="font-sans font-bold text-white text-xl tracking-tight leading-[1.0] mb-3">
                       VENUES
                     </h3>
-                    <p className="font-sans text-black/55 text-[14px] leading-relaxed max-w-[30ch]">
+                    <p className="font-sans text-white/40 text-[13px] leading-relaxed max-w-[32ch]">
                       Spaces, operations and cultural settings built with intention.
                     </p>
                   </div>
-                  <div className="flex items-center gap-2 font-mono text-[10px] text-black tracking-[0.1em] uppercase group-hover:gap-4 transition-all duration-300 mt-6">
-                    EXPLORE VENUES <ArrowRight size={13} />
+                  <div className="flex items-center gap-2 font-mono text-[10px] text-white/40 tracking-[0.1em] uppercase group-hover:text-white group-hover:gap-4 transition-all duration-300 mt-6">
+                    EXPLORE VENUES <ArrowRight size={12} />
                   </div>
                 </div>
 
-                <div className="col-span-5 relative overflow-hidden">
+                <div className="col-span-4 relative overflow-hidden">
                   <img
                     src="/images/13-entertainment-venue-flow-corridor.jpg.png"
-                    alt="Venues"
+                    alt=""
+                    aria-hidden="true"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                   />
-                  <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+                  <div className="absolute inset-0 bg-black/40 pointer-events-none" />
                 </div>
               </Link>
 
             </div>
           </div>
         </div>
-      </section>
-
-      {/* ── 05 ENTERTAINMENT IN MOTION ───────────────────────────────────────── */}
-      <section className="bg-nw relative">
-
-        {/* Main collage grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 lg:min-h-[700px]">
-
-          {/* Left — headline + ticket */}
-          <div className="lg:col-span-4 flex flex-col lg:border-r border-b lg:border-b-0 border-lg">
-
-            <div className="flex-1 p-8 lg:p-10 flex flex-col justify-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: "easeOut" as const }}
-              >
-                <h2
-                  className="font-sans font-bold text-black leading-[0.88] tracking-tighter mb-6"
-                  style={{ fontSize: 'clamp(2.2rem, 4vw, 4rem)' }}
-                >
-                  ENTERTAINMENT<br />IN MOTION.
-                </h2>
-                <p className="font-sans text-black/50 text-base leading-relaxed">
-                  Music, space and cultural rhythm.<br />
-                  Built for the night — and for<br />what remains after.
-                </p>
-              </motion.div>
-            </div>
-
-            <div className="border-t border-[#0A0A0A]/10">
-              {[
-                { label: 'Events', body: 'Sound-led gatherings', href: '/entertainment/events' },
-                { label: 'Label', body: 'Artist development', href: '/entertainment/label' },
-                { label: 'Venues', body: 'Spaces with intention', href: '/entertainment/venues' },
-              ].map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="flex items-center justify-between px-8 lg:px-10 py-5 border-b border-[#0A0A0A]/10 hover:bg-yellow/20 transition-colors duration-300 group"
-                >
-                  <div className="flex items-center gap-6">
-                    <span className="font-mono text-[9px] text-black tracking-[0.22em] uppercase font-medium">
-                      {item.label}
-                    </span>
-                    <span className="font-sans text-[13px] text-black/45">
-                      {item.body}
-                    </span>
-                  </div>
-                  <span className="text-black/30 group-hover:text-black transition-colors">
-                    <ArrowRight size={13} />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Center — atmosphere image */}
-          <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-0 overflow-hidden">
-            <img
-              src="/images/01-entertainment-venue-hero-wide.jpg.png"
-              alt="" aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ filter: 'grayscale(80%) contrast(1.1)' }}
-            />
-            <div className="absolute inset-0 bg-black/30 pointer-events-none" />
-          </div>
-
-          {/* Right — identity panel + DJ image */}
-          <div className="lg:col-span-3 flex flex-col border-t lg:border-t-0 lg:border-l border-lg">
-
-            {/* Identity panel — K26 mark + mode label */}
-            <div className="flex min-h-[160px] lg:flex-1">
-              <div className="flex-1 bg-black p-6 flex flex-col justify-between">
-                <div>
-                  <span className="font-mono text-[8px] text-yellow tracking-[0.22em] uppercase block mb-1">Mode 02</span>
-                  <span className="font-mono text-[8px] text-white/40 tracking-[0.18em] uppercase block">Entertainment</span>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <K26Mark size={28} className="text-white/20" />
-                  <Bars heights={SIGNAL} className="text-yellow/25" />
-                </div>
-              </div>
-              {/* Yellow identity accent */}
-              <div className="w-14 bg-yellow flex flex-col items-center justify-between py-4 shrink-0">
-                <span className="font-mono text-[7px] text-black/40 tracking-[0.18em] uppercase">K26</span>
-                <div className="flex-1 flex items-center justify-center py-2">
-                  <K26Mark size={22} className="text-black/20" />
-                </div>
-                <Bars heights={[4,6,3,7,4]} className="text-black/20" />
-              </div>
-            </div>
-
-            {/* DJ / console image */}
-            <div className="relative overflow-hidden flex-1 min-h-[220px]">
-              <img
-                src="/images/05-entertainment-dj-console-fragment-01.jpg.png"
-                alt="" aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/15 pointer-events-none" />
-            </div>
-
-          </div>
-        </div>
-
-
-
       </section>
 
       {/* ── 06 FINAL CTA ─────────────────────────────────────────────────────── */}
