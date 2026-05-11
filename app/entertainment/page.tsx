@@ -36,7 +36,7 @@ export default function EntertainmentPage() {
         starts at the viewport bottom, not 108px early.
       */}
       <section
-        className="relative bg-[#0A0A0A] overflow-hidden flex flex-col"
+        className="relative bg-black overflow-hidden flex flex-col"
         style={{ minHeight: 'calc(100vh + 108px)', marginTop: '-108px' }}
       >
 
@@ -88,7 +88,7 @@ export default function EntertainmentPage() {
               transition={{ duration: 0.9, ease: "easeOut" as const }}
             >
               <p className="font-mono text-[10px] text-white/40 tracking-[0.28em] uppercase mb-8">
-                Mode 02 — Entertainment
+                Entertainment
               </p>
               <h1
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8 2xl:text-8xl"
@@ -115,7 +115,7 @@ export default function EntertainmentPage() {
       </section>
 
       {/* ── 02 DARK BRIDGE ───────────────────────────────────────────────────── */}
-      <section className="bg-[#0A0A0A] relative overflow-hidden">
+      <section className="bg-black relative overflow-hidden">
 
         {/* Grid overlay */}
         <div
@@ -171,7 +171,7 @@ export default function EntertainmentPage() {
       />
 
       {/* ── 03 SYSTEM INTRO ──────────────────────────────────────────────────── */}
-      <section className="bg-[#F8F5EF] relative overflow-hidden">
+      <section className="bg-offwhite relative overflow-hidden">
 
         {/* Dot texture */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -197,10 +197,10 @@ export default function EntertainmentPage() {
             >
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-8 h-[1.5px] bg-yellow" />
-                <span className="font-mono text-[10px] text-[#8C8C8C] tracking-[0.28em] uppercase">Our System</span>
+                <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">Our System</span>
               </div>
               <h2
-                className="font-sans font-bold text-[#0A0A0A] leading-[0.88] tracking-tighter"
+                className="font-sans font-bold text-black leading-[0.88] tracking-tighter"
                 style={{ fontSize: 'clamp(2.8rem, 5.5vw, 5.5rem)' }}
               >
                 FROM<br />
@@ -220,56 +220,40 @@ export default function EntertainmentPage() {
               transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" as const }}
               className="flex-1"
             >
-              <p className="font-sans text-[#0A0A0A]/55 text-base leading-relaxed mb-8">
+              <p className="font-sans text-black/55 text-base leading-relaxed mb-8">
                 Entertainment is not a single event.<br />
                 It is built as a system of people,<br />
                 places and memory.
               </p>
               <Link
                 href="/entertainment/events"
-                className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] uppercase text-[#0A0A0A] hover:opacity-50 transition-opacity"
+                className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] uppercase text-black hover:opacity-50 transition-opacity"
               >
                 VIEW THE SYSTEM <ArrowRight size={13} />
               </Link>
             </motion.div>
 
-            {/* Signal module */}
-            <motion.div
-              initial={{ opacity: 0, x: 16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex items-stretch shrink-0"
-            >
-              <div className="bg-[#0A0A0A] px-5 py-4 flex flex-col justify-between w-32 h-20">
-                <span className="font-mono text-[8px] text-yellow/70 tracking-[0.22em] uppercase">Signal</span>
-                <Bars heights={SIGNAL.slice(0, 9)} className="text-yellow/60" />
-              </div>
-              <div className="bg-yellow w-12 h-20 flex items-end justify-end p-1.5">
-                <span className="font-mono text-[7px] text-black/30 tracking-widest" style={{ writingMode: 'vertical-rl' }}>K26</span>
-              </div>
-            </motion.div>
           </div>
 
         </div>
       </section>
 
       {/* ── 04 THREE PILLARS ─────────────────────────────────────────────────── */}
-      <section id="pillars" className="bg-[#F8F5EF] border-t border-[#D8D4CC] px-8 lg:px-16 pt-14 lg:pt-16 pb-24 lg:pb-32">
+      <section id="pillars" className="bg-offwhite border-t border-lg px-8 lg:px-16 pt-14 lg:pt-16 pb-24 lg:pb-32">
         <div className="max-w-screen-2xl mx-auto">
 
           <div className="flex items-center gap-3 mb-14">
             <div className="w-8 h-[1.5px] bg-yellow" />
-            <span className="font-mono text-[10px] text-[#8C8C8C] tracking-[0.28em] uppercase">Three Pillars</span>
+            <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">Three Pillars</span>
           </div>
 
           {/* Asymmetric grid: 5 + 4 + 3 columns on desktop */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-l border-[#D8D4CC]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-l border-lg">
 
             {/* Events — light, 5 cols */}
             <Link
               href="/entertainment/events"
-              className="group block lg:col-span-5 border-r border-b border-[#D8D4CC] p-10 lg:p-14 bg-[#F8F5EF] hover:bg-white transition-colors duration-300 flex flex-col min-h-[440px] lg:min-h-[540px] relative overflow-hidden"
+              className="group block lg:col-span-5 border-r border-b border-lg p-10 lg:p-14 bg-offwhite hover:bg-white transition-colors duration-300 flex flex-col min-h-[440px] lg:min-h-[540px] relative overflow-hidden"
             >
               {/* Concentric circle decoration */}
               <div className="absolute bottom-6 right-6 pointer-events-none" aria-hidden="true">
@@ -284,15 +268,15 @@ export default function EntertainmentPage() {
               </div>
               <div className="flex-1">
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
-                <p className="font-mono text-[9px] text-[#8C8C8C] tracking-[0.24em] uppercase mb-6">01</p>
-                <h3 className="font-sans font-bold text-[#0A0A0A] text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
+                <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">01</p>
+                <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
                   EVENTS
                 </h3>
-                <p className="font-sans text-[#0A0A0A]/55 text-[15px] leading-relaxed max-w-[30ch]">
+                <p className="font-sans text-black/55 text-[15px] leading-relaxed max-w-[30ch]">
                   Sound-led gatherings shaped by concept, flow and atmosphere.
                 </p>
               </div>
-              <div className="flex items-center gap-2 font-mono text-[10px] text-[#0A0A0A] tracking-[0.1em] uppercase group-hover:gap-4 transition-all duration-300 mt-10">
+              <div className="flex items-center gap-2 font-mono text-[10px] text-black tracking-[0.1em] uppercase group-hover:gap-4 transition-all duration-300 mt-10">
                 EXPLORE EVENTS <ArrowRight size={13} />
               </div>
             </Link>
@@ -300,7 +284,7 @@ export default function EntertainmentPage() {
             {/* Label — dark, 4 cols */}
             <Link
               href="/entertainment/label"
-              className="group block lg:col-span-4 border-r border-b border-[#0A0A0A]/20 p-10 lg:p-12 bg-[#0A0A0A] hover:bg-[#111] transition-colors duration-300 flex flex-col min-h-[440px] lg:min-h-[540px] relative overflow-hidden"
+              className="group block lg:col-span-4 border-r border-b border-[#0A0A0A]/20 p-10 lg:p-12 bg-black hover:bg-[#111] transition-colors duration-300 flex flex-col min-h-[440px] lg:min-h-[540px] relative overflow-hidden"
             >
               {/* Waveform decoration */}
               <div className="absolute bottom-6 right-6 pointer-events-none" aria-hidden="true">
@@ -324,7 +308,7 @@ export default function EntertainmentPage() {
             {/* Venues — light, 3 cols */}
             <Link
               href="/entertainment/venues"
-              className="group block lg:col-span-3 border-r border-b border-[#D8D4CC] p-10 bg-[#F8F5EF] hover:bg-white transition-colors duration-300 flex flex-col min-h-[440px] lg:min-h-[540px] relative overflow-hidden"
+              className="group block lg:col-span-3 border-r border-b border-lg p-10 bg-offwhite hover:bg-white transition-colors duration-300 flex flex-col min-h-[440px] lg:min-h-[540px] relative overflow-hidden"
             >
               {/* Architectural plan fragment */}
               <div className="absolute bottom-6 right-4 pointer-events-none opacity-[0.06]" aria-hidden="true">
@@ -340,15 +324,15 @@ export default function EntertainmentPage() {
               </div>
               <div className="flex-1">
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
-                <p className="font-mono text-[9px] text-[#8C8C8C] tracking-[0.24em] uppercase mb-6">03</p>
-                <h3 className="font-sans font-bold text-[#0A0A0A] text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
+                <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">03</p>
+                <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
                   VENUES
                 </h3>
-                <p className="font-sans text-[#0A0A0A]/55 text-[15px] leading-relaxed">
+                <p className="font-sans text-black/55 text-[15px] leading-relaxed">
                   Spaces, operations and cultural settings built with intention.
                 </p>
               </div>
-              <div className="flex items-center gap-2 font-mono text-[10px] text-[#0A0A0A] tracking-[0.1em] uppercase group-hover:gap-4 transition-all duration-300 mt-10">
+              <div className="flex items-center gap-2 font-mono text-[10px] text-black tracking-[0.1em] uppercase group-hover:gap-4 transition-all duration-300 mt-10">
                 EXPLORE VENUES <ArrowRight size={13} />
               </div>
             </Link>
@@ -358,13 +342,13 @@ export default function EntertainmentPage() {
       </section>
 
       {/* ── 05 ENTERTAINMENT IN MOTION ───────────────────────────────────────── */}
-      <section className="bg-[#F2EFE8] relative">
+      <section className="bg-nw relative">
 
         {/* Main collage grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 lg:min-h-[700px]">
 
           {/* Left — headline + ticket */}
-          <div className="lg:col-span-4 flex flex-col lg:border-r border-b lg:border-b-0 border-[#D8D4CC]">
+          <div className="lg:col-span-4 flex flex-col lg:border-r border-b lg:border-b-0 border-lg">
 
             <div className="flex-1 p-8 lg:p-10 flex flex-col justify-center">
               <motion.div
@@ -374,44 +358,42 @@ export default function EntertainmentPage() {
                 transition={{ duration: 0.7, ease: "easeOut" as const }}
               >
                 <h2
-                  className="font-sans font-bold text-[#0A0A0A] leading-[0.88] tracking-tighter mb-6"
+                  className="font-sans font-bold text-black leading-[0.88] tracking-tighter mb-6"
                   style={{ fontSize: 'clamp(2.2rem, 4vw, 4rem)' }}
                 >
                   ENTERTAINMENT<br />IN MOTION.
                 </h2>
-                <p className="font-sans text-[#0A0A0A]/50 text-base leading-relaxed">
+                <p className="font-sans text-black/50 text-base leading-relaxed">
                   Music, space and cultural rhythm.<br />
                   Built for the night — and for<br />what remains after.
                 </p>
               </motion.div>
             </div>
 
-            {/* Yellow ticket card */}
-            <div className="bg-yellow px-8 lg:px-10 py-8 border-t border-[#0A0A0A]/10">
-              <div className="flex justify-between items-start mb-5">
-                <span className="font-mono text-[9px] text-black/55 tracking-[0.22em] uppercase">Active Format</span>
-                <span className="font-mono text-[9px] text-black/40 tracking-[0.14em] font-bold">001</span>
-              </div>
-              <p className="font-sans font-bold text-[#0A0A0A] text-xl leading-tight tracking-tight mb-5">
-                SOUND-LED<br />GATHERINGS
-              </p>
-              <div className="border-t border-b border-black/10 py-3 mb-5">
-                {['SOUND', 'FLOW', 'IMAGE', 'TRACE'].map(item => (
-                  <div key={item} className="flex items-center gap-2 py-0.5">
-                    <div className="w-1 h-1 bg-black/30 rounded-full shrink-0" />
-                    <span className="font-mono text-[9px] text-black/55 tracking-[0.16em] uppercase">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center justify-between">
+            <div className="border-t border-[#0A0A0A]/10">
+              {[
+                { label: 'Events', body: 'Sound-led gatherings', href: '/entertainment/events' },
+                { label: 'Label', body: 'Artist development', href: '/entertainment/label' },
+                { label: 'Venues', body: 'Spaces with intention', href: '/entertainment/venues' },
+              ].map((item) => (
                 <Link
-                  href="/entertainment/events"
-                  className="font-mono text-[10px] text-black tracking-[0.16em] uppercase inline-flex items-center gap-2 hover:opacity-60 transition-opacity"
+                  key={item.label}
+                  href={item.href}
+                  className="flex items-center justify-between px-8 lg:px-10 py-5 border-b border-[#0A0A0A]/10 hover:bg-yellow/20 transition-colors duration-300 group"
                 >
-                  VIEW FORMAT <ArrowRight size={12} />
+                  <div className="flex items-center gap-6">
+                    <span className="font-mono text-[9px] text-black tracking-[0.22em] uppercase font-medium">
+                      {item.label}
+                    </span>
+                    <span className="font-sans text-[13px] text-black/45">
+                      {item.body}
+                    </span>
+                  </div>
+                  <span className="text-black/30 group-hover:text-black transition-colors">
+                    <ArrowRight size={13} />
+                  </span>
                 </Link>
-                <Bars heights={BARCODE} className="text-black/25" />
-              </div>
+              ))}
             </div>
           </div>
 
@@ -427,11 +409,11 @@ export default function EntertainmentPage() {
           </div>
 
           {/* Right — identity panel + DJ image */}
-          <div className="lg:col-span-3 flex flex-col border-t lg:border-t-0 lg:border-l border-[#D8D4CC]">
+          <div className="lg:col-span-3 flex flex-col border-t lg:border-t-0 lg:border-l border-lg">
 
             {/* Identity panel — K26 mark + mode label */}
             <div className="flex min-h-[160px] lg:flex-1">
-              <div className="flex-1 bg-[#0A0A0A] p-6 flex flex-col justify-between">
+              <div className="flex-1 bg-black p-6 flex flex-col justify-between">
                 <div>
                   <span className="font-mono text-[8px] text-yellow tracking-[0.22em] uppercase block mb-1">Mode 02</span>
                   <span className="font-mono text-[8px] text-white/40 tracking-[0.18em] uppercase block">Entertainment</span>
@@ -464,61 +446,12 @@ export default function EntertainmentPage() {
           </div>
         </div>
 
-        {/* 26 Identity card — absolute on desktop, inline on mobile */}
-        <div className="px-8 py-6 lg:p-0 lg:absolute lg:bottom-[72px] lg:right-8 lg:z-10">
-          <div className="bg-[#F8F5EF] border border-[#D8D4CC] p-6 lg:p-8 w-full lg:w-56 shadow-lg">
-            <p className="font-mono text-[8px] text-[#8C8C8C] tracking-[0.22em] uppercase leading-relaxed mb-2">
-              Kollektiv 26
-            </p>
-            <p className="font-mono text-[8px] text-[#8C8C8C] tracking-[0.22em] uppercase leading-relaxed mb-4">
-              Entertainment
-            </p>
-            <p
-              className="font-sans font-bold text-[#0A0A0A] leading-none mb-5"
-              style={{ fontSize: 'clamp(4.5rem, 9vw, 6rem)' }}
-            >
-              26
-            </p>
-            <div className="flex items-end gap-[2px] mb-4">
-              {BARCODE.map((h, i) => (
-                <div key={i} className="w-[1.5px] bg-[#0A0A0A]/20" style={{ height: `${h}px` }} />
-              ))}
-            </div>
-            <div className="flex items-center justify-between">
-              <p className="font-mono text-[8px] text-[#8C8C8C] tracking-[0.18em] uppercase">MMXXVI</p>
-              <K26Mark size={14} className="text-[#0A0A0A]/20" />
-            </div>
-          </div>
-        </div>
 
-        {/* Black info strip */}
-        <div className="bg-[#0A0A0A] px-8 lg:px-16 py-10 lg:py-12">
-          <div className="max-w-screen-2xl mx-auto flex flex-col sm:flex-row gap-8 sm:gap-0 items-start sm:items-center">
-            <div className="flex flex-col sm:flex-row gap-8 sm:gap-14 flex-1">
-              {[
-                { title: 'MUSIC',  body: 'Curated sound and live experiences that connect.' },
-                { title: 'SPACE',  body: 'Movement, access and atmosphere inside the room.' },
-                { title: 'TRACE',  body: 'Images, sound and fragments designed to remain.' },
-              ].map(col => (
-                <div key={col.title} className="flex-1 min-w-0">
-                  <span className="font-mono text-[8px] text-yellow/70 tracking-[0.22em] uppercase block mb-2">{col.title}</span>
-                  <p className="font-sans text-white/40 text-[12px] leading-relaxed">{col.body}</p>
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center gap-3 text-yellow shrink-0 sm:ml-10 border-t sm:border-t-0 sm:border-l border-white/10 pt-6 sm:pt-0 sm:pl-10">
-              <span className="font-mono text-[9px] tracking-[0.16em] uppercase">
-                BUILT WHERE SOUND, SPACE AND CULTURE MEET.
-              </span>
-              <ArrowRight size={14} />
-            </div>
-          </div>
-        </div>
 
       </section>
 
       {/* ── 06 FINAL CTA ─────────────────────────────────────────────────────── */}
-      <section className="bg-[#F8F5EF] px-8 lg:px-16 py-24 lg:py-40 border-t border-[#D8D4CC]">
+      <section className="bg-offwhite px-8 lg:px-16 py-24 lg:py-40 border-t border-lg">
         <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-end">
 
           <motion.div
@@ -533,8 +466,8 @@ export default function EntertainmentPage() {
               className="font-sans font-bold leading-[0.88] tracking-tighter"
               style={{ fontSize: 'clamp(2.5rem, 5.5vw, 6rem)' }}
             >
-              <span className="text-[#0A0A0A] block">A NIGHT IS TEMPORARY.</span>
-              <span className="text-[#8C8C8C] block">THE TRACE IS DESIGNED.</span>
+              <span className="text-black block">A NIGHT IS TEMPORARY.</span>
+              <span className="text-mg block">THE TRACE IS DESIGNED.</span>
             </h2>
           </motion.div>
 
@@ -543,21 +476,15 @@ export default function EntertainmentPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" as const }}
-            className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-[#D8D4CC] lg:pl-10"
+            className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-lg lg:pl-10"
           >
-            <p className="font-sans text-[#8C8C8C] text-sm mb-8">Start with a signal.</p>
+            <p className="font-sans text-mg text-sm mb-8">Start with a signal.</p>
             <div className="flex flex-col gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-[#0A0A0A] hover:text-white hover:border-[#0A0A0A] transition-colors duration-300"
+                className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-black hover:text-white hover:border-[#0A0A0A] transition-colors duration-300"
               >
                 START A CONVERSATION <ArrowRight size={14} />
-              </Link>
-              <Link
-                href="/entertainment/events"
-                className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-[#0A0A0A] px-6 py-4 border border-[#D8D4CC] hover:border-[#0A0A0A] transition-colors duration-300"
-              >
-                VIEW OUR WORK <ArrowRight size={14} />
               </Link>
             </div>
           </motion.div>
@@ -566,7 +493,7 @@ export default function EntertainmentPage() {
       </section>
 
       {/* ── 07 FOOTER STRIP ──────────────────────────────────────────────────── */}
-      <div className="bg-[#0A0A0A] border-t border-white/[0.06] px-8 lg:px-16 py-6">
+      <div className="bg-black border-t border-white/[0.06] px-8 lg:px-16 py-6">
         <div className="max-w-screen-2xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
             <K26Mark size={14} className="text-yellow/60" />
@@ -576,10 +503,10 @@ export default function EntertainmentPage() {
             Sound • Culture • Experience
           </span>
           <a
-            href="mailto:info@kollektiv26.com"
+            href="mailto:entertainment@kollektiv26.com"
             className="font-mono text-[9px] text-white/35 tracking-[0.1em] hover:text-white/60 transition-colors lowercase"
           >
-            info@kollektiv26.com
+            entertainment@kollektiv26.com
           </a>
         </div>
       </div>
