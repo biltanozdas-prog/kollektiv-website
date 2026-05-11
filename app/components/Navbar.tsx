@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import K26Mark from './K26Mark'
 import SubNav from './SubNav'
@@ -14,13 +14,6 @@ function detectMode(pathname: string): Mode {
   if (pathname.startsWith('/entertainment')) return 'entertainment'
   if (pathname.startsWith('/innovation'))    return 'innovation'
   return 'none'
-}
-
-const modeLabel: Record<Mode, string> = {
-  none:          'WELCOME',
-  tourism:       'TOURISM',
-  entertainment: 'ENTERTAINMENT',
-  innovation:    'INNOVATION',
 }
 
 function NavLink({
@@ -44,21 +37,16 @@ function NavLink({
 
 export default function Navbar() {
   const pathname  = usePathname()
-  const router    = useRouter()
   const mode      = detectMode(pathname)
-  const [open, setOpen]               = useState(false)
   const [menuOpen, setMenuOpen]       = useState(false)
   const [scrollProgress, setProgress] = useState(0)
 
-  // Transparent hero: Entertainment pages + Tourism overview only
-  const isEnt = mode === 'entertainment'
+  const isEnt             = mode === 'entertainment'
   const isTourismOverview = pathname === '/tourism'
-  const isHeroMode = isEnt || isTourismOverview
+  const isHeroMode        = isEnt || isTourismOverview
 
-  // Close mobile menu on route change
   useEffect(() => { setMenuOpen(false) }, [pathname])
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden'
@@ -71,7 +59,6 @@ export default function Navbar() {
   useEffect(() => {
     setProgress(0)
     if (!isHeroMode) return
-
     const update = () => setProgress(Math.min(window.scrollY / 280, 1))
     window.addEventListener('scroll', update, { passive: true })
     update()
@@ -101,15 +88,10 @@ export default function Navbar() {
     textMuted = 'rgba(0,0,0,0.60)'
   }
 
-  const handleModeSelect = (target: Exclude<Mode, 'none'>) => {
-    setOpen(false)
-    router.push(`/${target}`)
-  }
-
-  const menuBg = isEnt ? '#0A0A0A' : '#FFFFFF'
-  const menuText = isEnt ? '#ffffff' : '#0A0A0A'
+  const menuBg     = isEnt ? '#0A0A0A' : '#FFFFFF'
+  const menuText   = isEnt ? '#ffffff' : '#0A0A0A'
   const menuBorder = isEnt ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)'
-  const menuMuted = isEnt ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)'
+  const menuMuted  = isEnt ? 'rgba(255,255,255,0.3)'  : 'rgba(0,0,0,0.3)'
 
   return (
     <>
@@ -126,76 +108,45 @@ export default function Navbar() {
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20">
           <div className="flex items-center justify-between h-[68px]">
 
-            {/* LEFT: Logo + mode selector */}
-            <div className="flex items-center gap-2 relative">
+            {/* LEFT: Logo */}
+            <div className="flex items-center gap-2">
               <Link href="/" className="group shrink-0 transition-opacity hover:opacity-60" style={{ color: textColor }}>
                 <K26Mark size={30} />
               </Link>
-
               <Link href="/" className="flex items-center gap-0.5 hover:opacity-60 transition-opacity shrink-0">
                 <span className="font-sans font-bold text-[15px] tracking-[0.04em]" style={{ color: textColor }}>KOLLEKTIV</span>
                 <span className="font-sans font-light text-[15px] tracking-[0.04em] ml-1" style={{ color: textColor }}>26</span>
               </Link>
-
-              <button
-                onClick={() => setOpen((v) => !v)}
-                aria-label="Switch mode"
-                className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all focus:outline-none
-                  ${open
-                    ? (isEnt ? 'bg-white/10' : 'bg-black/[0.06]')
-                    : (isEnt ? 'hover:bg-white/10' : 'hover:bg-black/[0.04]')
-                  }`}
-              >
-                <span className={`w-2.5 h-2.5 rounded-full bg-yellow transition-all shrink-0
-                  ${open ? 'scale-125 shadow-[0_0_10px_3px_rgba(232,200,50,0.6)]' : 'hover:scale-110'}`}
-                />
-                <span
-                  className="font-mono text-[11px] tracking-[0.16em] uppercase font-medium"
-                  style={{ color: textMuted }}
-                >
-                  {modeLabel[mode]}
-                </span>
-              </button>
-
-              <AnimatePresence>
-                {open && (
-                  <>
-                    <div className="fixed inset-0 z-[55]" onClick={() => setOpen(false)} />
-                    <motion.div
-                      initial={{ opacity: 0, y: -8, scale: 0.97 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -8, scale: 0.97 }}
-                      transition={{ duration: 0.18 }}
-                      className="absolute top-full left-[88px] mt-2 w-[230px] bg-white rounded-xl shadow-2xl border border-black/[0.07] overflow-hidden z-[60]"
-                    >
-                      {(['tourism', 'entertainment', 'innovation'] as const).map((m) => {
-                        const isActive = mode === m
-                        return (
-                          <button
-                            key={m}
-                            onClick={() => handleModeSelect(m)}
-                            className={`w-full px-5 py-4 text-left flex items-center gap-3 transition-colors
-                              ${isActive ? 'bg-yellow/[0.08]' : 'hover:bg-black/[0.04]'}`}
-                          >
-                            <span className={`w-2 h-2 rounded-full shrink-0 ${isActive ? 'bg-yellow' : 'bg-black/20'}`} />
-                            <span className={`font-sans text-[13px] tracking-[0.06em] uppercase ${isActive ? 'font-semibold text-black' : 'text-black/70'}`}>
-                              {m === 'tourism' ? 'Tourism' : m === 'entertainment' ? 'Entertainment' : 'Innovation'}
-                            </span>
-                          </button>
-                        )
-                      })}
-                    </motion.div>
-                  </>
-                )}
-              </AnimatePresence>
             </div>
 
-            {/* RIGHT: Desktop nav + hamburger */}
+            {/* RIGHT: Desktop nav + TR/EN + hamburger */}
             <div className="flex items-center gap-6">
-              <div className="hidden md:flex items-center gap-10">
-                <NavLink href="/"        active={pathname === '/'}       textColor={textColor}>Home</NavLink>
-                <NavLink href="/about"   active={pathname === '/about'}  textColor={textColor}>About</NavLink>
-                <NavLink href="/contact" active={pathname === '/contact'} textColor={textColor}>Contact</NavLink>
+              <div className="hidden md:flex items-center gap-8 lg:gap-10">
+                <NavLink href="/"              active={pathname === '/'}                       textColor={textColor}>Home</NavLink>
+                <NavLink href="/tourism"       active={pathname.startsWith('/tourism')}       textColor={textColor}>Tourism</NavLink>
+                <NavLink href="/entertainment" active={pathname.startsWith('/entertainment')} textColor={textColor}>Entertainment</NavLink>
+                <NavLink href="/innovation"    active={pathname.startsWith('/innovation')}    textColor={textColor}>Innovation</NavLink>
+                <NavLink href="/about"         active={pathname === '/about'}                 textColor={textColor}>About</NavLink>
+                <NavLink href="/contact"       active={pathname === '/contact'}               textColor={textColor}>Contact</NavLink>
+              </div>
+
+              {/* TR/EN Toggle */}
+              <div className="hidden md:flex items-center gap-1 ml-4">
+                <button
+                  className="font-mono text-[10px] tracking-[0.12em] uppercase transition-opacity"
+                  style={{ color: textColor, fontWeight: 500 }}
+                  onClick={() => {}}
+                >
+                  EN
+                </button>
+                <span className="font-mono text-[10px]" style={{ color: textMuted }}>|</span>
+                <button
+                  className="font-mono text-[10px] tracking-[0.12em] uppercase transition-opacity hover:opacity-100"
+                  style={{ color: textMuted }}
+                  onClick={() => {}}
+                >
+                  TR
+                </button>
               </div>
 
               {/* Hamburger — mobile only */}
@@ -250,31 +201,92 @@ export default function Navbar() {
             </div>
 
             {/* Nav links */}
-            <nav className="flex flex-col flex-1 justify-center px-8">
+            <div className="flex flex-col flex-1 justify-center px-8 lg:px-16 gap-0">
+
+              {/* Primary links */}
               {[
-                { href: '/', label: 'Home' },
-                { href: '/about', label: 'About' },
-                { href: '/contact', label: 'Contact' },
+                { href: '/',              label: 'Home' },
+                { href: '/tourism',       label: 'Tourism' },
+                { href: '/entertainment', label: 'Entertainment' },
+                { href: '/innovation',    label: 'Innovation' },
               ].map((item, i) => (
                 <motion.div
                   key={item.href}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.06 + i * 0.07, duration: 0.3 }}
-                  className={i < 2 ? 'border-b' : ''}
-                  style={{ borderColor: menuBorder }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.06 + i * 0.07, ease: 'easeOut' as const }}
                 >
                   <Link
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className="font-sans font-light text-4xl leading-tight hover:opacity-40 transition-opacity block py-5"
+                    className={`font-sans font-light text-4xl leading-tight hover:opacity-40 transition-opacity block py-4 ${
+                      (pathname.startsWith(item.href) && item.href !== '/') || (pathname === '/' && item.href === '/')
+                        ? 'font-medium'
+                        : 'opacity-70'
+                    }`}
                     style={{ color: menuText }}
                   >
                     {item.label}
                   </Link>
                 </motion.div>
               ))}
-            </nav>
+
+              {/* Divider */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.35, duration: 0.4 }}
+                className="my-4"
+                style={{ borderTop: `1px solid ${menuBorder}` }}
+              />
+
+              {/* Secondary links */}
+              {[
+                { href: '/about',   label: 'About' },
+                { href: '/contact', label: 'Contact' },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.href}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.38 + i * 0.06, ease: 'easeOut' as const }}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="font-sans font-light text-2xl leading-tight hover:opacity-40 transition-opacity block py-3"
+                    style={{ color: menuText, opacity: 0.55 }}
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+
+              {/* TR/EN mobile */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.3 }}
+                className="flex items-center gap-3 mt-6"
+              >
+                <button
+                  className="font-mono text-[11px] tracking-[0.14em] uppercase font-medium"
+                  style={{ color: menuText }}
+                  onClick={() => {}}
+                >
+                  EN
+                </button>
+                <span style={{ color: menuBorder }}>|</span>
+                <button
+                  className="font-mono text-[11px] tracking-[0.14em] uppercase"
+                  style={{ color: menuText, opacity: 0.35 }}
+                  onClick={() => {}}
+                >
+                  TR
+                </button>
+              </motion.div>
+
+            </div>
 
             {/* Bottom bar */}
             <div className="px-8 pb-10 shrink-0">

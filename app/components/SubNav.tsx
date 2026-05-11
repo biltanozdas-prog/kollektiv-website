@@ -18,14 +18,13 @@ const navItems: Record<Mode, { label: string; href: string }[]> = {
     { label: 'Label',    href: '/entertainment/label' },
     { label: 'Venues',   href: '/entertainment/venues' },
   ],
-  innovation: [
-    { label: 'Overview', href: '/innovation' },
-  ],
+  innovation: [],
 }
 
 export default function SubNav({ currentMode, scrollProgress = 1 }: { currentMode: Mode; scrollProgress?: number }) {
   const pathname = usePathname()
   const items = navItems[currentMode]
+  if (!items.length) return null
   const isEnt = currentMode === 'entertainment'
   const p = scrollProgress
 
