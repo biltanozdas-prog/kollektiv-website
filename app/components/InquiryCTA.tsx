@@ -19,7 +19,7 @@ export default function InquiryCTA() {
             transition={{ duration: 0.8 }}
           >
             <span className="font-mono text-[10px] text-mg tracking-[0.22em] uppercase block mb-10">
-              Get in touch
+              {t.home.ctaEyebrow}
             </span>
             <h2 className="font-sans font-medium text-black leading-[1.1]" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.8rem)' }}>
               {t.home.ctaHeadline}

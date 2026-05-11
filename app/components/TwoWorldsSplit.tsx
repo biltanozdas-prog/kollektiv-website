@@ -55,7 +55,9 @@ export default function TwoWorldsSplit() {
             className="font-serif text-black leading-[1.08] mb-10"
             style={{ fontSize: 'clamp(2.2rem, 3.5vw, 3.8rem)' }}
           >
-            Curated journeys.<br />Timeless places.
+            {t.tourismOverview.headline.split('\n').map((line, i) => (
+              <span key={i} className="block">{line}</span>
+            ))}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -109,18 +111,18 @@ export default function TwoWorldsSplit() {
           >
             <div>
               <span className="font-mono text-[9px] text-yellow/60 tracking-[0.2em] uppercase block mb-4">
-                The Thread
+                {t.home.dividerEyebrow}
               </span>
               <h3
                 className="font-sans font-bold text-white leading-none 2xl:text-7xl"
                 style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)', letterSpacing: '-0.02em' }}
               >
-                What connects culture.
+                {t.home.dividerHeadline}
               </h3>
             </div>
             <div className="hidden lg:block flex-1 mx-16 border-t border-dashed border-white/10" />
             <p className="font-sans font-light text-white/40 text-sm leading-relaxed max-w-[360px]">
-              Kollektiv 26 moves between Tourism and Entertainment — not as separate offerings, but as two expressions of the same cultural sensibility.
+              {t.home.dividerDesc}
             </p>
           </motion.div>
         </div>

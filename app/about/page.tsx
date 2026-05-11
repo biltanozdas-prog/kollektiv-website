@@ -264,7 +264,7 @@ export default function AboutPage() {
       <section className="border-t border-black/15 py-24 px-8 lg:px-16 bg-offwhite">
         <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div>
-            <span className="font-mono text-[9px] !text-[#6A6A6A] tracking-[0.22em] uppercase block mb-4">Work with us</span>
+            <span className="font-mono text-[9px] !text-[#6A6A6A] tracking-[0.22em] uppercase block mb-4">{t.about.workWithUsEyebrow}</span>
             <h2 className="font-sans font-bold text-black text-3xl lg:text-4xl" style={{ letterSpacing: '-0.02em' }}>
               {t.about.ctaHeadline}
             </h2>
