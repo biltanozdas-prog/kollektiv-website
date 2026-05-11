@@ -57,7 +57,7 @@ export default function VenuesPage() {
 
         <div className="flex-1 min-h-[220px] lg:min-h-[280px]" />
 
-        <div className="relative z-10 max-w-screen-2xl mx-auto w-full px-8 lg:px-16 pb-28 lg:pb-40">
+        <div className="relative z-10 max-w-screen-2xl mx-auto w-full px-8 lg:px-16 pb-14 lg:pb-16">
           <div className="lg:max-w-[60%]">
             <motion.div
               initial={{ opacity: 0, y: 32 }}
@@ -68,7 +68,7 @@ export default function VenuesPage() {
                 03 — Venues
               </p>
               <h1
-                className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
+                className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-10"
                 style={{ fontSize: 'clamp(3rem, 7vw, 7.5rem)' }}
               >
                 WE DON'T<br />
@@ -76,10 +76,6 @@ export default function VenuesPage() {
                 VENUES.<br />
                 WE RUN THEM.
               </h1>
-              <p className="font-sans text-white/45 text-base leading-relaxed mb-12 max-w-[36ch]">
-                Infrastructure for spaces where culture happens.<br />
-                This is what we're building toward.
-              </p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-white border border-white/30 px-7 py-3.5 hover:bg-white hover:text-black transition-colors duration-300"
@@ -89,51 +85,30 @@ export default function VenuesPage() {
             </motion.div>
           </div>
         </div>
-      </section>
 
-      {/* ── 02 INTRO ─────────────────────────────────────────────────────────── */}
-      <section className="bg-offwhite relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <pattern id="dots-vn" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-                <circle cx="1.5" cy="1.5" r="1" fill="#0A0A0A" opacity="0.07" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#dots-vn)" />
-          </svg>
-        </div>
-        <div className="relative z-10 max-w-screen-2xl mx-auto px-8 lg:px-16 py-24 lg:py-36 grid lg:grid-cols-12 gap-12 items-end">
-          <div className="lg:col-span-5">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: "easeOut" as const }}
-            >
-              <div className="flex items-center gap-3 mb-10">
+        <div className="relative z-10 max-w-screen-2xl mx-auto w-full px-8 lg:px-16 pb-24 lg:pb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" as const }}
+            className="border-t border-white/[0.08] pt-14 lg:pt-16 grid lg:grid-cols-12 gap-8 lg:gap-12 items-end"
+          >
+            <div className="lg:col-span-5">
+              <div className="flex items-center gap-3 mb-8">
                 <div className="w-8 h-[1.5px] bg-yellow" />
-                <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">Space as Infrastructure</span>
+                <span className="font-mono text-[10px] text-white/35 tracking-[0.28em] uppercase">Space as Infrastructure</span>
               </div>
               <h2
-                className="font-sans font-bold text-black leading-[0.88] tracking-tighter"
-                style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
+                className="font-sans font-bold text-white leading-[0.88] tracking-tighter"
+                style={{ fontSize: 'clamp(2rem, 4vw, 4rem)' }}
               >
                 BUILT FOR<br />
                 CULTURE TO<br />
                 HAPPEN IN.
               </h2>
-            </motion.div>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" as const }}
-            className="lg:col-span-6 lg:col-start-7 flex flex-col lg:flex-row gap-10 items-start lg:items-end"
-          >
-            <div className="flex-1">
-              <p className="font-sans text-black/55 text-base leading-relaxed mb-8">
+            </div>
+            <div className="lg:col-span-6 lg:col-start-7 flex items-end">
+              <p className="font-sans text-white/40 text-base leading-relaxed">
                 Infrastructure for spaces where culture happens. Kollektiv 26's own operated venues are in development. We're taking the time to build this properly — the right acoustics, the right operations, the right character.
               </p>
             </div>
