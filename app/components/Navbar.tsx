@@ -112,6 +112,7 @@ export default function Navbar() {
             <div className="flex items-center justify-start">
               {/* Desktop: mode links */}
               <div className="hidden md:flex items-center gap-6 lg:gap-8">
+                <NavLink href="/"              active={pathname === '/'}                       textColor={textColor}>Home</NavLink>
                 <NavLink href="/tourism"       active={pathname.startsWith('/tourism')}       textColor={textColor}>Tourism</NavLink>
                 <NavLink href="/entertainment" active={pathname.startsWith('/entertainment')} textColor={textColor}>Entertainment</NavLink>
                 <NavLink href="/innovation"    active={pathname.startsWith('/innovation')}    textColor={textColor}>Innovation</NavLink>
