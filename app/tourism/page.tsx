@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import { useLang } from '@/lib/LanguageContext'
 
 function ArrowRight() {
   return (
@@ -13,6 +14,7 @@ function ArrowRight() {
 }
 
 export default function TourismPage() {
+  const { t } = useLang()
   const heroRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -20,6 +22,12 @@ export default function TourismPage() {
   })
   const imageOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const textY = useTransform(scrollYProgress, [0, 0.5], [0, -40])
+
+  const services = [
+    { num: '01', title: t.tourismOverview.s1Title, body: t.tourismOverview.s1Body },
+    { num: '02', title: t.tourismOverview.s2Title, body: t.tourismOverview.s2Body },
+    { num: '03', title: t.tourismOverview.s3Title, body: t.tourismOverview.s3Body },
+  ]
 
   return (
     <main className="min-h-screen bg-offwhite">
@@ -52,7 +60,7 @@ export default function TourismPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="font-mono text-[9px] text-white/60 tracking-[0.3em] uppercase"
           >
-            Tourism &amp; Concierge
+            {t.tourismOverview.eyebrow}
           </motion.span>
 
           {/* Main content — bottom */}
@@ -64,7 +72,9 @@ export default function TourismPage() {
               className="font-serif text-white leading-[1.05] mb-6 max-w-5xl"
               style={{ fontSize: 'clamp(2rem, 7vw, 7rem)' }}
             >
-              Curated journeys.<br />Timeless places.
+              {t.tourismOverview.headline.split('\n').map((line, i) => (
+                <span key={i} className="block">{line}</span>
+              ))}
             </motion.h1>
 
             <motion.p
@@ -73,8 +83,7 @@ export default function TourismPage() {
               transition={{ duration: 0.7, delay: 0.5 }}
               className="font-sans font-light text-white/55 text-sm leading-relaxed max-w-md mb-10"
             >
-              Meaningful travel. Thoughtfully curated. From iconic destinations
-              to hidden escapes, we design experiences that stay with you.
+              {t.tourismOverview.desc}
             </motion.p>
 
             <motion.div
@@ -86,7 +95,7 @@ export default function TourismPage() {
                 href="/tourism/concierge"
                 className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-white border border-white/30 rounded-full px-7 py-3 backdrop-blur-sm bg-white/10 hover:bg-white hover:text-black hover:border-white transition-all"
               >
-                Begin an inquiry
+                {t.tourismOverview.heroCta}
               </Link>
             </motion.div>
           </div>
@@ -98,7 +107,7 @@ export default function TourismPage() {
         <div className="max-w-screen-2xl mx-auto">
 
           <div className="flex items-baseline justify-between mb-16 lg:mb-20 gap-8">
-            <span className="font-mono text-[9px] text-black/35 tracking-[0.22em] uppercase shrink-0">Our core services</span>
+            <span className="font-mono text-[9px] text-black/35 tracking-[0.22em] uppercase shrink-0">{t.tourismOverview.servicesEyebrow}</span>
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +116,7 @@ export default function TourismPage() {
               className="font-serif text-black leading-tight text-right"
               style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.8rem)' }}
             >
-              Bespoke travel, managed.
+              {t.tourismOverview.servicesHeadline}
             </motion.h2>
           </div>
 
@@ -128,29 +137,7 @@ export default function TourismPage() {
             </motion.div>
 
             <div className="lg:col-span-7">
-              {[
-                {
-                  num: '01',
-                  title: 'Bespoke Itineraries',
-                  body: 'Custom-built journeys shaped around your rhythm, your interests, and the places that matter. No template trips.',
-                  cta: 'Explore Concierge',
-                  href: '/tourism/concierge',
-                },
-                {
-                  num: '02',
-                  title: 'Private Transfers',
-                  body: 'Professional drivers, curated routes, and vehicles that fit the occasion. Getting there becomes part of the experience.',
-                  cta: 'Explore Concierge',
-                  href: '/tourism/concierge',
-                },
-                {
-                  num: '03',
-                  title: 'Cultural Concierge',
-                  body: "Introductions to local makers, access to private collections, reservations at places that don't advertise. The details that define a journey.",
-                  cta: 'Explore Concierge',
-                  href: '/tourism/concierge',
-                },
-              ].map((item, i) => (
+              {services.map((item, i) => (
                 <motion.div
                   key={item.num}
                   initial={{ opacity: 0, y: 16 }}
@@ -176,7 +163,7 @@ export default function TourismPage() {
               href="/tourism/concierge"
               className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-black border border-black/20 rounded-full px-8 py-3 hover:bg-black hover:text-white hover:border-black transition-all"
             >
-              Begin an inquiry <ArrowRight />
+              {t.tourismOverview.servicesCta} <ArrowRight />
             </Link>
           </div>
         </div>
@@ -194,28 +181,24 @@ export default function TourismPage() {
               transition={{ duration: 0.7 }}
               className="lg:col-span-5"
             >
-              <span className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8">Our network</span>
+              <span className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8">{t.tourismOverview.accessEyebrow}</span>
               <div className="w-8 h-[2px] bg-yellow mb-10" />
               <h2
                 className="font-serif text-black leading-[1.1] mb-7"
                 style={{ fontSize: 'clamp(2rem, 3.2vw, 3rem)' }}
               >
-                Access beyond<br />the ordinary.
+                {t.tourismOverview.accessHeadline.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h2>
               <p className="font-sans font-light text-[#3A3A3A] text-base leading-relaxed mb-10">
-                Our concierge service is not a desk — it is a network. We bridge
-                the gap between visiting a place and truly knowing it, providing
-                the keys to spaces and experiences otherwise closed to the public.
+                {t.tourismOverview.accessP1}
               </p>
               <p className="font-sans font-light text-[#3A3A3A] text-base leading-relaxed mb-5">
-                From the sapphire coastline of the Aegean to the layered
-                culture of Istanbul — we move between places with the same
-                deliberate eye.
+                {t.tourismOverview.accessP2}
               </p>
               <p className="font-sans font-light text-[#3A3A3A] text-base leading-relaxed mb-10">
-                We work through an established network across major cultural
-                capitals — with direct access to private galleries, ateliers
-                and places that don&apos;t take public reservations.
+                {t.tourismOverview.accessP3}
               </p>
             </motion.div>
 
@@ -250,27 +233,24 @@ export default function TourismPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <span className="font-mono text-[9px] text-black/35 tracking-[0.22em] uppercase block mb-8">Our approach</span>
+              <span className="font-mono text-[9px] text-black/35 tracking-[0.22em] uppercase block mb-8">{t.tourismOverview.approachEyebrow}</span>
               <div className="w-8 h-[2px] bg-yellow mb-10" />
               <h2
                 className="font-serif text-[#0A0A0A] leading-tight mb-7"
                 style={{ fontSize: 'clamp(2.6rem, 5vw, 5.5rem)' }}
               >
-                Every detail<br />intentionally considered.
+                {t.tourismOverview.approachHeadline.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h2>
               <p className="font-sans font-light text-[#3A3A3A] text-base leading-relaxed mb-10">
-                We don&apos;t believe in checklists. A great journey isn&apos;t measured
-                by landmarks visited — it&apos;s defined by moments you didn&apos;t
-                know you needed. Our work is about creating space for
-                discovery, building in room to breathe, and connecting you
-                with places on terms that feel genuine rather than
-                transactional.
+                {t.tourismOverview.approachBody}
               </p>
               <Link
                 href="/tourism/approach"
                 className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.12em] uppercase text-black/45 hover:text-black transition-colors"
               >
-                Read our approach <ArrowRight />
+                {t.tourismOverview.approachCta} <ArrowRight />
               </Link>
             </motion.div>
 

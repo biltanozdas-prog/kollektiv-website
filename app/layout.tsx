@@ -3,6 +3,7 @@ import { DM_Sans, Cormorant_Garamond, DM_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/Navbar'
 import LoadingAnimation from './components/LoadingAnimation'
+import { LanguageProvider } from '@/lib/LanguageContext'
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
@@ -42,9 +43,11 @@ export default function RootLayout({
       className={`${dmSans.variable} ${cormorant.variable} ${dmMono.variable}`}
     >
       <body>
-        <LoadingAnimation />
-        <Navbar />
-        {children}
+        <LanguageProvider>
+          <LoadingAnimation />
+          <Navbar />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   )

@@ -1,16 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useLang } from '@/lib/LanguageContext'
 
 type Circle = {
   id: string
-  label: string
   dTop: string
-  dLeft?: string    // Places uses left positioning
-  dRight?: string   // Moments + Futures use right positioning
+  dLeft?: string
+  dRight?: string
   dSize: number
   xlSize: number
-  mBottom: string   // from-bottom positioning aligns circles with h1 lines
+  mBottom: string
   mRight: string
   mSize: number
   duration: number
@@ -25,21 +25,18 @@ type Circle = {
 const circles: Circle[] = [
   {
     id: 'places',
-    label: 'Places',
     dTop: '25%',  dLeft: '35%',            dSize: 144,  xlSize: 180,
     mBottom: '170px', mRight: '5%',  mSize: 96,
     duration: 7,  oscDelay: 0,   amp: 10, dotDuration: 9,
   },
   {
     id: 'moments',
-    label: 'Moments',
     dTop: '15%',  dRight: '8%',            dSize: 118,  xlSize: 148,
     mBottom: '90px',  mRight: '22%', mSize: 80,
     duration: 6,  oscDelay: 1.4, amp: 8,  dotDuration: 7,
   },
   {
     id: 'futures',
-    label: 'Futures',
     dTop: '58%',  dRight: '12%',           dSize: 98,   xlSize: 122,
     mBottom: '25px',  mRight: '2%',  mSize: 64,
     duration: 8,  oscDelay: 2.8, amp: 6,  dotDuration: 11,
@@ -61,6 +58,10 @@ const textReveal = {
 }
 
 export default function Hero() {
+  const { t } = useLang()
+
+  const circleLabels = [t.home.places, t.home.moments, t.home.futures]
+
   return (
     <section className="relative min-h-screen w-full bg-white overflow-x-hidden pt-[68px]">
 
@@ -77,7 +78,7 @@ export default function Hero() {
               animate="show"
               className="font-mono text-[10px] xl:text-[11px] text-mg mb-10 tracking-[0.22em] uppercase"
             >
-              A Contemporary Cultural Platform
+              {t.home.eyebrow}
             </motion.p>
 
             <motion.p
@@ -88,9 +89,7 @@ export default function Hero() {
               className="font-sans font-light text-dark/50 text-sm leading-relaxed max-w-[300px] xl:max-w-[340px] mt-4 mb-6"
               style={{ fontSize: 'clamp(12px, 1.1vw, 14px)' }}
             >
-              A platform for those who move between worlds.
-              Travel with cultural depth, entertainment with
-              artistic rigour, ventures focused on the future.
+              {t.home.heroDesc}
             </motion.p>
 
             <motion.p
@@ -100,7 +99,7 @@ export default function Hero() {
               animate="show"
               className="font-sans font-light text-dark/55 text-[16px] xl:text-lg 2xl:text-xl leading-relaxed mb-16 max-w-[300px] xl:max-w-[340px]"
             >
-              Travel. Culture. Music. Experience.
+              {t.home.heroSub}
             </motion.p>
 
           </div>
@@ -143,7 +142,7 @@ export default function Hero() {
               </h1>
             </motion.div>
 
-            {/* md/lg circles — triangle spread across the text */}
+            {/* md/lg circles */}
             {circles.map((c, i) => (
               <motion.div
                 key={c.id}
@@ -153,7 +152,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
                 className="xl:hidden"
               >
-                <CircleContent c={c} size={c.dSize} />
+                <CircleContent c={c} size={c.dSize} label={circleLabels[i]} />
               </motion.div>
             ))}
 
@@ -167,7 +166,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
                 className="hidden xl:block"
               >
-                <CircleContent c={c} size={c.xlSize} />
+                <CircleContent c={c} size={c.xlSize} label={circleLabels[i]} />
               </motion.div>
             ))}
 
@@ -194,7 +193,7 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
           >
-            <CircleContent c={c} size={c.mSize} />
+            <CircleContent c={c} size={c.mSize} label={circleLabels[i]} />
           </motion.div>
         ))}
 
@@ -207,12 +206,10 @@ export default function Hero() {
             animate="show"
             className="font-mono text-[10px] text-mg tracking-[0.22em] uppercase"
           >
-            A Contemporary Cultural Platform
+            {t.home.eyebrow}
           </motion.p>
           <p className="font-sans font-light text-dark/50 text-sm leading-relaxed mt-3 mb-4 max-w-[280px]">
-            A platform for those who move between worlds.
-            Travel with cultural depth, entertainment with
-            artistic rigour, ventures focused on the future.
+            {t.home.heroDesc}
           </p>
         </div>
 
@@ -263,7 +260,7 @@ export default function Hero() {
   )
 }
 
-function CircleContent({ c, size }: { c: Circle; size: number }) {
+function CircleContent({ c, size, label }: { c: Circle; size: number; label: string }) {
   return (
     <motion.div
       animate={{ y: [0, -c.amp, 0, c.amp, 0] }}
@@ -298,7 +295,7 @@ function CircleContent({ c, size }: { c: Circle; size: number }) {
             className="font-sans font-semibold text-black leading-none"
             style={{ fontSize: Math.round(size * 0.088) }}
           >
-            {c.label}
+            {label}
           </span>
         </div>
       </div>

@@ -2,8 +2,11 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useLang } from '@/lib/LanguageContext'
 
 export default function InquiryCTA() {
+  const { t } = useLang()
+
   return (
     <section className="bg-white border-t border-lg px-6 lg:px-14 py-32 lg:py-48">
       <div className="max-w-screen-2xl mx-auto">
@@ -18,9 +21,8 @@ export default function InquiryCTA() {
             <span className="font-mono text-[10px] text-mg tracking-[0.22em] uppercase block mb-10">
               Get in touch
             </span>
-            {/* Sans only — homepage rule */}
             <h2 className="font-sans font-medium text-black leading-[1.1]" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.8rem)' }}>
-              Begin a conversation.
+              {t.home.ctaHeadline}
             </h2>
           </motion.div>
 
@@ -35,7 +37,7 @@ export default function InquiryCTA() {
               href="/contact"
               className="inline-flex items-center gap-3 font-sans text-sm tracking-[0.07em] bg-black text-white rounded-full px-12 py-5 hover:bg-dg transition-colors group"
             >
-              Start an inquiry
+              {t.home.ctaButton}
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="group-hover:translate-x-1 transition-transform">
                 <path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

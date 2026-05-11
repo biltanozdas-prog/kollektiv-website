@@ -2,26 +2,17 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-
-const pillars = [
-  {
-    num: '01',
-    title: 'Hybrid Spaces',
-    body: 'Venues that shift function. Gallery by day, club by night, residency space in between. Architecture that serves culture, not the other way around.',
-  },
-  {
-    num: '02',
-    title: 'Collaborative Models',
-    body: 'New funding and ownership structures for creative projects. Built for makers, not just investors. Sustained by communities, not just patrons.',
-  },
-  {
-    num: '03',
-    title: 'Cultural Tech',
-    body: 'Tools that support artists, organizers, and audiences without extracting value. Technology in service of experience — not the reverse.',
-  },
-]
+import { useLang } from '@/lib/LanguageContext'
 
 export default function InnovationPage() {
+  const { t } = useLang()
+
+  const pillars = [
+    { num: '01', title: t.innovation.p1Title, body: t.innovation.p1Body },
+    { num: '02', title: t.innovation.p2Title, body: t.innovation.p2Body },
+    { num: '03', title: t.innovation.p3Title, body: t.innovation.p3Body },
+  ]
+
   return (
     <main className="min-h-screen bg-offwhite pt-[108px]">
 
@@ -66,7 +57,7 @@ export default function InnovationPage() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="font-mono text-[10px] text-mg tracking-[0.22em] uppercase block mb-10"
           >
-            Innovation &amp; Futures
+            {t.innovation.eyebrow}
           </motion.span>
 
           <motion.h1
@@ -76,7 +67,7 @@ export default function InnovationPage() {
             className="font-sans font-bold text-black leading-[1.02] mb-10"
             style={{ fontSize: 'clamp(2.8rem, 7vw, 7rem)', letterSpacing: '-0.03em' }}
           >
-            Where culture meets what&apos;s next.
+            {t.innovation.headline}
           </motion.h1>
 
           <motion.p
@@ -85,7 +76,7 @@ export default function InnovationPage() {
             transition={{ duration: 0.7, delay: 0.6 }}
             className="font-sans font-light text-dark/55 text-xl leading-relaxed max-w-xl mb-12"
           >
-            We&apos;re building infrastructure for cultural ventures that don&apos;t fit existing categories. Projects that ask better questions rather than offering quick answers.
+            {t.innovation.desc}
           </motion.p>
 
           <motion.div
@@ -98,7 +89,7 @@ export default function InnovationPage() {
               href="/contact"
               className="inline-flex items-center gap-3 font-sans text-[12px] tracking-[0.1em] uppercase text-black border border-black/15 rounded-full px-7 py-3 hover:bg-black hover:text-white hover:border-black transition-all group"
             >
-              GET IN TOUCH
+              {t.innovation.cta}
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-yellow group-hover:text-white transition-colors">
                 <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
                 <path d="M5 7h4M7.5 5.5l1.5 1.5-1.5 1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
@@ -108,7 +99,7 @@ export default function InnovationPage() {
         </div>
       </section>
 
-      {/* What we&apos;re building */}
+      {/* What we're building */}
       <section className="bg-black py-28 lg:py-40 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto">
           <motion.span
@@ -117,7 +108,7 @@ export default function InnovationPage() {
             viewport={{ once: true }}
             className="font-mono text-[9px] text-yellow/60 tracking-[0.22em] uppercase block mb-16"
           >
-            WHAT WE&apos;RE EXPLORING
+            {t.innovation.exploringEyebrow}
           </motion.span>
 
           <div className="grid lg:grid-cols-3 gap-0 border-l border-white/[0.07]">
@@ -156,7 +147,7 @@ export default function InnovationPage() {
               viewport={{ once: true }}
               className="font-mono text-[9px] text-mg tracking-[0.22em] uppercase block mb-10"
             >
-              OUR POSITION
+              {t.innovation.positionEyebrow}
             </motion.span>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -165,7 +156,7 @@ export default function InnovationPage() {
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" as const }}
               className="font-sans font-light text-dark/65 text-xl lg:text-2xl leading-relaxed mb-8"
             >
-              Culture moves faster than institutions. We&apos;d rather operate at the edge — with practitioners, experimenters, and people building things that don&apos;t have names yet.
+              {t.innovation.positionP1}
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -174,12 +165,12 @@ export default function InnovationPage() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="font-sans font-light text-dark/40 text-base leading-relaxed"
             >
-              If you&apos;re working on something that defies easy definition —{' '}
+              {t.innovation.positionP2.split('—')[0]}—{' '}
               <Link
                 href="/contact"
                 className="text-dark/70 underline underline-offset-4 decoration-yellow hover:text-black transition-colors"
               >
-                we&apos;d like to hear about it.
+                {t.innovation.positionP2.split('—')[1]?.trim()}
               </Link>
             </motion.p>
           </div>
@@ -202,8 +193,8 @@ export default function InnovationPage() {
               className="font-sans font-bold text-black leading-[0.92] tracking-tight"
               style={{ fontSize: 'clamp(2.5rem, 5.5vw, 6rem)', letterSpacing: '-0.02em' }}
             >
-              <span className="block text-black">SOMETHING IS</span>
-              <span className="block text-black/30">FORMING.</span>
+              <span className="block text-black">{t.innovation.ctaHeadline1}</span>
+              <span className="block text-black/30">{t.innovation.ctaHeadline2}</span>
             </h2>
           </motion.div>
 
@@ -214,12 +205,12 @@ export default function InnovationPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' as const }}
           >
-            <p className="font-sans font-light text-dark/50 text-sm mb-8">Start a conversation.</p>
+            <p className="font-sans font-light text-dark/50 text-sm mb-8">{t.innovation.ctaSub}</p>
             <Link
               href="/contact"
               className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-black hover:text-white hover:border-black transition-colors duration-300 w-full"
             >
-              GET IN TOUCH
+              {t.innovation.ctaButton}
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0">
                 <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
                 <path d="M5 7h4M7.5 5.5l1.5 1.5-1.5 1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />

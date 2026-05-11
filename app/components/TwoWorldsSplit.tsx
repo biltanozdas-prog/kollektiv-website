@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useLang } from '@/lib/LanguageContext'
 
 function Arrow() {
   return (
@@ -18,6 +19,8 @@ const fadeScale = {
 
 
 export default function TwoWorldsSplit() {
+  const { t } = useLang()
+
   return (
     <section>
 
@@ -41,7 +44,7 @@ export default function TwoWorldsSplit() {
             transition={{ delay: 0.15, duration: 0.5 }}
             className="font-mono text-[9px] text-mg tracking-[0.22em] uppercase block mb-8"
           >
-            Tourism &amp; Concierge
+            {t.home.tourismLabel}
           </motion.span>
           <div className="w-10 h-[2px] bg-yellow mb-10" />
           <motion.h2
@@ -61,7 +64,7 @@ export default function TwoWorldsSplit() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="font-sans font-light text-dg text-base leading-relaxed mb-12 max-w-[320px]"
           >
-            Travel shaped around context, where place, timing and access come together.
+            {t.home.tourismDesc}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -70,7 +73,7 @@ export default function TwoWorldsSplit() {
             transition={{ delay: 0.55 }}
           >
             <Link href="/tourism" className="inline-flex items-center gap-3 font-sans text-sm tracking-[0.06em] text-black hover:opacity-50 transition-opacity group w-fit">
-              Explore Tourism
+              {t.home.tourismCta}
               <motion.span whileHover={{ x: 4 }} className="inline-block"><Arrow /></motion.span>
             </Link>
           </motion.div>
@@ -156,7 +159,7 @@ export default function TwoWorldsSplit() {
             transition={{ delay: 0.15, duration: 0.5 }}
             className="font-mono text-[9px] text-yellow/60 tracking-[0.22em] uppercase block mb-8"
           >
-            Entertainment
+            {t.home.entertainmentLabel}
           </motion.span>
           <div className="w-10 h-[2px] bg-yellow mb-10" />
           <motion.h2
@@ -167,7 +170,7 @@ export default function TwoWorldsSplit() {
             className="font-sans font-bold text-white leading-[1.08] mb-10"
             style={{ fontSize: 'clamp(2.6rem, 5.5vw, 4.5rem)' }}
           >
-            Music has always moved alongside culture.
+            {t.home.entertainmentHeadline}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -176,7 +179,7 @@ export default function TwoWorldsSplit() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="font-sans font-light text-white/50 text-lg leading-relaxed mb-12 max-w-[400px]"
           >
-            We&apos;re building the space where sound moves alongside everything else we do. Music programming, private gatherings, curated activations.
+            {t.home.entertainmentDesc}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -185,7 +188,7 @@ export default function TwoWorldsSplit() {
             transition={{ delay: 0.55 }}
           >
             <Link href="/entertainment" className="inline-flex items-center gap-3 font-sans text-sm tracking-[0.06em] text-yellow hover:opacity-50 transition-opacity group w-fit">
-              Explore Entertainment
+              {t.home.entertainmentCta}
               <motion.span whileHover={{ x: 4 }} className="inline-block"><Arrow /></motion.span>
             </Link>
           </motion.div>
@@ -203,24 +206,24 @@ export default function TwoWorldsSplit() {
         <div className="max-w-screen-2xl mx-auto">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
 
-            {/* Sol: metin */}
             <div className="max-w-xl">
               <p className="font-mono text-[9px] tracking-[0.22em] text-yellow uppercase mb-6">
-                Innovation
+                {t.home.innovationLabel}
               </p>
               <div className="w-8 h-[1px] bg-yellow mb-8" />
               <h2
                 className="font-sans font-bold text-black uppercase"
                 style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', letterSpacing: '-0.02em', lineHeight: 0.92 }}
               >
-                Something<br />is forming.
+                {t.home.innovationHeadline.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h2>
               <p className="font-sans font-light text-dark/50 text-base mt-6 max-w-sm">
-                More when the time is right.
+                {t.home.innovationDesc}
               </p>
             </div>
 
-            {/* Sağ: glow + CTA */}
             <div className="flex flex-col items-start lg:items-end gap-8">
               <div
                 style={{
@@ -235,7 +238,7 @@ export default function TwoWorldsSplit() {
                 href="/innovation"
                 className="font-mono text-[11px] tracking-[0.18em] text-dark/50 hover:text-black transition-colors uppercase"
               >
-                Explore →
+                {t.home.innovationCta} →
               </Link>
             </div>
 

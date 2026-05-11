@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import K26Mark from './K26Mark'
 import SubNav from './SubNav'
+import { useLang } from '@/lib/LanguageContext'
 
 type Mode = 'none' | 'tourism' | 'entertainment' | 'innovation'
 
@@ -40,6 +41,7 @@ export default function Navbar() {
   const mode      = detectMode(pathname)
   const [menuOpen, setMenuOpen]       = useState(false)
   const [scrollProgress, setProgress] = useState(0)
+  const { lang, setLang, t } = useLang()
 
   const isEnt             = mode === 'entertainment'
   const isTourismOverview = pathname === '/tourism'
@@ -112,10 +114,10 @@ export default function Navbar() {
             <div className="flex items-center justify-start">
               {/* Desktop: mode links */}
               <div className="hidden md:flex items-center gap-6 lg:gap-8">
-                <NavLink href="/"              active={pathname === '/'}                       textColor={textColor}>Home</NavLink>
-                <NavLink href="/tourism"       active={pathname.startsWith('/tourism')}       textColor={textColor}>Tourism</NavLink>
-                <NavLink href="/entertainment" active={pathname.startsWith('/entertainment')} textColor={textColor}>Entertainment</NavLink>
-                <NavLink href="/innovation"    active={pathname.startsWith('/innovation')}    textColor={textColor}>Innovation</NavLink>
+                <NavLink href="/"              active={pathname === '/'}                       textColor={textColor}>{t.nav.home}</NavLink>
+                <NavLink href="/tourism"       active={pathname.startsWith('/tourism')}       textColor={textColor}>{t.nav.tourism}</NavLink>
+                <NavLink href="/entertainment" active={pathname.startsWith('/entertainment')} textColor={textColor}>{t.nav.entertainment}</NavLink>
+                <NavLink href="/innovation"    active={pathname.startsWith('/innovation')}    textColor={textColor}>{t.nav.innovation}</NavLink>
               </div>
 
               {/* Mobile: hamburger left */}
@@ -144,23 +146,23 @@ export default function Navbar() {
 
             {/* RIGHT — Secondary navigation */}
             <div className="hidden md:flex items-center gap-6 lg:gap-8 justify-end">
-              <NavLink href="/about"   active={pathname === '/about'}   textColor={textColor}>About</NavLink>
-              <NavLink href="/contact" active={pathname === '/contact'} textColor={textColor}>Contact</NavLink>
+              <NavLink href="/about"   active={pathname === '/about'}   textColor={textColor}>{t.nav.about}</NavLink>
+              <NavLink href="/contact" active={pathname === '/contact'} textColor={textColor}>{t.nav.contact}</NavLink>
 
               {/* EN|TR Toggle */}
               <div className="flex items-center gap-1.5">
                 <button
-                  className="font-mono text-[10px] tracking-[0.12em] uppercase font-medium transition-opacity"
-                  style={{ color: textColor }}
-                  onClick={() => {}}
+                  className="font-mono text-[10px] tracking-[0.12em] uppercase transition-opacity hover:opacity-100"
+                  style={{ color: textColor, opacity: lang === 'en' ? 1 : 0.4, fontWeight: lang === 'en' ? 500 : 400 }}
+                  onClick={() => setLang('en')}
                 >
                   EN
                 </button>
                 <span className="font-mono text-[10px]" style={{ color: textMuted }}>|</span>
                 <button
-                  className="font-mono text-[10px] tracking-[0.12em] uppercase transition-opacity hover:opacity-70"
-                  style={{ color: textMuted }}
-                  onClick={() => {}}
+                  className="font-mono text-[10px] tracking-[0.12em] uppercase transition-opacity hover:opacity-100"
+                  style={{ color: textColor, opacity: lang === 'tr' ? 1 : 0.4, fontWeight: lang === 'tr' ? 500 : 400 }}
+                  onClick={() => setLang('tr')}
                 >
                   TR
                 </button>
@@ -212,9 +214,9 @@ export default function Navbar() {
 
               {/* Primary: mode links */}
               {[
-                { href: '/tourism',       label: 'Tourism' },
-                { href: '/entertainment', label: 'Entertainment' },
-                { href: '/innovation',    label: 'Innovation' },
+                { href: '/tourism',       label: t.nav.tourism },
+                { href: '/entertainment', label: t.nav.entertainment },
+                { href: '/innovation',    label: t.nav.innovation },
               ].map((item, i) => (
                 <motion.div
                   key={item.href}
@@ -246,9 +248,9 @@ export default function Navbar() {
 
               {/* Secondary: Home / About / Contact */}
               {[
-                { href: '/',        label: 'Home' },
-                { href: '/about',   label: 'About' },
-                { href: '/contact', label: 'Contact' },
+                { href: '/',        label: t.nav.home },
+                { href: '/about',   label: t.nav.about },
+                { href: '/contact', label: t.nav.contact },
               ].map((item, i) => (
                 <motion.div
                   key={item.href}
@@ -275,17 +277,17 @@ export default function Navbar() {
                 className="flex items-center gap-3 mt-8"
               >
                 <button
-                  className="font-mono text-[11px] tracking-[0.14em] uppercase font-medium"
-                  style={{ color: menuText }}
-                  onClick={() => {}}
+                  className="font-mono text-[11px] tracking-[0.14em] uppercase transition-opacity hover:opacity-100"
+                  style={{ color: menuText, fontWeight: lang === 'en' ? 500 : 400, opacity: lang === 'en' ? 1 : 0.35 }}
+                  onClick={() => setLang('en')}
                 >
                   EN
                 </button>
                 <span style={{ color: menuBorder }}>|</span>
                 <button
-                  className="font-mono text-[11px] tracking-[0.14em] uppercase"
-                  style={{ color: menuText, opacity: 0.35 }}
-                  onClick={() => {}}
+                  className="font-mono text-[11px] tracking-[0.14em] uppercase transition-opacity hover:opacity-100"
+                  style={{ color: menuText, fontWeight: lang === 'tr' ? 500 : 400, opacity: lang === 'tr' ? 1 : 0.35 }}
+                  onClick={() => setLang('tr')}
                 >
                   TR
                 </button>

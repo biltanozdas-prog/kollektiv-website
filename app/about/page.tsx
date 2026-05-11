@@ -2,8 +2,43 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useLang } from '@/lib/LanguageContext'
 
 export default function AboutPage() {
+  const { t } = useLang()
+
+  const cards = [
+    {
+      label: t.about.card1Label,
+      body: t.about.card1Desc,
+      href: '/tourism',
+      linkLabel: t.about.card1Cta,
+      image: '/images/concierge%201.png',
+    },
+    {
+      label: t.about.card2Label,
+      body: t.about.card2Desc,
+      href: '/entertainment',
+      linkLabel: t.about.card2Cta,
+      image: '/images/12-entertainment-venue-hero-vertical.jpg.png',
+    },
+    {
+      label: t.about.card3Label,
+      body: t.about.card3Desc,
+      href: '/innovation',
+      linkLabel: t.about.card3Cta,
+      image: '/images/07-entertainment-system-diagram.jpg.png',
+    },
+  ]
+
+  const approachItems = [
+    { id: '01', title: t.about.approach1Title, body: t.about.approach1Body },
+    { id: '02', title: t.about.approach2Title, body: t.about.approach2Body },
+    { id: '03', title: t.about.approach3Title, body: t.about.approach3Body },
+    { id: '04', title: t.about.approach4Title, body: t.about.approach4Body },
+    { id: '05', title: t.about.approach5Title, body: t.about.approach5Body },
+  ]
+
   return (
     <main className="min-h-screen bg-white pt-[88px]">
 
@@ -20,7 +55,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.15 }}
                 className="font-mono text-[10px] !text-[#6A6A6A] tracking-[0.22em] uppercase block mb-10"
               >
-                About Kollektiv 26
+                {t.about.eyebrow}
               </motion.span>
               <div className="w-10 h-[2px] bg-yellow mb-12" />
               <motion.h1
@@ -30,7 +65,7 @@ export default function AboutPage() {
                 className="font-sans font-bold text-black leading-[1.04] mb-12"
                 style={{ fontSize: 'clamp(2.8rem, 6vw, 6rem)', letterSpacing: '-0.025em' }}
               >
-                A platform for those<br />who move between worlds.
+                {t.about.headline}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -38,7 +73,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.7, delay: 0.45 }}
                 className="font-sans font-normal !text-[#1F1F1F] text-xl lg:text-2xl leading-relaxed max-w-3xl"
               >
-                We curate travel with cultural depth, entertainment with artistic rigour, and ventures that look ahead. Founded in Istanbul. Operating globally.
+                {t.about.desc}
               </motion.p>
             </div>
 
@@ -66,29 +101,7 @@ export default function AboutPage() {
       <section className="border-t border-black/15 py-20 lg:py-28 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-0 border-l border-black/15">
-            {[
-              {
-                label: 'Tourism & Concierge',
-                body: 'Travel shaped around context. We work from conversation — not catalogues. Curated stays, private access and journeys across the Aegean and beyond.',
-                href: '/tourism',
-                linkLabel: 'Explore Tourism',
-                image: '/images/concierge%201.png',
-              },
-              {
-                label: 'Entertainment',
-                body: 'Sound-led cultural systems. Events, artist development and venue operations — built from concept to close, not just coordinated.',
-                href: '/entertainment',
-                linkLabel: 'Explore Entertainment',
-                image: '/images/12-entertainment-venue-hero-vertical.jpg.png',
-              },
-              {
-                label: 'Innovation',
-                body: "New ventures at the edge of culture and business. Platforms, partnerships and ideas built for longevity — formed when the conditions are right.",
-                href: '/innovation',
-                linkLabel: 'Explore Innovation',
-                image: '/images/07-entertainment-system-diagram.jpg.png',
-              },
-            ].map((item, i) => (
+            {cards.map((item, i) => (
               <Link href={item.href} key={item.label} className="block">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -130,7 +143,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="font-mono text-[10px] !text-[#6A6A6A] tracking-[0.22em] uppercase block mb-6"
             >
-              The name
+              {t.about.why26Eyebrow}
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -140,59 +153,25 @@ export default function AboutPage() {
               className="font-sans font-bold !text-black leading-tight mb-14"
               style={{ fontSize: 'clamp(2.4rem, 4vw, 4.2rem)', letterSpacing: '-0.025em' }}
             >
-              Why 26?
+              {t.about.why26Headline}
             </motion.h2>
 
             <div className="space-y-8 max-w-2xl">
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="font-sans font-semibold !text-black text-xl lg:text-2xl leading-relaxed"
-              >
-                26 is the number of letters in the Latin alphabet.
-              </motion.p>
-
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-sans font-normal !text-[#2A2A2A] text-[17px] leading-[1.75]"
-              >
-                A finite set, capable of producing everything that has been written — and everything still waiting to be written. Names, directions, invitations, maps, contracts, songs, stories, departures, returns.
-              </motion.p>
-
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-sans font-normal !text-[#2A2A2A] text-[17px] leading-[1.75]"
-              >
-                For us, 26 is not a number of completion. It is a structure of expression.
-              </motion.p>
-
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="font-sans font-normal !text-[#2A2A2A] text-[17px] leading-[1.75]"
-              >
-                The Agora was built on a similar idea: a space where voices, disciplines, questions and encounters could gather. Not as a single message, but as a living field of exchange.
-              </motion.p>
-
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="font-sans font-normal !text-[#2A2A2A] text-[17px] leading-[1.75]"
-              >
-                Kollektiv 26 carries that logic forward. Travel, entertainment, culture and new ventures meet here as parts of a shared language — each one distinct, but stronger when placed in relation.
-              </motion.p>
+              {[t.about.why26P1, t.about.why26P2, t.about.why26P3, t.about.why26P4, t.about.why26P5].map((p, i) => (
+                <motion.p
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className={i === 0
+                    ? 'font-sans font-semibold !text-black text-xl lg:text-2xl leading-relaxed'
+                    : 'font-sans font-normal !text-[#2A2A2A] text-[17px] leading-[1.75]'
+                  }
+                >
+                  {p}
+                </motion.p>
+              ))}
             </div>
           </div>
 
@@ -232,14 +211,14 @@ export default function AboutPage() {
                 viewport={{ once: true }}
               >
                 <span className="font-mono text-[10px] !text-[#6A6A6A] tracking-[0.22em] uppercase block mb-8">
-                  How we work
+                  {t.about.approachEyebrow}
                 </span>
                 <div className="w-8 h-[2px] bg-yellow mb-10" />
                 <h2
                   className="font-sans font-bold !text-black leading-tight"
                   style={{ fontSize: 'clamp(2rem, 3.5vw, 3.2rem)', letterSpacing: '-0.025em' }}
                 >
-                  Our<br />approach
+                  {t.about.approachHeadline}
                 </h2>
               </motion.div>
             </div>
@@ -252,34 +231,8 @@ export default function AboutPage() {
               transition={{ delay: 0.15 }}
               className="lg:col-span-8 border-t border-[#CFCFCF]"
             >
-              {[
-                {
-                  id: '01',
-                  title: 'A contemporary Agora',
-                  body: 'Like the ancient Athenian gathering place where commerce, culture, and civic life intersected, we operate as a platform where disciplines inform one another. Not isolated departments — interconnected practices.',
-                },
-                {
-                  id: '02',
-                  title: 'Quality over reach',
-                  body: "We don't optimize for scale. Better to serve fewer people well than maximize volume at the expense of experience.",
-                },
-                {
-                  id: '03',
-                  title: 'Context matters',
-                  body: 'Every journey, event or venture exists within a broader cultural landscape. We consider how our work fits, what it responds to, and what it adds — not just what it delivers.',
-                },
-                {
-                  id: '04',
-                  title: 'Transparency, not hype',
-                  body: 'We avoid marketing language that promises transformation. Clear communication, honest expectations, work that speaks for itself.',
-                },
-                {
-                  id: '05',
-                  title: 'Based in Istanbul, operating globally',
-                  body: 'Founded in a city that exists between continents and centuries. This shapes how we think about connection, heritage, and building something contemporary that respects the past.',
-                },
-              ].map((item) => (
-                <details key={item.title} className="group border-b-[1.5px] border-[#CFCFCF] outline-none">
+              {approachItems.map((item) => (
+                <details key={item.id} className="group border-b-[1.5px] border-[#CFCFCF] outline-none">
                   <summary className="flex items-center justify-between cursor-pointer list-none py-10 lg:py-14 gap-8 outline-none select-none">
                     <div className="flex items-baseline gap-6 lg:gap-10">
                       <span className="font-mono text-[10px] !text-[#6A6A6A] translate-y-[-2px]">{item.id}</span>
@@ -313,14 +266,14 @@ export default function AboutPage() {
           <div>
             <span className="font-mono text-[9px] !text-[#6A6A6A] tracking-[0.22em] uppercase block mb-4">Work with us</span>
             <h2 className="font-sans font-bold text-black text-3xl lg:text-4xl" style={{ letterSpacing: '-0.02em' }}>
-              If something here resonates, we&apos;d like to hear from you.
+              {t.about.ctaHeadline}
             </h2>
           </div>
           <Link
             href="/contact"
             className="inline-flex items-center gap-3 font-sans text-[12px] tracking-[0.1em] uppercase text-white bg-black rounded-full px-8 py-4 hover:bg-black/90 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
-            Get in touch
+            {t.about.ctaButton}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2 7h10M7.5 3.5l3.5 3.5-3.5 3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
