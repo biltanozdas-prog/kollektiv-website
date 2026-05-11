@@ -22,7 +22,6 @@ function Bars({ heights, className = '' }: { heights: number[]; className?: stri
   )
 }
 
-const SIGNAL  = [4, 8, 5, 10, 6, 3, 9, 5, 12, 4, 7, 6]
 const BARCODE = [6, 10, 4, 14, 8, 5, 12, 7, 10, 4, 8, 6, 12]
 
 const PROCESS = [
@@ -90,15 +89,12 @@ export default function LabelPage() {
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
                 style={{ fontSize: 'clamp(3rem, 7vw, 7.5rem)' }}
               >
-                WE DON'T<br />
-                DISCOVER<br />
-                ARTISTS.<br />
-                WE RECOGNIZE<br />
-                THEM.
+                FROM<br />
+                RECOGNITION<br />
+                TO RELEASE.
               </h1>
-              <p className="font-sans text-white/45 text-base leading-relaxed mb-12 max-w-[36ch]">
-                When we decide to work with an artist, the question is always the same:<br />
-                what does this person need to exist at their best?
+              <p className="font-sans text-white/45 text-base leading-relaxed mb-12 max-w-[44ch]">
+                We focus on one thing: what does this artist need to exist at their best? Sometimes it's production. Sometimes it's legal structure. Sometimes it's visibility. Sometimes it's just being in the right room with the right people. We build that room.
               </p>
               <Link
                 href="/contact"
@@ -111,57 +107,7 @@ export default function LabelPage() {
         </div>
       </section>
 
-      {/* ── 02 INTRO ─────────────────────────────────────────────────────────── */}
-      <section className="bg-offwhite relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <pattern id="dots-lb" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-                <circle cx="1.5" cy="1.5" r="1" fill="#0A0A0A" opacity="0.07" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#dots-lb)" />
-          </svg>
-        </div>
-        <div className="relative z-10 max-w-screen-2xl mx-auto px-8 lg:px-16 py-24 lg:py-36 grid lg:grid-cols-12 gap-12 items-end">
-          <div className="lg:col-span-5">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: "easeOut" as const }}
-            >
-              <div className="flex items-center gap-3 mb-10">
-                <div className="w-8 h-[1.5px] bg-yellow" />
-                <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">Our System</span>
-              </div>
-              <h2
-                className="font-sans font-bold text-black leading-[0.88] tracking-tighter"
-                style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
-              >
-                FROM<br />
-                RECOGNITION<br />
-                TO RELEASE.
-              </h2>
-            </motion.div>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" as const }}
-            className="lg:col-span-6 lg:col-start-7 flex flex-col lg:flex-row gap-10 items-start lg:items-end"
-          >
-            <div className="flex-1">
-              <p className="font-sans text-black/55 text-base leading-relaxed mb-8">
-                We focus on one thing: what does this artist need to exist at their best? Sometimes it's production. Sometimes it's legal structure. Sometimes it's visibility. Sometimes it's just being in the right room with the right people. We build that room.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── 03 THREE CARDS ───────────────────────────────────────────────────── */}
+      {/* ── 02 THREE CARDS ───────────────────────────────────────────────────── */}
       <section className="bg-offwhite border-t border-lg px-8 lg:px-16 pt-14 lg:pt-16 pb-24 lg:pb-32">
         <div className="max-w-screen-2xl mx-auto">
           <div className="flex items-center gap-3 mb-14">
@@ -244,7 +190,7 @@ export default function LabelPage() {
         </div>
       </section>
 
-      {/* ── 04 DARK PROCESS SECTION ──────────────────────────────────────────── */}
+      {/* ── 03 DARK PROCESS SECTION ──────────────────────────────────────────── */}
       <section className="bg-black relative overflow-hidden border-y border-white/[0.06]">
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.03]"
@@ -253,10 +199,10 @@ export default function LabelPage() {
             backgroundSize: '80px 80px',
           }}
         />
-        <div className="relative z-10 grid lg:grid-cols-12 lg:min-h-[560px]">
+        <div className="relative z-10 grid lg:grid-cols-12">
 
           {/* Left — image */}
-          <div className="lg:col-span-5 relative min-h-[280px] overflow-hidden">
+          <div className="lg:col-span-5 relative min-h-[280px] lg:min-h-0 overflow-hidden">
             <img
               src="/images/03-entertainment-label-artist-card.jpg.png"
               alt="" aria-hidden="true"
@@ -285,24 +231,33 @@ export default function LabelPage() {
               FROM CONTRACT<br />TO RELEASE.
             </h2>
 
-            <div className="space-y-0">
-              {PROCESS.map((item) => (
+            <div className="border-t border-white/[0.10]">
+              {PROCESS.map((item, i) => (
                 <details
                   key={item.title}
-                  className="group border-b border-white/[0.07] last:border-b-0"
+                  className="group border-b border-white/[0.10] outline-none last:border-b-0"
                 >
-                  <summary className="flex items-start justify-between cursor-pointer list-none py-6 gap-6">
-                    <h3 className="font-sans font-bold text-white text-base leading-snug">{item.title}</h3>
-                    <svg
-                      className="w-4 h-4 text-white/30 shrink-0 mt-0.5 transition-transform duration-300 group-open:rotate-180"
-                      fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-                    </svg>
+                  <summary className="flex items-center justify-between cursor-pointer list-none py-10 lg:py-12 gap-8 outline-none select-none">
+                    <div className="flex items-baseline gap-6 lg:gap-8">
+                      <span className="font-mono text-[10px] text-yellow/50 translate-y-[-2px] shrink-0">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <h3 className="font-sans font-bold text-white text-xl lg:text-2xl leading-tight tracking-tight group-hover:text-white/60 transition-colors">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <div className="relative w-8 h-8 lg:w-9 lg:h-9 shrink-0">
+                      <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out group-open:rotate-[135deg]">
+                        <div className="w-full h-[1.5px] bg-white/30" />
+                        <div className="absolute w-[1.5px] h-full bg-white/30" />
+                      </div>
+                    </div>
                   </summary>
-                  <p className="font-sans text-white/45 text-[14px] leading-relaxed pb-6 max-w-2xl">
-                    {item.body}
-                  </p>
+                  <div className="pb-8 lg:pb-12 pl-[46px] lg:pl-[68px] max-w-2xl overflow-hidden">
+                    <p className="font-sans text-white/45 text-base leading-[1.7]">
+                      {item.body}
+                    </p>
+                  </div>
                 </details>
               ))}
             </div>
@@ -316,7 +271,7 @@ export default function LabelPage() {
         className="h-24 bg-gradient-to-b from-black to-transparent -mt-24 relative z-10 pointer-events-none"
       />
 
-      {/* ── 05 FINAL CTA ─────────────────────────────────────────────────────── */}
+      {/* ── 04 FINAL CTA ─────────────────────────────────────────────────────── */}
       <section className="bg-offwhite px-8 lg:px-16 py-24 lg:py-40 border-t border-lg">
         <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-end">
           <motion.div
@@ -354,7 +309,7 @@ export default function LabelPage() {
         </div>
       </section>
 
-      {/* ── 06 FOOTER STRIP ──────────────────────────────────────────────────── */}
+      {/* ── 05 FOOTER STRIP ──────────────────────────────────────────────────── */}
       <div className="bg-black border-t border-white/[0.06] px-8 lg:px-16 py-6">
         <div className="max-w-screen-2xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
