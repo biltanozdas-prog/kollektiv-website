@@ -217,7 +217,7 @@ export default function Hero() {
         </div>
 
         {/* Spacer */}
-        <div className="flex-1" />
+        <div className="flex-1 min-h-[80px] lg:min-h-[280px]" />
 
         {/* Button + h1 — bottom, circles overlay intentionally */}
         <div className="px-5 pb-8 flex flex-col gap-8">
