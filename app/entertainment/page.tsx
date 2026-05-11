@@ -168,12 +168,6 @@ export default function EntertainmentPage() {
                 ))}
               </div>
 
-              <Link
-                href="/entertainment/events"
-                className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] uppercase text-white/60 hover:text-white transition-colors mt-auto"
-              >
-                VIEW THE SYSTEM <ArrowRight size={13} />
-              </Link>
             </motion.div>
 
             {/* SAĞ KOLON — col-span-7 */}
