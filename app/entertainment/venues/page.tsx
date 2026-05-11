@@ -277,11 +277,6 @@ export default function VenuesPage() {
         </div>
       </section>
 
-      <div
-        aria-hidden="true"
-        className="h-24 bg-gradient-to-b from-black to-transparent -mt-24 relative z-10 pointer-events-none"
-      />
-
       {/* ── 05 VISUAL COMPOSITION ────────────────────────────────────────────── */}
       <section className="bg-nw relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 lg:min-h-[500px]">
