@@ -30,7 +30,7 @@ export default function EventsPage() {
 
       {/* ── 01 HERO ──────────────────────────────────────────────────────────── */}
       <section
-        className="relative bg-[#0A0A0A] overflow-hidden flex flex-col"
+        className="relative bg-black overflow-hidden flex flex-col"
         style={{ minHeight: 'calc(100vh + 108px)', marginTop: '-108px' }}
       >
         <img
@@ -89,52 +89,8 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* ── 02 DARK BRIDGE ───────────────────────────────────────────────────── */}
-      <section className="bg-[#0A0A0A] relative overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.04]"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }}
-        />
-        <div className="relative z-10 max-w-screen-2xl mx-auto px-8 lg:px-16 pt-10 lg:pt-14">
-          <div className="flex items-center justify-between pb-10 lg:pb-14">
-            <div className="flex items-center gap-4">
-              <Bars heights={SIGNAL} className="text-yellow/35" />
-              <span className="font-mono text-[9px] text-white/25 tracking-[0.28em] uppercase">Concept — Format — Execution</span>
-            </div>
-            <div className="hidden sm:flex items-center gap-2.5">
-              <K26Mark size={12} className="text-white/15" />
-              <span className="font-mono text-[9px] text-white/20 tracking-[0.22em] uppercase">Events</span>
-            </div>
-          </div>
-          <div className="flex border-t border-white/[0.05]">
-            {([
-              { n: '01', label: 'CONCEPT' },
-              { n: '02', label: 'FORMAT' },
-              { n: '03', label: 'EXECUTION' },
-            ] as { n: string; label: string }[]).map((item, i) => (
-              <div
-                key={item.n}
-                className={`flex-1 flex items-center gap-2 lg:gap-3 py-4 ${i > 0 ? 'border-l border-white/[0.05] pl-4 lg:pl-8' : ''}`}
-              >
-                <span className="font-mono text-[8px] text-yellow/30 tracking-[0.2em]">{item.n}</span>
-                <span className="font-mono text-[11px] text-white/20 tracking-[0.26em] uppercase">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="h-16 lg:h-28" />
-      </section>
-
-      <div
-        aria-hidden="true"
-        className="h-24 bg-gradient-to-b from-[#0A0A0A] to-transparent -mt-24 relative z-10 pointer-events-none"
-      />
-
-      {/* ── 03 INTRO ─────────────────────────────────────────────────────────── */}
-      <section className="bg-[#F8F5EF] relative overflow-hidden">
+      {/* ── 02 INTRO ─────────────────────────────────────────────────────────── */}
+      <section className="bg-offwhite relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <defs>
@@ -155,10 +111,10 @@ export default function EventsPage() {
             >
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-8 h-[1.5px] bg-yellow" />
-                <span className="font-mono text-[10px] text-[#8C8C8C] tracking-[0.28em] uppercase">The Format</span>
+                <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">The Format</span>
               </div>
               <h2
-                className="font-sans font-bold text-[#0A0A0A] leading-[0.88] tracking-tighter"
+                className="font-sans font-bold text-black leading-[0.88] tracking-tighter"
                 style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
               >
                 FROM<br />
@@ -175,39 +131,24 @@ export default function EventsPage() {
             className="lg:col-span-6 lg:col-start-7 flex flex-col lg:flex-row gap-10 items-start lg:items-end"
           >
             <div className="flex-1">
-              <p className="font-sans text-[#0A0A0A]/55 text-base leading-relaxed mb-8">
+              <p className="font-sans text-black/55 text-base leading-relaxed mb-8">
                 A concert, a launch, a night — these are frames. Kollektiv 26 focuses on what fills that frame: atmosphere, timing, flow and how people feel when they are there. We handle the system from concept to close. Our real work isn't coordination — it's curation.
               </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] uppercase text-[#0A0A0A] hover:opacity-50 transition-opacity"
-              >
-                GET IN TOUCH <ArrowRight size={13} />
-              </Link>
-            </div>
-            <div className="flex items-stretch shrink-0">
-              <div className="bg-[#0A0A0A] px-5 py-4 flex flex-col justify-between w-32 h-20">
-                <span className="font-mono text-[8px] text-yellow/70 tracking-[0.22em] uppercase">Format</span>
-                <Bars heights={SIGNAL.slice(0, 9)} className="text-yellow/60" />
-              </div>
-              <div className="bg-yellow w-12 h-20 flex items-end justify-end p-1.5">
-                <span className="font-mono text-[7px] text-black/30 tracking-widest" style={{ writingMode: 'vertical-rl' }}>K26</span>
-              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ── 04 THREE PILLARS ─────────────────────────────────────────────────── */}
-      <section className="bg-[#F8F5EF] border-t border-[#D8D4CC] px-8 lg:px-16 pt-14 lg:pt-16 pb-24 lg:pb-32">
+      {/* ── 03 WHAT WE DO ────────────────────────────────────────────────────── */}
+      <section className="bg-offwhite border-t border-lg px-8 lg:px-16 pt-14 lg:pt-16 pb-24 lg:pb-32">
         <div className="max-w-screen-2xl mx-auto">
           <div className="flex items-center gap-3 mb-14">
             <div className="w-8 h-[1.5px] bg-yellow" />
-            <span className="font-mono text-[10px] text-[#8C8C8C] tracking-[0.28em] uppercase">What We Do</span>
+            <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">What We Do</span>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-l border-[#D8D4CC]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-l border-lg">
 
-            <div className="lg:col-span-5 border-r border-b border-[#D8D4CC] p-10 lg:p-14 flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
+            <div className="lg:col-span-4 border-r border-b border-lg p-10 lg:p-14 flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
               <div className="absolute bottom-6 right-6 pointer-events-none" aria-hidden="true">
                 <svg width="100" height="100" viewBox="0 0 100 100" fill="none" opacity="0.06">
                   <circle cx="50" cy="50" r="46" stroke="#0A0A0A" strokeWidth="1" />
@@ -220,20 +161,20 @@ export default function EventsPage() {
               </div>
               <div className="flex-1">
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
-                <p className="font-mono text-[9px] text-[#8C8C8C] tracking-[0.24em] uppercase mb-6">01</p>
-                <h3 className="font-sans font-bold text-[#0A0A0A] text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
+                <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">01</p>
+                <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
                   CONCEPT →<br />EXECUTION
                 </h3>
-                <p className="font-sans text-[#0A0A0A]/55 text-[15px] leading-relaxed max-w-[30ch]">
+                <p className="font-sans text-black/55 text-[15px] leading-relaxed max-w-[30ch]">
                   We define why an event exists, who it's for, and what it should leave behind. From there: budget, then stage.
                 </p>
               </div>
-              <div className="mt-10 font-mono text-[9px] text-[#8C8C8C] tracking-[0.12em] uppercase">
+              <div className="mt-10 font-mono text-[9px] text-mg tracking-[0.12em] uppercase">
                 Format first. Logistics follow.
               </div>
             </div>
 
-            <div className="lg:col-span-4 border-r border-b border-[#0A0A0A]/20 p-10 lg:p-12 bg-[#0A0A0A] flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
+            <div className="lg:col-span-4 border-r border-b border-[#0A0A0A]/20 p-10 lg:p-12 bg-black flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
               <div className="absolute bottom-6 right-6 pointer-events-none" aria-hidden="true">
                 <Bars heights={[3,5,8,4,10,6,7,3,9,5,8,4,6,3,7,5,9,4,6,8]} className="text-white/[0.06]" />
               </div>
@@ -252,7 +193,7 @@ export default function EventsPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-3 border-r border-b border-[#D8D4CC] p-10 bg-[#F8F5EF] flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
+            <div className="lg:col-span-4 border-r border-b border-lg p-10 bg-offwhite flex flex-col min-h-[440px] lg:min-h-[520px] relative overflow-hidden">
               <div className="absolute bottom-6 right-4 pointer-events-none opacity-[0.05]" aria-hidden="true">
                 <svg width="64" height="80" viewBox="0 0 64 80" fill="none">
                   <line x1="0" y1="20" x2="64" y2="20" stroke="#0A0A0A" strokeWidth="1" />
@@ -264,22 +205,65 @@ export default function EventsPage() {
               </div>
               <div className="flex-1">
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
-                <p className="font-mono text-[9px] text-[#8C8C8C] tracking-[0.24em] uppercase mb-6">03</p>
-                <h3 className="font-sans font-bold text-[#0A0A0A] text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
+                <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">03</p>
+                <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
                   PROMOTION<br />FOLLOWS<br />FORM
                 </h3>
-                <p className="font-sans text-[#0A0A0A]/55 text-[15px] leading-relaxed">
+                <p className="font-sans text-black/55 text-[15px] leading-relaxed">
                   We don't promote events. We create them. The promotional process starts with concept, not after it's finalized.
                 </p>
               </div>
+              <span className="font-mono text-[9px] text-mg tracking-[0.12em] uppercase mt-10 block">
+                Concept shapes the audience.
+              </span>
             </div>
+
+            <Link
+              href="/contact"
+              className="group block lg:col-span-12 border-r border-b border-lg p-10 lg:p-14 bg-offwhite hover:bg-white transition-colors duration-300 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 relative overflow-hidden"
+            >
+              <svg
+                className="absolute bottom-6 right-6 opacity-[0.05]"
+                width="80" height="80"
+                viewBox="0 0 80 80" fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="2" y="2" width="34" height="34" stroke="#0A0A0A" strokeWidth="1" />
+                <rect x="44" y="2" width="34" height="34" stroke="#0A0A0A" strokeWidth="1" />
+                <rect x="2" y="44" width="34" height="34" stroke="#0A0A0A" strokeWidth="1" />
+                <rect x="44" y="44" width="34" height="34" stroke="#0A0A0A" strokeWidth="1" />
+              </svg>
+
+              <div>
+                <div className="w-8 h-[1.5px] bg-yellow mb-5" />
+                <span className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase block mb-5">
+                  04
+                </span>
+                <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
+                  CORPORATE &<br />CULTURAL
+                </h3>
+                <p className="font-sans text-black/55 text-[15px] leading-relaxed max-w-[48ch]">
+                  Launches, conferences, galas and cultural activations — the same design discipline, applied to different rooms and different audiences.
+                </p>
+              </div>
+
+              <div className="flex flex-col items-start lg:items-end gap-6 shrink-0">
+                <span className="font-mono text-[9px] text-mg tracking-[0.12em] uppercase">
+                  Every room has a different logic.
+                </span>
+                <div className="flex items-center gap-2 font-mono text-[10px] text-black tracking-[0.1em] uppercase group-hover:gap-4 transition-all duration-300">
+                  GET IN TOUCH
+                  <ArrowRight size={13} />
+                </div>
+              </div>
+            </Link>
 
           </div>
         </div>
       </section>
 
-      {/* ── 05 VISUAL COMPOSITION ────────────────────────────────────────────── */}
-      <section className="bg-[#F2EFE8] relative">
+      {/* ── 04 VISUAL COMPOSITION ────────────────────────────────────────────── */}
+      <section className="bg-nw relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 lg:min-h-[580px]">
 
           <div className="lg:col-span-7 relative min-h-[300px] overflow-hidden">
@@ -297,7 +281,7 @@ export default function EventsPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 bg-[#0A0A0A] flex flex-col p-10 lg:p-14 justify-between">
+          <div className="lg:col-span-5 bg-black flex flex-col p-10 lg:p-14 justify-between">
             <div>
               <span className="font-mono text-[8px] text-yellow tracking-[0.22em] uppercase block mb-1">Active Format</span>
               <span className="font-mono text-[8px] text-white/40 tracking-[0.18em] uppercase block mb-10">Sound-Led Gatherings</span>
@@ -316,35 +300,14 @@ export default function EventsPage() {
                 <Bars heights={SIGNAL} className="text-yellow/40" />
                 <span className="font-mono text-[9px] text-white/25 tracking-[0.2em] uppercase">Format Active</span>
               </div>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.14em] uppercase text-black bg-yellow px-6 py-3.5 hover:bg-white transition-colors duration-300 w-fit"
-              >
-                PLAN A NIGHT <ArrowRight size={13} />
-              </Link>
             </div>
           </div>
 
         </div>
-
-        <div className="bg-[#0A0A0A] px-8 lg:px-16 py-10 lg:py-12">
-          <div className="max-w-screen-2xl mx-auto flex flex-col sm:flex-row gap-8 sm:gap-14">
-            {[
-              { title: 'CONCEPT', body: 'Every event starts with a clear reason to exist.' },
-              { title: 'FLOW',    body: 'The sequence and rhythm that shapes the experience.' },
-              { title: 'TRACE',   body: 'What people carry out after the night ends.' },
-            ].map(col => (
-              <div key={col.title} className="flex-1 min-w-0">
-                <span className="font-mono text-[8px] text-yellow/70 tracking-[0.22em] uppercase block mb-2">{col.title}</span>
-                <p className="font-sans text-white/40 text-[12px] leading-relaxed">{col.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
-      {/* ── 06 FINAL CTA ─────────────────────────────────────────────────────── */}
-      <section className="bg-[#F8F5EF] px-8 lg:px-16 py-24 lg:py-40 border-t border-[#D8D4CC]">
+      {/* ── 05 FINAL CTA ─────────────────────────────────────────────────────── */}
+      <section className="bg-offwhite px-8 lg:px-16 py-24 lg:py-40 border-t border-lg">
         <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-end">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -358,8 +321,8 @@ export default function EventsPage() {
               className="font-sans font-bold leading-[0.88] tracking-tighter"
               style={{ fontSize: 'clamp(2.5rem, 5.5vw, 6rem)' }}
             >
-              <span className="text-[#0A0A0A] block">PLAN YOUR EVENT.</span>
-              <span className="text-[#8C8C8C] block">GET IN TOUCH.</span>
+              <span className="text-black block">PLAN YOUR EVENT.</span>
+              <span className="text-mg block">GET IN TOUCH.</span>
             </h2>
           </motion.div>
           <motion.div
@@ -367,12 +330,12 @@ export default function EventsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" as const }}
-            className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-[#D8D4CC] lg:pl-10"
+            className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-lg lg:pl-10"
           >
-            <p className="font-sans text-[#8C8C8C] text-sm mb-8">Tell us what you're building.</p>
+            <p className="font-sans text-mg text-sm mb-8">Tell us what you're building.</p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-[#0A0A0A] hover:text-white hover:border-[#0A0A0A] transition-colors duration-300 w-full"
+              className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-black hover:text-white hover:border-black transition-colors duration-300 w-full"
             >
               START A CONVERSATION <ArrowRight size={14} />
             </Link>
@@ -380,8 +343,8 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* ── 07 FOOTER STRIP ──────────────────────────────────────────────────── */}
-      <div className="bg-[#0A0A0A] border-t border-white/[0.06] px-8 lg:px-16 py-6">
+      {/* ── 06 FOOTER STRIP ──────────────────────────────────────────────────── */}
+      <div className="bg-black border-t border-white/[0.06] px-8 lg:px-16 py-6">
         <div className="max-w-screen-2xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
             <K26Mark size={14} className="text-yellow/60" />
@@ -391,10 +354,10 @@ export default function EventsPage() {
             Events — Sound-Led Gatherings
           </span>
           <a
-            href="mailto:info@kollektiv26.com"
+            href="mailto:entertainment@kollektiv26.com"
             className="font-mono text-[9px] text-white/35 tracking-[0.1em] hover:text-white/60 transition-colors lowercase"
           >
-            info@kollektiv26.com
+            entertainment@kollektiv26.com
           </a>
         </div>
       </div>
