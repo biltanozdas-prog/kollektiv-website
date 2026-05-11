@@ -2,69 +2,72 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-
-const stages = [
-  {
-    num: '01',
-    title: <>We don&apos;t start with<br />destinations.</>,
-    body: 'We start with why — what you want to feel, what pace suits you, what moments matter. The geography follows from there.',
-    image: '/images/approach-stage-01-intent.png',
-    imageAlt: 'Stage 01 — Intent',
-    textLeft: true,
-  },
-  {
-    num: '02',
-    title: <>Space for the<br />unplanned.</>,
-    body: "We build in breathing room — mornings without an agenda, afternoons left open. The best travel stories come from moments you didn't plan for.",
-    image: '/images/approach-stage-02-unplanned.png',
-    imageAlt: 'Stage 02 — Unplanned',
-    textLeft: false,
-  },
-  {
-    num: '03',
-    title: <>Local knowledge, not<br />tourist circuits.</>,
-    body: 'We work with people who live in the places we send you. Guides, drivers, hosts who know the rhythms of their cities and can introduce you to them on human terms — not tour operators running the same loops.',
-    image: '/images/approach-stage-03-local-knowledge.png',
-    imageAlt: 'Stage 03 — Local Knowledge',
-    textLeft: true,
-  },
-  {
-    num: '04',
-    title: <>Transport as<br />experience.</>,
-    body: "Getting there shouldn't feel like dead time. We treat transfers as opportunities — scenic routes, driver-guides who can contextualize what you're seeing, vehicles that suit the landscape and the occasion.",
-    image: '/images/approach-stage-04-movement.png',
-    imageAlt: 'Stage 04 — Movement',
-    textLeft: false,
-  },
-  {
-    num: '05',
-    title: <>Adaptable, not rigid.</>,
-    body: "Plans change. Weather shifts, energy levels fluctuate, you discover something unexpected and want to stay longer. We build itineraries that can flex without falling apart.",
-    image: '/images/approach-stage-05-adaptable.png',
-    imageAlt: 'Stage 05 — Adaptable',
-    textLeft: true,
-  },
-]
-
-const steps = [
-  {
-    num: '01',
-    title: 'Tell us what you need',
-    body: "Rough dates, general shape of the trip, must-haves. We don't need a detailed brief — just enough to start the conversation.",
-  },
-  {
-    num: '02',
-    title: 'We build the framework',
-    body: 'Transport, accommodation, access arrangements. A structure that holds everything together without feeling rigid.',
-  },
-  {
-    num: '03',
-    title: 'You approve, we execute',
-    body: 'Once you sign off: bookings, confirmations, coordination, and on-ground support. You travel — we handle.',
-  },
-]
+import { useLang } from '@/lib/LanguageContext'
 
 export default function ApproachPage() {
+  const { t } = useLang()
+
+  const stages = [
+    {
+      num: t.tourismApproach.stage1Num,
+      title: t.tourismApproach.stage1Title,
+      body: t.tourismApproach.stage1Body,
+      image: '/images/approach-stage-01-intent.png',
+      imageAlt: 'Stage 01 — Intent',
+      textLeft: true,
+    },
+    {
+      num: t.tourismApproach.stage2Num,
+      title: t.tourismApproach.stage2Title,
+      body: t.tourismApproach.stage2Body,
+      image: '/images/approach-stage-02-unplanned.png',
+      imageAlt: 'Stage 02 — Unplanned',
+      textLeft: false,
+    },
+    {
+      num: t.tourismApproach.stage3Num,
+      title: t.tourismApproach.stage3Title,
+      body: t.tourismApproach.stage3Body,
+      image: '/images/approach-stage-03-local-knowledge.png',
+      imageAlt: 'Stage 03 — Local Knowledge',
+      textLeft: true,
+    },
+    {
+      num: t.tourismApproach.stage4Num,
+      title: t.tourismApproach.stage4Title,
+      body: t.tourismApproach.stage4Body,
+      image: '/images/approach-stage-04-movement.png',
+      imageAlt: 'Stage 04 — Movement',
+      textLeft: false,
+    },
+    {
+      num: t.tourismApproach.stage5Num,
+      title: t.tourismApproach.stage5Title,
+      body: t.tourismApproach.stage5Body,
+      image: '/images/approach-stage-05-adaptable.png',
+      imageAlt: 'Stage 05 — Adaptable',
+      textLeft: true,
+    },
+  ]
+
+  const steps = [
+    {
+      num: '01',
+      title: t.tourismApproach.step1Title,
+      body: t.tourismApproach.step1Body,
+    },
+    {
+      num: '02',
+      title: t.tourismApproach.step2Title,
+      body: t.tourismApproach.step2Body,
+    },
+    {
+      num: '03',
+      title: t.tourismApproach.step3Title,
+      body: t.tourismApproach.step3Body,
+    },
+  ]
+
   return (
     <main className="min-h-screen bg-offwhite pt-[108px]">
 
@@ -81,7 +84,7 @@ export default function ApproachPage() {
                 transition={{ duration: 0.5, delay: 0.15 }}
                 className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8"
               >
-                Approach
+                {t.tourismApproach.eyebrow}
               </motion.span>
               <div className="w-8 h-[2px] bg-yellow mb-10" />
               <motion.h1
@@ -91,7 +94,7 @@ export default function ApproachPage() {
                 className="font-serif text-black leading-[1.05] mb-10"
                 style={{ fontSize: 'clamp(3rem, 5.5vw, 5.5rem)' }}
               >
-                How we design travel?
+                {t.tourismApproach.h1}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
@@ -99,7 +102,7 @@ export default function ApproachPage() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="font-sans font-light text-dg text-xl leading-relaxed max-w-2xl"
               >
-                Not a checklist. Not a template. A way of thinking about travel that puts you — not logistics — at the center.
+                {t.tourismApproach.desc}
               </motion.p>
             </div>
 
@@ -133,7 +136,7 @@ export default function ApproachPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' as const }}
           >
-            Most people come to us with a rough idea and a feeling they want. We take it from there.
+            {t.tourismApproach.bridge}
           </motion.p>
         </div>
       </div>
@@ -145,14 +148,15 @@ export default function ApproachPage() {
           {/* Header */}
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-10 lg:mb-14">
             <p className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase">
-              Operational Process
+              {t.tourismApproach.processEyebrow}
             </p>
             <h2
               className="font-serif text-black lg:text-right leading-tight"
               style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3.2rem)' }}
             >
-              How we move from intention<br />
-              to execution.
+              {t.tourismApproach.processH2.split('\n').map((line, i) => (
+                <span key={i} className="block">{line}</span>
+              ))}
             </h2>
           </div>
 
@@ -238,14 +242,16 @@ export default function ApproachPage() {
             transition={{ duration: 0.5, ease: 'easeOut' as const }}
           >
             <p className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8">
-              Our philosophy
+              {t.tourismApproach.philosophyEyebrow}
             </p>
             <div className="w-8 h-[2px] bg-yellow mb-10" />
             <h2
               className="font-serif text-black leading-tight max-w-xl"
               style={{ fontSize: 'clamp(2.2rem, 3.5vw, 3.5rem)', letterSpacing: '-0.02em' }}
             >
-              How we think<br />about travel?
+              {t.tourismApproach.philosophyH2.split('\n').map((line, i) => (
+                <span key={i} className="block">{line}</span>
+              ))}
             </h2>
           </motion.div>
         </div>
@@ -266,13 +272,15 @@ export default function ApproachPage() {
                   className={stage.textLeft ? 'order-1' : 'order-1 lg:order-2'}
                 >
                   <span className="font-mono text-[9px] text-mg tracking-[0.22em] uppercase block mb-6">
-                    Stage {stage.num}
+                    {stage.num}
                   </span>
                   <h2
                     className="font-serif text-black leading-[1.1] mb-6"
                     style={{ fontSize: 'clamp(1.8rem, 3.2vw, 3rem)' }}
                   >
-                    {stage.title}
+                    {stage.title.split('\n').map((line, li) => (
+                      <span key={li} className="block">{line}</span>
+                    ))}
                   </h2>
                   <p className="font-sans font-light text-dg leading-relaxed text-base">
                     {stage.body}
@@ -309,16 +317,16 @@ export default function ApproachPage() {
       <section className="border-t border-lg py-20 lg:py-24 px-8 lg:px-16 bg-offwhite">
         <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div>
-            <span className="font-mono text-[9px] text-black/35 tracking-[0.22em] uppercase block mb-4">Ready to start?</span>
+            <span className="font-mono text-[9px] text-black/35 tracking-[0.22em] uppercase block mb-4">{t.tourismApproach.ctaEyebrow}</span>
             <h2 className="font-serif text-black leading-tight" style={{ fontSize: 'clamp(2.4rem, 4vw, 4rem)' }}>
-              Plan your journey.
+              {t.tourismApproach.ctaH2}
             </h2>
           </div>
           <Link
             href="/contact"
             className="inline-flex items-center gap-3 font-sans text-[12px] tracking-[0.1em] uppercase text-white bg-black rounded-full px-8 py-4 hover:bg-black/80 transition-colors"
           >
-            Get in touch
+            {t.tourismApproach.ctaButton}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2 7h10M7.5 3.5l3.5 3.5-3.5 3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

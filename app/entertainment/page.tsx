@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import K26Mark from '../components/K26Mark'
+import { useLang } from '@/lib/LanguageContext'
 
 function ArrowRight({ size = 16 }: { size?: number }) {
   return (
@@ -26,6 +27,8 @@ const SIGNAL  = [4, 8, 5, 10, 6, 3, 9, 5, 12, 4, 7, 6]
 const BARCODE = [6, 10, 4, 14, 8, 5, 12, 7, 10, 4, 8, 6, 12]
 
 export default function EntertainmentPage() {
+  const { t } = useLang()
+
   return (
     <main className="min-h-screen font-sans selection:bg-yellow selection:text-black">
 
@@ -88,25 +91,26 @@ export default function EntertainmentPage() {
               transition={{ duration: 0.9, ease: "easeOut" as const }}
             >
               <p className="font-mono text-[10px] text-white/40 tracking-[0.28em] uppercase mb-8">
-                Entertainment
+                {t.entertainmentOverview.eyebrow}
               </p>
               <h1
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8 2xl:text-8xl"
                 style={{ fontSize: 'clamp(2.8rem, 8vw, 8.5rem)' }}
               >
-                SOUND-LED<br />
-                CULTURAL<br />
-                SYSTEMS.
+                {t.entertainmentOverview.h1.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h1>
               <p className="font-sans text-white/55 text-lg leading-relaxed mb-12 max-w-sm">
-                We build the conditions around a night:<br />
-                the sound, the flow, the image and the trace.
+                {t.entertainmentOverview.desc.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-white border border-white/30 px-7 py-3.5 hover:bg-white hover:text-black transition-colors duration-300"
               >
-                PLAN A NIGHT <ArrowRight />
+                {t.entertainmentOverview.heroCta} <ArrowRight />
               </Link>
             </motion.div>
           </div>
@@ -140,7 +144,7 @@ export default function EntertainmentPage() {
               <div className="flex items-center gap-3 mb-12">
                 <div className="w-8 h-[1.5px] bg-yellow" />
                 <span className="font-mono text-[10px] text-white/30 tracking-[0.28em] uppercase">
-                  Our System
+                  {t.entertainmentOverview.systemEyebrow}
                 </span>
               </div>
 
@@ -148,19 +152,17 @@ export default function EntertainmentPage() {
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-12"
                 style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
               >
-                FROM SOUND<br />
-                TO SCENE<br />
-                TO ARCHIVE.
+                {t.entertainmentOverview.systemH2.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h2>
 
               <p className="font-sans text-white/45 text-base leading-relaxed mb-10 max-w-sm">
-                We operate between sound, culture and contemporary gathering. Built around
-                atmosphere, spatial rhythm and the people that shape a night — from concept
-                to close, from the room to what remains after.
+                {t.entertainmentOverview.systemDesc}
               </p>
 
               <div className="space-y-4 mb-12">
-                {['Sound', 'Space', 'Trace'].map((item) => (
+                {[t.entertainmentOverview.systemItem1, t.entertainmentOverview.systemItem2, t.entertainmentOverview.systemItem3].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="w-[2px] h-4 bg-yellow shrink-0" />
                     <span className="font-sans text-white/60 text-sm">{item}</span>
@@ -194,13 +196,13 @@ export default function EntertainmentPage() {
                   <span className="font-mono text-[9px] text-yellow/50 tracking-[0.24em] uppercase">01</span>
                 </div>
                 <h3 className="font-sans font-bold text-white text-xl tracking-tight leading-[1.0] mb-3">
-                  EVENTS
+                  {t.entertainmentOverview.eventsTitle}
                 </h3>
                 <p className="font-sans text-white/40 text-[13px] leading-relaxed flex-1">
-                  Sound-led gatherings shaped by concept, flow and atmosphere.
+                  {t.entertainmentOverview.eventsDesc}
                 </p>
                 <div className="flex items-center gap-2 font-mono text-[10px] text-white/40 tracking-[0.1em] uppercase group-hover:text-white group-hover:gap-4 transition-all duration-300 mt-6">
-                  EXPLORE EVENTS <ArrowRight size={12} />
+                  {t.entertainmentOverview.eventsCta} <ArrowRight size={12} />
                 </div>
               </Link>
 
@@ -258,13 +260,13 @@ export default function EntertainmentPage() {
                   <span className="font-mono text-[9px] text-black/40 tracking-[0.24em] uppercase">02</span>
                 </div>
                 <h3 className="font-sans font-bold text-black text-xl tracking-tight leading-[1.0] mb-3">
-                  LABEL
+                  {t.entertainmentOverview.labelTitle}
                 </h3>
                 <p className="font-sans text-black/60 text-[13px] leading-relaxed flex-1">
-                  Artist development, releases and the context around the work.
+                  {t.entertainmentOverview.labelDesc}
                 </p>
                 <div className="flex items-center gap-2 font-mono text-[10px] text-black/50 tracking-[0.1em] uppercase group-hover:text-black group-hover:gap-4 transition-all duration-300 mt-6">
-                  EXPLORE LABEL <ArrowRight size={12} />
+                  {t.entertainmentOverview.labelCta} <ArrowRight size={12} />
                 </div>
               </Link>
 
@@ -290,14 +292,14 @@ export default function EntertainmentPage() {
                   <div>
                     <span className="font-mono text-[9px] text-yellow/50 tracking-[0.24em] uppercase block mb-4">03</span>
                     <h3 className="font-sans font-bold text-white text-xl tracking-tight leading-[1.0] mb-3">
-                      VENUES
+                      {t.entertainmentOverview.venuesTitle}
                     </h3>
                     <p className="font-sans text-white/40 text-[13px] leading-relaxed max-w-[32ch]">
-                      Spaces, operations and cultural settings built with intention.
+                      {t.entertainmentOverview.venuesDesc}
                     </p>
                   </div>
                   <div className="flex items-center gap-2 font-mono text-[10px] text-white/40 tracking-[0.1em] uppercase group-hover:text-white group-hover:gap-4 transition-all duration-300 mt-6">
-                    EXPLORE VENUES <ArrowRight size={12} />
+                    {t.entertainmentOverview.venuesCta} <ArrowRight size={12} />
                   </div>
                 </div>
 
@@ -333,8 +335,8 @@ export default function EntertainmentPage() {
               className="font-sans font-bold leading-[0.88] tracking-tighter"
               style={{ fontSize: 'clamp(2.5rem, 5.5vw, 6rem)' }}
             >
-              <span className="text-black block">A NIGHT IS TEMPORARY.</span>
-              <span className="text-mg block">THE TRACE IS DESIGNED.</span>
+              <span className="text-black block">{t.entertainmentOverview.ctaH1}</span>
+              <span className="text-mg block">{t.entertainmentOverview.ctaH2}</span>
             </h2>
           </motion.div>
 
@@ -345,13 +347,13 @@ export default function EntertainmentPage() {
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" as const }}
             className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-lg lg:pl-10"
           >
-            <p className="font-sans text-mg text-sm mb-8">Start with a signal.</p>
+            <p className="font-sans text-mg text-sm mb-8">{t.entertainmentOverview.ctaSub}</p>
             <div className="flex flex-col gap-3">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-black hover:text-white hover:border-[#0A0A0A] transition-colors duration-300"
               >
-                START A CONVERSATION <ArrowRight size={14} />
+                {t.entertainmentOverview.ctaButton} <ArrowRight size={14} />
               </Link>
             </div>
           </motion.div>

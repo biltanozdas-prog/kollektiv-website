@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import K26Mark from '../../components/K26Mark'
+import { useLang } from '@/lib/LanguageContext'
 
 function ArrowRight({ size = 16 }: { size?: number }) {
   return (
@@ -25,6 +26,8 @@ function Bars({ heights, className = '' }: { heights: number[]; className?: stri
 const SIGNAL = [4, 8, 5, 10, 6, 3, 9, 5, 12, 4, 7, 6]
 
 export default function EventsPage() {
+  const { t } = useLang()
+
   return (
     <main className="min-h-screen font-sans selection:bg-yellow selection:text-black">
 
@@ -63,26 +66,26 @@ export default function EventsPage() {
               transition={{ duration: 0.9, ease: "easeOut" as const }}
             >
               <p className="font-mono text-[10px] text-white/40 tracking-[0.28em] uppercase mb-8">
-                01 — Events
+                {t.entertainmentEvents.eyebrow}
               </p>
               <h1
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
                 style={{ fontSize: 'clamp(3rem, 7vw, 7.5rem)' }}
               >
-                AN EVENT IS<br />
-                A CONTAINER.<br />
-                WE BUILD<br />
-                WHAT GOES INSIDE.
+                {t.entertainmentEvents.h1.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h1>
               <p className="font-sans text-white/50 text-base leading-relaxed mb-12 max-w-[36ch]">
-                A concert, a launch, a night — these are frames.<br />
-                We focus on what fills them.
+                {t.entertainmentEvents.desc.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-white border border-white/30 px-7 py-3.5 hover:bg-white hover:text-black transition-colors duration-300"
               >
-                PLAN A NIGHT <ArrowRight />
+                {t.entertainmentEvents.heroCta} <ArrowRight />
               </Link>
             </motion.div>
           </div>
@@ -111,15 +114,15 @@ export default function EventsPage() {
             >
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-8 h-[1.5px] bg-yellow" />
-                <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">The Format</span>
+                <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">{t.entertainmentEvents.introEyebrow}</span>
               </div>
               <h2
                 className="font-sans font-bold text-black leading-[0.88] tracking-tighter"
                 style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
               >
-                FROM<br />
-                CONCEPT<br />
-                TO CLOSE.
+                {t.entertainmentEvents.introH2.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h2>
             </motion.div>
           </div>
@@ -132,7 +135,7 @@ export default function EventsPage() {
           >
             <div className="flex-1">
               <p className="font-sans text-black/55 text-base leading-relaxed mb-8">
-                A concert, a launch, a night — these are frames. Kollektiv 26 focuses on what fills that frame: atmosphere, timing, flow and how people feel when they are there. We handle the system from concept to close. Our real work isn't coordination — it's curation.
+                {t.entertainmentEvents.introDesc}
               </p>
             </div>
           </motion.div>
@@ -163,14 +166,16 @@ export default function EventsPage() {
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
                 <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">01</p>
                 <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
-                  CONCEPT →<br />EXECUTION
+                  {t.entertainmentEvents.card1Title.split('\n').map((line, i) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
                 </h3>
                 <p className="font-sans text-black/55 text-[15px] leading-relaxed max-w-[30ch]">
-                  We define why an event exists, who it's for, and what it should leave behind. From there: budget, then stage.
+                  {t.entertainmentEvents.card1Desc}
                 </p>
               </div>
               <div className="mt-10 font-mono text-[9px] text-mg tracking-[0.12em] uppercase">
-                Format first. Logistics follow.
+                {t.entertainmentEvents.card1Footer}
               </div>
             </div>
 
@@ -182,14 +187,16 @@ export default function EventsPage() {
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
                 <p className="font-mono text-[9px] text-yellow/60 tracking-[0.24em] uppercase mb-6">02</p>
                 <h3 className="font-sans font-bold text-white text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
-                  LOGISTICS,<br />INVISIBLE
+                  {t.entertainmentEvents.card2Title.split('\n').map((line, i) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
                 </h3>
                 <p className="font-sans text-white/50 text-[15px] leading-relaxed max-w-[30ch]">
-                  Venue, technical infrastructure, suppliers, transport — we manage all of it. In a good event, logistics goes unnoticed. That's the point.
+                  {t.entertainmentEvents.card2Desc}
                 </p>
               </div>
               <div className="mt-10 font-mono text-[9px] text-yellow/40 tracking-[0.12em] uppercase">
-                Invisible when it works.
+                {t.entertainmentEvents.card2Footer}
               </div>
             </div>
 
@@ -207,14 +214,16 @@ export default function EventsPage() {
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
                 <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">03</p>
                 <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
-                  PROMOTION<br />FOLLOWS<br />FORM
+                  {t.entertainmentEvents.card3Title.split('\n').map((line, i) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
                 </h3>
                 <p className="font-sans text-black/55 text-[15px] leading-relaxed">
-                  We don't promote events. We create them. The promotional process starts with concept, not after it's finalized.
+                  {t.entertainmentEvents.card3Desc}
                 </p>
               </div>
               <span className="font-mono text-[9px] text-mg tracking-[0.12em] uppercase mt-10 block">
-                Concept shapes the audience.
+                {t.entertainmentEvents.card3Footer}
               </span>
             </div>
 
@@ -240,19 +249,21 @@ export default function EventsPage() {
                   04
                 </span>
                 <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
-                  CORPORATE &<br />CULTURAL
+                  {t.entertainmentEvents.card4Title.split('\n').map((line, i) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
                 </h3>
                 <p className="font-sans text-black/55 text-[15px] leading-relaxed max-w-[48ch]">
-                  Launches, conferences, galas and cultural activations — the same design discipline, applied to different rooms and different audiences.
+                  {t.entertainmentEvents.card4Desc}
                 </p>
               </div>
 
               <div className="flex flex-col items-start lg:items-end gap-6 shrink-0">
                 <span className="font-mono text-[9px] text-mg tracking-[0.12em] uppercase">
-                  Every room has a different logic.
+                  {t.entertainmentEvents.card4Footer}
                 </span>
                 <div className="flex items-center gap-2 font-mono text-[10px] text-black tracking-[0.1em] uppercase group-hover:gap-4 transition-all duration-300">
-                  GET IN TOUCH
+                  {t.entertainmentEvents.card4Cta}
                   <ArrowRight size={13} />
                 </div>
               </div>
@@ -289,10 +300,12 @@ export default function EventsPage() {
                 className="font-sans font-bold text-white leading-[0.9] tracking-tighter mb-8"
                 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)' }}
               >
-                THE NIGHT IS<br />THE WORK.
+                {t.entertainmentEvents.nightH3.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h3>
               <p className="font-sans text-white/45 text-[15px] leading-relaxed mb-10 max-w-xs">
-                Atmosphere, timing, flow and how people feel when they are there. Every variable is a design decision.
+                {t.entertainmentEvents.nightDesc}
               </p>
             </div>
             <div className="flex flex-col gap-5">
@@ -321,8 +334,8 @@ export default function EventsPage() {
               className="font-sans font-bold leading-[0.88] tracking-tighter"
               style={{ fontSize: 'clamp(2.5rem, 5.5vw, 6rem)' }}
             >
-              <span className="text-black block">PLAN YOUR EVENT.</span>
-              <span className="text-mg block">GET IN TOUCH.</span>
+              <span className="text-black block">{t.entertainmentEvents.ctaH1}</span>
+              <span className="text-mg block">{t.entertainmentEvents.ctaH2}</span>
             </h2>
           </motion.div>
           <motion.div
@@ -332,12 +345,12 @@ export default function EventsPage() {
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" as const }}
             className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-lg lg:pl-10"
           >
-            <p className="font-sans text-mg text-sm mb-8">Tell us what you're building.</p>
+            <p className="font-sans text-mg text-sm mb-8">{t.entertainmentEvents.ctaSub}</p>
             <Link
               href="/contact"
               className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-black hover:text-white hover:border-black transition-colors duration-300 w-full"
             >
-              START A CONVERSATION <ArrowRight size={14} />
+              {t.entertainmentEvents.ctaButton} <ArrowRight size={14} />
             </Link>
           </motion.div>
         </div>

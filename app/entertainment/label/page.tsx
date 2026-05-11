@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import K26Mark from '../../components/K26Mark'
+import { useLang } from '@/lib/LanguageContext'
 
 function ArrowRight({ size = 16 }: { size?: number }) {
   return (
@@ -24,26 +25,16 @@ function Bars({ heights, className = '' }: { heights: number[]; className?: stri
 
 const BARCODE = [6, 10, 4, 14, 8, 5, 12, 7, 10, 4, 8, 6, 12]
 
-const PROCESS = [
-  {
-    title: 'Contracts as starting points',
-    body: 'Distribution, live performance, publishing — we set up separate structures for each. An artist\'s rights aren\'t a single package. They\'re individual assets with different values.',
-  },
-  {
-    title: 'Visibility begins during production',
-    body: 'Identity gets built before the music is finished. Cover art, photography, video, digital presence — these aren\'t post-production tasks. They\'re planned while the work is being created.',
-  },
-  {
-    title: 'MESAM, MSG, royalties — we track it',
-    body: 'The artist should focus on one thing: making work. We handle the rest because we know how.',
-  },
-  {
-    title: 'Reach is built, not assumed',
-    body: "We don't wait for the music to be finished to think about the audience. Playlist positioning, press, digital presence — these run alongside production, not after it.",
-  },
-]
-
 export default function LabelPage() {
+  const { t } = useLang()
+
+  const PROCESS = [
+    { title: t.entertainmentLabel.p1Title, body: t.entertainmentLabel.p1Body },
+    { title: t.entertainmentLabel.p2Title, body: t.entertainmentLabel.p2Body },
+    { title: t.entertainmentLabel.p3Title, body: t.entertainmentLabel.p3Body },
+    { title: t.entertainmentLabel.p4Title, body: t.entertainmentLabel.p4Body },
+  ]
+
   return (
     <main className="min-h-screen font-sans selection:bg-yellow selection:text-black">
 
@@ -83,24 +74,24 @@ export default function LabelPage() {
               transition={{ duration: 0.9, ease: "easeOut" as const }}
             >
               <p className="font-mono text-[10px] text-white/40 tracking-[0.28em] uppercase mb-8">
-                02 — Label
+                {t.entertainmentLabel.eyebrow}
               </p>
               <h1
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
                 style={{ fontSize: 'clamp(3rem, 7vw, 7.5rem)' }}
               >
-                FROM<br />
-                RECOGNITION<br />
-                TO RELEASE.
+                {t.entertainmentLabel.h1.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h1>
               <p className="font-sans text-white/45 text-base leading-relaxed mb-12 max-w-[44ch]">
-                We focus on one thing: what does this artist need to exist at their best? Sometimes it's production. Sometimes it's legal structure. Sometimes it's visibility. Sometimes it's just being in the right room with the right people. We build that room.
+                {t.entertainmentLabel.desc}
               </p>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-white border border-white/30 px-7 py-3.5 hover:bg-white hover:text-black transition-colors duration-300"
               >
-                GET IN TOUCH <ArrowRight />
+                {t.entertainmentLabel.heroCta} <ArrowRight />
               </Link>
             </motion.div>
           </div>
@@ -130,14 +121,14 @@ export default function LabelPage() {
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
                 <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">01</p>
                 <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
-                  A&amp;R
+                  {t.entertainmentLabel.card1Title}
                 </h3>
                 <p className="font-sans text-black/55 text-[15px] leading-relaxed max-w-[30ch]">
-                  We don't search for talent. We see what's already there and put it in the right frame. Before the first conversation, we listen to the music. Then we listen to the person.
+                  {t.entertainmentLabel.card1Desc}
                 </p>
               </div>
               <div className="mt-10 font-mono text-[9px] text-mg tracking-[0.12em] uppercase">
-                Recognition before negotiation.
+                {t.entertainmentLabel.card1Footer}
               </div>
             </div>
 
@@ -150,14 +141,14 @@ export default function LabelPage() {
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
                 <p className="font-mono text-[9px] text-yellow/60 tracking-[0.24em] uppercase mb-6">02</p>
                 <h3 className="font-sans font-bold text-white text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
-                  PRODUCTION
+                  {t.entertainmentLabel.card2Title}
                 </h3>
                 <p className="font-sans text-white/50 text-[15px] leading-relaxed max-w-[30ch]">
-                  From studio to mastering, every stage moves alongside strategy. Producer selection, release timing, visual identity — these aren't separate decisions. They're parts of one decision.
+                  {t.entertainmentLabel.card2Desc}
                 </p>
               </div>
               <div className="mt-10 font-mono text-[9px] text-yellow/40 tracking-[0.12em] uppercase">
-                Strategy in parallel with sound.
+                {t.entertainmentLabel.card2Footer}
               </div>
             </div>
 
@@ -175,14 +166,14 @@ export default function LabelPage() {
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
                 <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">03</p>
                 <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
-                  RELEASE
+                  {t.entertainmentLabel.card3Title}
                 </h3>
                 <p className="font-sans text-black/55 text-[15px] leading-relaxed">
-                  Distribution across digital platforms, live performance rights, publishing — we build separate structures for each. Spotify, Apple Music, the physical format if it matters. Every right has its own value and its own timeline.
+                  {t.entertainmentLabel.card3Desc}
                 </p>
               </div>
               <span className="font-mono text-[9px] text-mg tracking-[0.12em] uppercase mt-10 block">
-                Every right, its own structure.
+                {t.entertainmentLabel.card3Footer}
               </span>
             </div>
 
@@ -222,13 +213,15 @@ export default function LabelPage() {
           <div className="lg:col-span-7 p-10 lg:p-16 flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-12">
               <div className="w-8 h-[1.5px] bg-yellow" />
-              <span className="font-mono text-[10px] text-yellow/60 tracking-[0.28em] uppercase">Working With Artists</span>
+              <span className="font-mono text-[10px] text-yellow/60 tracking-[0.28em] uppercase">{t.entertainmentLabel.processEyebrow}</span>
             </div>
             <h2
               className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-14"
               style={{ fontSize: 'clamp(2rem, 4vw, 3.8rem)' }}
             >
-              FROM CONTRACT<br />TO RELEASE.
+              {t.entertainmentLabel.processH2.split('\n').map((line, i) => (
+                <span key={i} className="block">{line}</span>
+              ))}
             </h2>
 
             <div className="border-t border-white/[0.10]">
@@ -286,9 +279,9 @@ export default function LabelPage() {
               className="font-sans font-bold leading-[0.88] tracking-tighter"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 5.5rem)' }}
             >
-              <span className="text-black block">IF YOU'RE BUILDING</span>
-              <span className="text-black block">SOMETHING,</span>
-              <span className="text-mg block">LET'S TALK.</span>
+              <span className="text-black block">{t.entertainmentLabel.ctaH1}</span>
+              <span className="text-black block">{t.entertainmentLabel.ctaH2}</span>
+              <span className="text-mg block">{t.entertainmentLabel.ctaH3}</span>
             </h2>
           </motion.div>
           <motion.div
@@ -298,12 +291,12 @@ export default function LabelPage() {
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" as const }}
             className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-lg lg:pl-10"
           >
-            <p className="font-sans text-mg text-sm mb-8">Start with a conversation.</p>
+            <p className="font-sans text-mg text-sm mb-8">{t.entertainmentLabel.ctaSub}</p>
             <Link
               href="/contact"
               className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-black hover:text-white hover:border-black transition-colors duration-300 w-full"
             >
-              GET IN TOUCH <ArrowRight size={14} />
+              {t.entertainmentLabel.ctaButton} <ArrowRight size={14} />
             </Link>
           </motion.div>
         </div>

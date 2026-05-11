@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import K26Mark from '../../components/K26Mark'
+import { useLang } from '@/lib/LanguageContext'
 
 function ArrowRight({ size = 16 }: { size?: number }) {
   return (
@@ -25,6 +26,8 @@ function Bars({ heights, className = '' }: { heights: number[]; className?: stri
 const SIGNAL = [4, 8, 5, 10, 6, 3, 9, 5, 12, 4, 7, 6]
 
 export default function VenuesPage() {
+  const { t } = useLang()
+
   return (
     <main className="min-h-screen font-sans selection:bg-yellow selection:text-black">
 
@@ -65,22 +68,21 @@ export default function VenuesPage() {
               transition={{ duration: 0.9, ease: "easeOut" as const }}
             >
               <p className="font-mono text-[10px] text-white/40 tracking-[0.28em] uppercase mb-8">
-                03 — Venues
+                {t.entertainmentVenues.eyebrow}
               </p>
               <h1
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-10"
                 style={{ fontSize: 'clamp(3rem, 7vw, 7.5rem)' }}
               >
-                WE DON'T<br />
-                JUST BOOK<br />
-                VENUES.<br />
-                WE RUN THEM.
+                {t.entertainmentVenues.h1.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h1>
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase text-white border border-white/30 px-7 py-3.5 hover:bg-white hover:text-black transition-colors duration-300"
               >
-                GET IN TOUCH <ArrowRight />
+                {t.entertainmentVenues.heroCta} <ArrowRight />
               </Link>
             </motion.div>
           </div>
@@ -96,20 +98,20 @@ export default function VenuesPage() {
             <div className="lg:col-span-5">
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-8 h-[1.5px] bg-yellow" />
-                <span className="font-mono text-[10px] text-white/35 tracking-[0.28em] uppercase">Space as Infrastructure</span>
+                <span className="font-mono text-[10px] text-white/35 tracking-[0.28em] uppercase">{t.entertainmentVenues.introEyebrow}</span>
               </div>
               <h2
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter"
                 style={{ fontSize: 'clamp(2rem, 4vw, 4rem)' }}
               >
-                BUILT FOR<br />
-                CULTURE TO<br />
-                HAPPEN IN.
+                {t.entertainmentVenues.introH2.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h2>
             </div>
             <div className="lg:col-span-6 lg:col-start-7 flex items-end">
               <p className="font-sans text-white/40 text-base leading-relaxed">
-                Infrastructure for spaces where culture happens. Kollektiv 26's own operated venues are in development. We're taking the time to build this properly — the right acoustics, the right operations, the right character.
+                {t.entertainmentVenues.introDesc}
               </p>
             </div>
           </motion.div>
@@ -121,7 +123,7 @@ export default function VenuesPage() {
         <div className="max-w-screen-2xl mx-auto">
           <div className="flex items-center gap-3 mb-14">
             <div className="w-8 h-[1.5px] bg-yellow" />
-            <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">What We're Building</span>
+            <span className="font-mono text-[10px] text-mg tracking-[0.28em] uppercase">What We&apos;re Building</span>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 border-t border-l border-lg">
 
@@ -142,14 +144,16 @@ export default function VenuesPage() {
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
                 <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">01</p>
                 <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
-                  VENUE<br />PARTNERSHIPS
+                  {t.entertainmentVenues.card1Title.split('\n').map((line, i) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
                 </h3>
                 <p className="font-sans text-black/55 text-[15px] leading-relaxed max-w-[30ch]">
-                  In talks with spaces across Istanbul that prioritise acoustics and atmosphere. Clubs, galleries, unconventional locations that shape how an event feels.
+                  {t.entertainmentVenues.card1Desc}
                 </p>
               </div>
               <div className="mt-10 font-mono text-[9px] text-mg tracking-[0.12em] uppercase">
-                Location as a design decision.
+                {t.entertainmentVenues.card1Footer}
               </div>
             </div>
 
@@ -162,14 +166,16 @@ export default function VenuesPage() {
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
                 <p className="font-mono text-[9px] text-yellow/60 tracking-[0.24em] uppercase mb-6">02</p>
                 <h3 className="font-sans font-bold text-white text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
-                  TECHNICAL<br />INFRA&shy;STRUCTURE
+                  {t.entertainmentVenues.card2Title.split('\n').map((line, i) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
                 </h3>
                 <p className="font-sans text-white/50 text-[15px] leading-relaxed max-w-[30ch]">
-                  Sound systems, lighting design, flow management — the backbone that makes live culture work at the level we want. No shortcuts.
+                  {t.entertainmentVenues.card2Desc}
                 </p>
               </div>
               <div className="mt-10 font-mono text-[9px] text-yellow/40 tracking-[0.12em] uppercase">
-                The invisible backbone.
+                {t.entertainmentVenues.card2Footer}
               </div>
             </div>
 
@@ -187,14 +193,16 @@ export default function VenuesPage() {
                 <div className="w-10 h-[2px] bg-yellow mb-6" />
                 <p className="font-mono text-[9px] text-mg tracking-[0.24em] uppercase mb-6">03</p>
                 <h3 className="font-sans font-bold text-black text-2xl lg:text-[2rem] tracking-tight leading-[1.0] mb-5">
-                  OPERATIONAL<br />SYSTEMS
+                  {t.entertainmentVenues.card3Title.split('\n').map((line, i) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
                 </h3>
                 <p className="font-sans text-black/55 text-[15px] leading-relaxed">
-                  Staffing models, programming calendars, membership structures. The scaffolding that lets a venue run consistently without losing its character.
+                  {t.entertainmentVenues.card3Desc}
                 </p>
               </div>
               <span className="font-mono text-[9px] text-mg tracking-[0.12em] uppercase mt-10 block">
-                Structure enables character.
+                {t.entertainmentVenues.card3Footer}
               </span>
             </div>
 
@@ -219,20 +227,22 @@ export default function VenuesPage() {
             <div>
               <div className="flex items-center gap-3 mb-12">
                 <div className="w-8 h-[1.5px] bg-yellow" />
-                <span className="font-mono text-[10px] text-yellow/60 tracking-[0.28em] uppercase">In Development</span>
+                <span className="font-mono text-[10px] text-yellow/60 tracking-[0.28em] uppercase">{t.entertainmentVenues.firstEyebrow}</span>
               </div>
               <h2
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
                 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4.5rem)' }}
               >
-                FIRST PROJECTS —<br />2027.
+                {t.entertainmentVenues.firstH2.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h2>
               <p className="font-sans text-white/45 text-base leading-relaxed max-w-[42ch]">
-                We're taking the time to build this properly. Rushing doesn't serve anyone — not the artists, not the audience, not the culture.
+                {t.entertainmentVenues.firstDesc}
               </p>
             </div>
             <p className="mt-14 font-sans font-light text-white/30 text-sm leading-relaxed border-t border-white/[0.06] pt-8 max-w-[32ch]">
-              When we open, it will be worth the wait.
+              {t.entertainmentVenues.firstClosing}
             </p>
           </div>
 
@@ -241,21 +251,23 @@ export default function VenuesPage() {
             <div>
               <div className="flex items-center gap-3 mb-12">
                 <div className="w-8 h-[1.5px] bg-yellow/40" />
-                <span className="font-mono text-[10px] text-white/40 tracking-[0.28em] uppercase">Consultation</span>
+                <span className="font-mono text-[10px] text-white/40 tracking-[0.28em] uppercase">{t.entertainmentVenues.consultEyebrow}</span>
               </div>
               <h2
                 className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
                 style={{ fontSize: 'clamp(2rem, 4vw, 3.8rem)' }}
               >
-                VENUE<br />CONSULTATION.
+                {t.entertainmentVenues.consultH2.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h2>
               <p className="font-sans text-white/45 text-base leading-relaxed mb-10 max-w-[38ch]">
-                From licensing to concept, interior design to equipment, staffing to opening night. We know the process because we're in it. Not consultancy — partnership.
+                {t.entertainmentVenues.consultDesc}
               </p>
               <div className="grid grid-cols-1 gap-6 border-t border-white/[0.06] pt-8">
                 {[
-                  { label: 'What we handle', text: 'Licensing & legal structure, concept development, space design, technical infrastructure, operational systems, launch strategy.' },
-                  { label: 'Who comes to us', text: 'Bars, clubs, cultural venues, hybrid spaces. Projects where experience matters as much as operations.' },
+                  { label: t.entertainmentVenues.consultHandleLabel, text: t.entertainmentVenues.consultHandleText },
+                  { label: t.entertainmentVenues.consultWhoLabel, text: t.entertainmentVenues.consultWhoText },
                 ].map(item => (
                   <div key={item.label}>
                     <span className="font-mono text-[9px] text-yellow/50 tracking-[0.18em] uppercase block mb-2">{item.label}</span>
@@ -269,7 +281,7 @@ export default function VenuesPage() {
                 href="/contact"
                 className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.14em] uppercase text-black bg-yellow px-6 py-3.5 hover:bg-white transition-colors duration-300"
               >
-                LET'S TALK ABOUT SPACE <ArrowRight size={13} />
+                {t.entertainmentVenues.consultCta} <ArrowRight size={13} />
               </Link>
             </div>
           </div>
@@ -303,10 +315,12 @@ export default function VenuesPage() {
                 className="font-sans font-bold text-white leading-[0.9] tracking-tighter mb-6"
                 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}
               >
-                SPACE AS<br />INFRASTRUCTURE.
+                {t.entertainmentVenues.coverH3.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </h3>
               <p className="font-sans text-white/40 text-[14px] leading-relaxed">
-                Movement, access and atmosphere inside the room. These aren't afterthoughts. They're the design.
+                {t.entertainmentVenues.coverDesc}
               </p>
             </div>
             <div className="mt-10 border-t border-white/[0.06] pt-8">
@@ -332,8 +346,8 @@ export default function VenuesPage() {
               className="font-sans font-bold leading-[0.88] tracking-tighter"
               style={{ fontSize: 'clamp(2.5rem, 5.5vw, 6rem)' }}
             >
-              <span className="text-black block">GET NOTIFIED</span>
-              <span className="text-mg block">WHEN WE LAUNCH.</span>
+              <span className="text-black block">{t.entertainmentVenues.ctaH1}</span>
+              <span className="text-mg block">{t.entertainmentVenues.ctaH2}</span>
             </h2>
           </motion.div>
           <motion.div
@@ -343,13 +357,13 @@ export default function VenuesPage() {
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" as const }}
             className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-lg lg:pl-10"
           >
-            <p className="font-sans text-mg text-sm mb-8">Stay close to what we're building.</p>
+            <p className="font-sans text-mg text-sm mb-8">{t.entertainmentVenues.ctaSub}</p>
             <div className="flex flex-col gap-3">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-between font-mono text-[11px] tracking-[0.12em] uppercase text-black bg-yellow px-6 py-4 border border-yellow hover:bg-black hover:text-white hover:border-black transition-colors duration-300 w-full"
               >
-                GET UPDATES <ArrowRight size={14} />
+                {t.entertainmentVenues.ctaButton} <ArrowRight size={14} />
               </Link>
             </div>
           </motion.div>
@@ -364,7 +378,7 @@ export default function VenuesPage() {
             <span className="font-mono text-[9px] text-white/40 tracking-[0.22em] uppercase">Kollektiv 26 Entertainment</span>
           </div>
           <span className="font-mono text-[9px] text-white/20 tracking-[0.22em] uppercase hidden sm:block">
-            Venues — Space & Infrastructure
+            Venues — Space &amp; Infrastructure
           </span>
           <a
             href="mailto:entertainment@kollektiv26.com"

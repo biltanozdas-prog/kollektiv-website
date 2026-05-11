@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useLang } from '@/lib/LanguageContext'
 
 function ArrowRight() {
   return (
@@ -11,70 +12,72 @@ function ArrowRight() {
   )
 }
 
-const services = [
-  {
-    num: '01',
-    title: 'Helicopter Transfers',
-    body: 'Point-to-point aerial transport across the Aegean and beyond. Skip the traffic. Arrive on your own terms.',
-    image: '/images/concierge-helicopter-transfers.png',
-    tag: 'Aerial · On-demand',
-  },
-  {
-    num: '02',
-    title: 'Private Flights',
-    body: "Charter flights arranged around your schedule — not the airline's. Departure from the airport that suits you, to the destination that matters.",
-    image: '/images/Luxury%20Jet%20Interior.jpg',
-    tag: 'International · Private',
-  },
-  {
-    num: '03',
-    title: 'Yacht Charters',
-    body: 'Private vessels with full crew, curated routes, and catering that fits the occasion — from day sails to multi-night passages.',
-    image: '/images/Aegean%20Boat%20Experience.png',
-    tag: 'Aegean · Mediterranean',
-  },
-  {
-    num: '04',
-    title: 'Private Villas',
-    body: 'Exclusive properties with staff, security, and the kind of privacy that lets you actually relax. Your space, your rules.',
-    image: '/images/Luxury%20Villa%20Image.png',
-    tag: 'Bodrum · Aegean Coast',
-  },
-  {
-    num: '05',
-    title: 'Ground Transportation',
-    body: 'Professional drivers, premium vehicles, and routes planned around your schedule — not ours.',
-    image: '/images/concierge-ground-transportation.png',
-    tag: 'City · Region · Coast',
-  },
-  {
-    num: '06',
-    title: 'Cultural Access',
-    body: "Private site visits, studio tours with working artists, and reservations at the places that don't take reservations publicly.",
-    image: '/images/dining%20bodrum.png',
-    tag: 'Art · Heritage · Local',
-  },
-]
-
-const days = [
-  {
-    day: 'DAY 01',
-    title: 'Arrival & Grounding',
-    body: 'Private transfer from the airport to a coastal villa. Late lunch at a family-run meyhane in the old quarter. Evening walk through the marina.',
-  },
-  {
-    day: 'DAY 02',
-    title: 'Art & Architecture',
-    body: 'Private morning at the Museum of Underwater Archaeology. Studio visit with a local ceramicist. Afternoon left open. Dinner overlooking the castle.',
-  },
-  {
-    day: 'DAY 03',
-    title: 'Wind & Water',
-    body: 'Morning departure via private car along the coast road. Optional windsurfing session. Sunset.',
-  },
-]
-
 export default function ConciergePage() {
+  const { t } = useLang()
+
+  const services = [
+    {
+      num: '01',
+      title: t.tourismConcierge.s1Title,
+      body: t.tourismConcierge.s1Body,
+      image: '/images/concierge-helicopter-transfers.png',
+      tag: t.tourismConcierge.s1Tag,
+    },
+    {
+      num: '02',
+      title: t.tourismConcierge.s2Title,
+      body: t.tourismConcierge.s2Body,
+      image: '/images/Luxury%20Jet%20Interior.jpg',
+      tag: t.tourismConcierge.s2Tag,
+    },
+    {
+      num: '03',
+      title: t.tourismConcierge.s3Title,
+      body: t.tourismConcierge.s3Body,
+      image: '/images/Aegean%20Boat%20Experience.png',
+      tag: t.tourismConcierge.s3Tag,
+    },
+    {
+      num: '04',
+      title: t.tourismConcierge.s4Title,
+      body: t.tourismConcierge.s4Body,
+      image: '/images/Luxury%20Villa%20Image.png',
+      tag: t.tourismConcierge.s4Tag,
+    },
+    {
+      num: '05',
+      title: t.tourismConcierge.s5Title,
+      body: t.tourismConcierge.s5Body,
+      image: '/images/concierge-ground-transportation.png',
+      tag: t.tourismConcierge.s5Tag,
+    },
+    {
+      num: '06',
+      title: t.tourismConcierge.s6Title,
+      body: t.tourismConcierge.s6Body,
+      image: '/images/dining%20bodrum.png',
+      tag: t.tourismConcierge.s6Tag,
+    },
+  ]
+
+  const days = [
+    {
+      day: t.tourismConcierge.day1Day,
+      title: t.tourismConcierge.day1Title,
+      body: t.tourismConcierge.day1Body,
+    },
+    {
+      day: t.tourismConcierge.day2Day,
+      title: t.tourismConcierge.day2Title,
+      body: t.tourismConcierge.day2Body,
+    },
+    {
+      day: t.tourismConcierge.day3Day,
+      title: t.tourismConcierge.day3Title,
+      body: t.tourismConcierge.day3Body,
+    },
+  ]
+
   return (
     <main className="min-h-screen bg-offwhite pt-[108px]">
 
@@ -90,7 +93,7 @@ export default function ConciergePage() {
               transition={{ duration: 0.7 }}
             >
               <span className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8">
-                Concierge
+                {t.tourismConcierge.eyebrow}
               </span>
               <div className="w-8 h-[2px] bg-yellow mb-10" />
               <motion.h1
@@ -100,7 +103,9 @@ export default function ConciergePage() {
                 className="font-serif text-black leading-[1.05] mb-10"
                 style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
               >
-                Everything handled.<br />Nothing overlooked.
+                {t.tourismConcierge.headline.split('\n').map((line, i) => (
+                  <span key={i} className="block">{line}</span>
+                ))}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
@@ -108,7 +113,7 @@ export default function ConciergePage() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="font-sans font-light text-dg text-xl leading-relaxed"
               >
-                Logistics shouldn&apos;t be part of your mental load. We handle transport, accommodation, access, and coordination — so you show up and experience.
+                {t.tourismConcierge.desc}
               </motion.p>
             </motion.div>
 
@@ -140,7 +145,7 @@ export default function ConciergePage() {
             viewport={{ once: true }}
             className="font-mono text-[9px] text-black/35 tracking-[0.22em] uppercase block mb-14"
           >
-            What we provide
+            {t.tourismConcierge.servicesEyebrow}
           </motion.span>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -196,18 +201,17 @@ export default function ConciergePage() {
               className="lg:col-span-5"
             >
               <span className="font-mono text-[9px] text-black/35 tracking-[0.24em] uppercase block mb-8">
-                Itinerary Sketch
+                {t.tourismConcierge.sampleEyebrow}
               </span>
               <div className="w-8 h-[2px] bg-yellow mb-10" />
               <h2
                 className="font-serif text-black leading-tight mb-7"
                 style={{ fontSize: 'clamp(2rem, 3.5vw, 3.5rem)' }}
               >
-                A Sample Flow.
+                {t.tourismConcierge.sampleH2}
               </h2>
               <p className="font-sans font-light text-dg text-base leading-relaxed mb-10">
-                Not a package. A starting point. Every itinerary begins with a
-                conversation and ends differently.
+                {t.tourismConcierge.sampleDesc}
               </p>
               <div className="overflow-hidden rounded-sm" style={{ height: 'clamp(220px, 22vw, 300px)' }}>
                 <img
@@ -250,13 +254,13 @@ export default function ConciergePage() {
 
               <div className="pt-8 border-t border-lg">
                 <p className="font-serif text-dg text-sm leading-relaxed mb-5">
-                  Every journey is built individually.
+                  {t.tourismConcierge.footerNote}
                 </p>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.12em] uppercase text-black/45 hover:text-black transition-colors"
                 >
-                  Discuss a route <ArrowRight />
+                  {t.tourismConcierge.footerCta} <ArrowRight />
                 </Link>
               </div>
             </motion.div>
@@ -269,16 +273,16 @@ export default function ConciergePage() {
       <section className="border-t border-lg py-20 lg:py-24 px-8 lg:px-16 bg-black">
         <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div>
-            <span className="font-mono text-[9px] text-white/35 tracking-[0.22em] uppercase block mb-4">Ready to plan?</span>
+            <span className="font-mono text-[9px] text-white/35 tracking-[0.22em] uppercase block mb-4">{t.tourismConcierge.ctaEyebrow}</span>
             <h2 className="font-sans font-bold text-white text-3xl lg:text-4xl" style={{ letterSpacing: '-0.02em' }}>
-              Let&apos;s talk logistics.
+              {t.tourismConcierge.ctaH2}
             </h2>
           </div>
           <Link
             href="/contact"
             className="inline-flex items-center gap-3 font-sans text-[12px] tracking-[0.1em] uppercase text-black bg-white rounded-full px-8 py-4 hover:bg-white/85 transition-colors"
           >
-            Get in touch
+            {t.tourismConcierge.ctaButton}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2 7h10M7.5 3.5l3.5 3.5-3.5 3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
