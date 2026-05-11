@@ -106,50 +106,18 @@ export default function Navbar() {
         }}
       >
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20">
-          <div className="flex items-center justify-between h-[68px]">
+          <div className="grid grid-cols-3 items-center h-[68px]">
 
-            {/* LEFT: Logo */}
-            <div className="flex items-center gap-2">
-              <Link href="/" className="group shrink-0 transition-opacity hover:opacity-60" style={{ color: textColor }}>
-                <K26Mark size={30} />
-              </Link>
-              <Link href="/" className="flex items-center gap-0.5 hover:opacity-60 transition-opacity shrink-0">
-                <span className="font-sans font-bold text-[15px] tracking-[0.04em]" style={{ color: textColor }}>KOLLEKTIV</span>
-                <span className="font-sans font-light text-[15px] tracking-[0.04em] ml-1" style={{ color: textColor }}>26</span>
-              </Link>
-            </div>
-
-            {/* RIGHT: Desktop nav + TR/EN + hamburger */}
-            <div className="flex items-center gap-6">
-              <div className="hidden md:flex items-center gap-8 lg:gap-10">
-                <NavLink href="/"              active={pathname === '/'}                       textColor={textColor}>Home</NavLink>
+            {/* LEFT — Primary navigation */}
+            <div className="flex items-center justify-start">
+              {/* Desktop: mode links */}
+              <div className="hidden md:flex items-center gap-6 lg:gap-8">
                 <NavLink href="/tourism"       active={pathname.startsWith('/tourism')}       textColor={textColor}>Tourism</NavLink>
                 <NavLink href="/entertainment" active={pathname.startsWith('/entertainment')} textColor={textColor}>Entertainment</NavLink>
                 <NavLink href="/innovation"    active={pathname.startsWith('/innovation')}    textColor={textColor}>Innovation</NavLink>
-                <NavLink href="/about"         active={pathname === '/about'}                 textColor={textColor}>About</NavLink>
-                <NavLink href="/contact"       active={pathname === '/contact'}               textColor={textColor}>Contact</NavLink>
               </div>
 
-              {/* TR/EN Toggle */}
-              <div className="hidden md:flex items-center gap-1 ml-4">
-                <button
-                  className="font-mono text-[10px] tracking-[0.12em] uppercase transition-opacity"
-                  style={{ color: textColor, fontWeight: 500 }}
-                  onClick={() => {}}
-                >
-                  EN
-                </button>
-                <span className="font-mono text-[10px]" style={{ color: textMuted }}>|</span>
-                <button
-                  className="font-mono text-[10px] tracking-[0.12em] uppercase transition-opacity hover:opacity-100"
-                  style={{ color: textMuted }}
-                  onClick={() => {}}
-                >
-                  TR
-                </button>
-              </div>
-
-              {/* Hamburger — mobile only */}
+              {/* Mobile: hamburger left */}
               <button
                 className="md:hidden flex flex-col gap-1.5 p-2 focus:outline-none"
                 onClick={() => setMenuOpen((v) => !v)}
@@ -161,13 +129,50 @@ export default function Navbar() {
               </button>
             </div>
 
+            {/* CENTER — Logo */}
+            <div className="flex items-center justify-center">
+              <Link
+                href="/"
+                className="hover:opacity-60 transition-opacity"
+                aria-label="Kollektiv 26 — Home"
+                style={{ color: textColor }}
+              >
+                <K26Mark size={32} />
+              </Link>
+            </div>
+
+            {/* RIGHT — Secondary navigation */}
+            <div className="hidden md:flex items-center gap-6 lg:gap-8 justify-end">
+              <NavLink href="/about"   active={pathname === '/about'}   textColor={textColor}>About</NavLink>
+              <NavLink href="/contact" active={pathname === '/contact'} textColor={textColor}>Contact</NavLink>
+
+              {/* EN|TR Toggle */}
+              <div className="flex items-center gap-1.5">
+                <button
+                  className="font-mono text-[10px] tracking-[0.12em] uppercase font-medium transition-opacity"
+                  style={{ color: textColor }}
+                  onClick={() => {}}
+                >
+                  EN
+                </button>
+                <span className="font-mono text-[10px]" style={{ color: textMuted }}>|</span>
+                <button
+                  className="font-mono text-[10px] tracking-[0.12em] uppercase transition-opacity hover:opacity-70"
+                  style={{ color: textMuted }}
+                  onClick={() => {}}
+                >
+                  TR
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
 
         {mode !== 'none' && <SubNav currentMode={mode} scrollProgress={(isEnt || isTourismOverview) ? p : 1} />}
       </nav>
 
-      {/* Mobile full-screen menu — rendered outside <nav> to escape stacking context */}
+      {/* Mobile full-screen menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -178,34 +183,34 @@ export default function Navbar() {
             className="fixed inset-0 w-screen h-screen z-[9999] flex flex-col"
             style={{ backgroundColor: menuBg }}
           >
-            {/* Top bar */}
+            {/* Top bar: spacer | K26Mark | close */}
             <div
               className="flex items-center justify-between px-6 h-[68px] border-b shrink-0"
               style={{ borderColor: menuBorder }}
             >
-              <span
-                className="font-sans font-bold text-[15px] tracking-[0.04em]"
-                style={{ color: menuText }}
-              >
-                KOLLEKTIV 26
+              <div className="w-8" />
+
+              <span style={{ color: menuText }}>
+                <K26Mark size={28} />
               </span>
+
               <button
                 onClick={() => setMenuOpen(false)}
                 aria-label="Close menu"
-                className="p-2 focus:outline-none"
+                className="w-8 h-8 flex items-center justify-center hover:opacity-50 transition-opacity"
+                style={{ color: menuText }}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 6l12 12M18 6l-12 12" stroke={menuText} strokeWidth="1.5" strokeLinecap="round" />
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M2 2l14 14M16 2L2 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </button>
             </div>
 
             {/* Nav links */}
-            <div className="flex flex-col flex-1 justify-center px-8 lg:px-16 gap-0">
+            <div className="flex flex-col flex-1 justify-center px-8 gap-0">
 
-              {/* Primary links */}
+              {/* Primary: mode links */}
               {[
-                { href: '/',              label: 'Home' },
                 { href: '/tourism',       label: 'Tourism' },
                 { href: '/entertainment', label: 'Entertainment' },
                 { href: '/innovation',    label: 'Innovation' },
@@ -220,9 +225,7 @@ export default function Navbar() {
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
                     className={`font-sans font-light text-4xl leading-tight hover:opacity-40 transition-opacity block py-4 ${
-                      (pathname.startsWith(item.href) && item.href !== '/') || (pathname === '/' && item.href === '/')
-                        ? 'font-medium'
-                        : 'opacity-70'
+                      pathname.startsWith(item.href) ? 'opacity-100 font-medium' : 'opacity-70'
                     }`}
                     style={{ color: menuText }}
                   >
@@ -236,12 +239,13 @@ export default function Navbar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.35, duration: 0.4 }}
-                className="my-4"
+                className="my-5"
                 style={{ borderTop: `1px solid ${menuBorder}` }}
               />
 
-              {/* Secondary links */}
+              {/* Secondary: Home / About / Contact */}
               {[
+                { href: '/',        label: 'Home' },
                 { href: '/about',   label: 'About' },
                 { href: '/contact', label: 'Contact' },
               ].map((item, i) => (
@@ -255,19 +259,19 @@ export default function Navbar() {
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
                     className="font-sans font-light text-2xl leading-tight hover:opacity-40 transition-opacity block py-3"
-                    style={{ color: menuText, opacity: 0.55 }}
+                    style={{ color: menuText, opacity: pathname === item.href ? 1 : 0.45 }}
                   >
                     {item.label}
                   </Link>
                 </motion.div>
               ))}
 
-              {/* TR/EN mobile */}
+              {/* TR/EN */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.3 }}
-                className="flex items-center gap-3 mt-6"
+                transition={{ delay: 0.52, duration: 0.3 }}
+                className="flex items-center gap-3 mt-8"
               >
                 <button
                   className="font-mono text-[11px] tracking-[0.14em] uppercase font-medium"
@@ -290,12 +294,12 @@ export default function Navbar() {
 
             {/* Bottom bar */}
             <div className="px-8 pb-10 shrink-0">
-              <span
-                className="font-mono text-[9px] tracking-[0.18em] uppercase"
+              <p
+                className="font-mono text-[9px] tracking-[0.2em] uppercase"
                 style={{ color: menuMuted }}
               >
                 Istanbul · Aegean · Global
-              </span>
+              </p>
             </div>
           </motion.div>
         )}

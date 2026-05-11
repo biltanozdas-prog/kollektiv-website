@@ -22,6 +22,7 @@ const navItems: Record<Mode, { label: string; href: string }[]> = {
 }
 
 export default function SubNav({ currentMode, scrollProgress = 1 }: { currentMode: Mode; scrollProgress?: number }) {
+  if (currentMode === 'innovation') return null
   const pathname = usePathname()
   const items = navItems[currentMode]
   if (!items.length) return null
