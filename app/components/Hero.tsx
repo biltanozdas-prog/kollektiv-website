@@ -26,19 +26,19 @@ const circles: Circle[] = [
   {
     id: 'places',
     dTop: '25%',  dLeft: '35%',            dSize: 144,  xlSize: 180,
-    mBottom: '170px', mRight: '5%',  mSize: 96,
+    mBottom: '220px', mRight: '5%',  mSize: 96,
     duration: 7,  oscDelay: 0,   amp: 10, dotDuration: 9,
   },
   {
     id: 'moments',
     dTop: '15%',  dRight: '8%',            dSize: 118,  xlSize: 148,
-    mBottom: '90px',  mRight: '22%', mSize: 80,
+    mBottom: '140px', mRight: '22%', mSize: 80,
     duration: 6,  oscDelay: 1.4, amp: 8,  dotDuration: 7,
   },
   {
     id: 'futures',
     dTop: '58%',  dRight: '12%',           dSize: 98,   xlSize: 122,
-    mBottom: '25px',  mRight: '2%',  mSize: 64,
+    mBottom: '60px',  mRight: '2%',  mSize: 64,
     duration: 8,  oscDelay: 2.8, amp: 6,  dotDuration: 11,
   },
 ]
@@ -198,7 +198,7 @@ export default function Hero() {
         ))}
 
         {/* Label — top, readable above circles */}
-        <div className="relative z-10 px-5 pt-10 shrink-0">
+        <div className="relative z-10 px-5 pt-6 shrink-0">
           <motion.p
             custom={0}
             variants={textReveal}
@@ -214,7 +214,7 @@ export default function Hero() {
         </div>
 
         {/* Spacer — capped so h1 stays visible on tall phones */}
-        <div className="flex-1 min-h-[60px] max-h-[35vh]" />
+        <div className="flex-1 min-h-[20px] max-h-[12vh]" />
 
         {/* Button + h1 — bottom, circles overlay intentionally */}
         <div className="px-5 pb-8 flex flex-col gap-8">
