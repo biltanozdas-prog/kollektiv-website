@@ -87,7 +87,7 @@ export default function AboutPage() {
               <div className="overflow-hidden" style={{ height: 'clamp(400px, 55vh, 680px)' }}>
                 <img
                   src="/images/Editorial%20Support%20Image.png"
-                  alt="Kollektiv 26"
+                  alt="Kollektiv26 — Contemporary cultural platform founded in Istanbul"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -113,7 +113,13 @@ export default function AboutPage() {
                   <div className="w-full overflow-hidden" style={{ height: '220px' }}>
                     <img
                       src={item.image}
-                      alt={item.label}
+                      alt={
+                        i === 0
+                          ? 'Tourism and concierge services across the Aegean and Bodrum — Kollektiv26'
+                          : i === 1
+                          ? 'Sound-led entertainment and cultural events in Istanbul — Kollektiv26'
+                          : 'Innovation and cultural ventures — Kollektiv26'
+                      }
                       className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                     />
                   </div>
@@ -189,7 +195,7 @@ export default function AboutPage() {
             >
               <img
                 src="/images/Editorial%20Image%20Concept.png"
-                alt="Kollektiv 26 Philosophy"
+                alt="Kollektiv26 philosophy — culture, curation and context in Istanbul"
                 className="w-full h-full object-cover grayscale contrast-110"
               />
             </div>
