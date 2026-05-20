@@ -44,8 +44,13 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: '/favicon.png',
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    apple: '/favicon.png',
+    shortcut: '/favicon.png',
   },
+  manifest: '/site.webmanifest',
 }
 
 export default function RootLayout({

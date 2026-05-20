@@ -198,7 +198,7 @@ export default function Hero() {
         ))}
 
         {/* Label — top, readable above circles */}
-        <div className="relative z-10 px-5 pt-10 shrink-0">
+        <div className="relative z-10 px-5 pt-6 shrink-0">
           <motion.p
             custom={0}
             variants={textReveal}
@@ -208,13 +208,13 @@ export default function Hero() {
           >
             {t.home.eyebrow}
           </motion.p>
-          <p className="font-sans font-light text-dark/50 text-sm leading-relaxed mt-3 mb-4 max-w-[280px]">
+          <p className="font-sans font-light text-dark/50 text-sm leading-relaxed mt-3 max-w-[280px]">
             {t.home.heroDesc}
           </p>
         </div>
 
         {/* Spacer — capped so h1 stays visible on tall phones */}
-        <div className="flex-1 min-h-[60px] max-h-[35vh]" />
+        <div className="flex-1 min-h-[20px] max-h-[15vh]" />
 
         {/* Button + h1 — bottom, circles overlay intentionally */}
         <div className="px-5 pb-8 flex flex-col gap-8">
