@@ -43,7 +43,7 @@ export default function TourismPage() {
         >
           <img
             src="/images/tourism-overview-hero.jpg"
-            alt="Travel with intention"
+            alt="Curated travel experiences in the Aegean and Bodrum — Kollektiv26"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/70 md:from-black/45 md:via-black/20 md:to-black/65" />
@@ -131,7 +131,7 @@ export default function TourismPage() {
             >
               <img
                 src="/images/kap%202.png"
-                alt="Curated travel"
+                alt="Private concierge services and bespoke itineraries — Kollektiv26 Tourism"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -212,7 +212,7 @@ export default function TourismPage() {
               <div className="overflow-hidden rounded-sm" style={{ height: 'clamp(360px, 50vw, 620px)' }}>
                 <img
                   src="/images/mimari%20g%C3%B6rsel.jpg"
-                  alt="Private concierge access"
+                  alt="Cultural access and private network across Istanbul and the Aegean"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -264,7 +264,7 @@ export default function TourismPage() {
             >
               <img
                 src="/images/tourism-approach-intent-editorial.png"
-                alt="Intentional approach to travel"
+                alt="Thoughtful travel design — Kollektiv26 Tourism &amp; Concierge approach"
                 className="w-full h-full object-cover"
               />
             </motion.div>

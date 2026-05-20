@@ -113,7 +113,7 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="absolute inset-0 flex items-center pointer-events-none select-none"
-              aria-hidden="true"
+              aria-label="Culture in Context"
             >
               <h1
                 className="font-sans font-bold uppercase text-black"
@@ -223,7 +223,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="pointer-events-none select-none"
-            aria-hidden="true"
+            aria-label="Culture in Context"
           >
             <h1
               className="font-sans font-bold uppercase text-black"
