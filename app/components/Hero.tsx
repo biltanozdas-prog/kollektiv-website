@@ -174,50 +174,34 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── MOBILE layout — circles float over text, intentional ── */}
+      {/* ── MOBILE layout — h1 + circles top, eyebrow/desc bottom ── */}
       <div className="md:hidden relative flex flex-col min-h-[calc(100vh-68px)] overflow-x-hidden">
 
-        {/* Circles — absolute, spread over CULTURE/IN/CONTEXT lines */}
-        {circles.map((c, i) => (
-          <motion.div
-            key={`m-${c.id}`}
-            style={{
-              position: 'absolute',
-              bottom: c.mBottom,
-              right: c.mRight,
-              width: c.mSize,
-              height: c.mSize,
-              pointerEvents: 'none',
-            }}
-            initial={{ opacity: 0, scale: 0.82, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
-          >
-            <CircleContent c={c} size={c.mSize} label={circleLabels[i]} />
-          </motion.div>
-        ))}
+        {/* Circles — absolute, top-anchored to overlap CULTURE/IN/CONTEXT */}
+        {circles.map((c, i) => {
+          const mTop = ['48px', '118px', '192px'][i]
+          return (
+            <motion.div
+              key={`m-${c.id}`}
+              style={{
+                position: 'absolute',
+                top: mTop,
+                right: c.mRight,
+                width: c.mSize,
+                height: c.mSize,
+                pointerEvents: 'none',
+              }}
+              initial={{ opacity: 0, scale: 0.82, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 + i * 0.18, ease: "easeOut" as const }}
+            >
+              <CircleContent c={c} size={c.mSize} label={circleLabels[i]} />
+            </motion.div>
+          )
+        })}
 
-        {/* Label — top, readable above circles */}
-        <div className="relative z-10 px-5 pt-6 shrink-0">
-          <motion.p
-            custom={0}
-            variants={textReveal}
-            initial="hidden"
-            animate="show"
-            className="font-mono text-[10px] text-mg tracking-[0.22em] uppercase"
-          >
-            {t.home.eyebrow}
-          </motion.p>
-          <p className="font-sans font-light text-dark/50 text-sm leading-relaxed mt-3 mb-4 max-w-[280px]">
-            {t.home.heroDesc}
-          </p>
-        </div>
-
-        {/* Spacer — capped so h1 stays visible on tall phones */}
-        <div className="flex-1 min-h-[20px] max-h-[12vh]" />
-
-        {/* Button + h1 — bottom, circles overlay intentionally */}
-        <div className="px-5 pb-8 flex flex-col gap-8">
+        {/* H1 — top */}
+        <div className="px-5 pt-14 shrink-0">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -251,6 +235,25 @@ export default function Hero() {
               </motion.span>
             </h1>
           </motion.div>
+        </div>
+
+        {/* Spacer */}
+        <div className="flex-1" />
+
+        {/* Eyebrow + desc — bottom */}
+        <div className="relative z-10 px-5 pb-8 shrink-0">
+          <motion.p
+            custom={0}
+            variants={textReveal}
+            initial="hidden"
+            animate="show"
+            className="font-mono text-[10px] text-mg tracking-[0.22em] uppercase"
+          >
+            {t.home.eyebrow}
+          </motion.p>
+          <p className="font-sans font-light text-dark/50 text-sm leading-relaxed mt-3 max-w-[280px]">
+            {t.home.heroDesc}
+          </p>
         </div>
 
       </div>
