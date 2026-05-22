@@ -238,7 +238,7 @@ export default function Hero() {
         </div>
 
         {/* Spacer */}
-        <div className="flex-1" />
+        <div className="flex-1 max-h-[22vh]" />
 
         {/* Eyebrow + desc — bottom */}
         <div className="relative z-10 px-5 pb-8 shrink-0">

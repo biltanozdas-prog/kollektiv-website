@@ -77,7 +77,7 @@ export default function LabelPage() {
                 {t.entertainmentLabel.eyebrow}
               </p>
               <h1
-                className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
+                className="font-sans font-bold text-white leading-[0.88] tracking-tight mb-8"
                 style={{ fontSize: 'clamp(3rem, 7vw, 7.5rem)' }}
               >
                 {t.entertainmentLabel.h1.split('\n').map((line, i) => (
@@ -216,7 +216,7 @@ export default function LabelPage() {
               <span className="font-mono text-[10px] text-yellow/60 tracking-[0.28em] uppercase">{t.entertainmentLabel.processEyebrow}</span>
             </div>
             <h2
-              className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-14"
+              className="font-sans font-bold text-white leading-[0.88] tracking-tight mb-14"
               style={{ fontSize: 'clamp(2rem, 4vw, 3.8rem)' }}
             >
               {t.entertainmentLabel.processH2.split('\n').map((line, i) => (
@@ -276,7 +276,7 @@ export default function LabelPage() {
           >
             <div className="w-8 h-[1.5px] bg-yellow mb-10" />
             <h2
-              className="font-sans font-bold leading-[0.88] tracking-tighter"
+              className="font-sans font-bold leading-[0.88] tracking-tight"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 5.5rem)' }}
             >
               <span className="text-black block">{t.entertainmentLabel.ctaH1}</span>

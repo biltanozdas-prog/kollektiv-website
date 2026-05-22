@@ -94,7 +94,7 @@ export default function EntertainmentPage() {
                 {t.entertainmentOverview.eyebrow}
               </p>
               <h1
-                className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8 2xl:text-8xl"
+                className="font-sans font-bold text-white leading-[0.88] tracking-tight mb-8 2xl:text-8xl"
                 style={{ fontSize: 'clamp(2.8rem, 8vw, 8.5rem)' }}
               >
                 {t.entertainmentOverview.h1.split('\n').map((line, i) => (
@@ -149,7 +149,7 @@ export default function EntertainmentPage() {
               </div>
 
               <h2
-                className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-12"
+                className="font-sans font-bold text-white leading-[0.88] tracking-tight mb-12"
                 style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)' }}
               >
                 {t.entertainmentOverview.systemH2.split('\n').map((line, i) => (
@@ -332,7 +332,7 @@ export default function EntertainmentPage() {
           >
             <div className="w-8 h-[1.5px] bg-yellow mb-10" />
             <h2
-              className="font-sans font-bold leading-[0.88] tracking-tighter"
+              className="font-sans font-bold leading-[0.88] tracking-tight"
               style={{ fontSize: 'clamp(2.5rem, 5.5vw, 6rem)' }}
             >
               <span className="text-black block">{t.entertainmentOverview.ctaH1}</span>

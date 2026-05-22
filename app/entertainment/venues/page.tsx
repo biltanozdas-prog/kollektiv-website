@@ -71,7 +71,7 @@ export default function VenuesPage() {
                 {t.entertainmentVenues.eyebrow}
               </p>
               <h1
-                className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-10"
+                className="font-sans font-bold text-white leading-[0.88] tracking-tight mb-10"
                 style={{ fontSize: 'clamp(3rem, 7vw, 7.5rem)' }}
               >
                 {t.entertainmentVenues.h1.split('\n').map((line, i) => (
@@ -101,7 +101,7 @@ export default function VenuesPage() {
                 <span className="font-mono text-[10px] text-white/35 tracking-[0.28em] uppercase">{t.entertainmentVenues.introEyebrow}</span>
               </div>
               <h2
-                className="font-sans font-bold text-white leading-[0.88] tracking-tighter"
+                className="font-sans font-bold text-white leading-[0.88] tracking-tight"
                 style={{ fontSize: 'clamp(2rem, 4vw, 4rem)' }}
               >
                 {t.entertainmentVenues.introH2.split('\n').map((line, i) => (
@@ -230,7 +230,7 @@ export default function VenuesPage() {
                 <span className="font-mono text-[10px] text-yellow/60 tracking-[0.28em] uppercase">{t.entertainmentVenues.firstEyebrow}</span>
               </div>
               <h2
-                className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
+                className="font-sans font-bold text-white leading-[0.88] tracking-tight mb-8"
                 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4.5rem)' }}
               >
                 {t.entertainmentVenues.firstH2.split('\n').map((line, i) => (
@@ -254,7 +254,7 @@ export default function VenuesPage() {
                 <span className="font-mono text-[10px] text-white/40 tracking-[0.28em] uppercase">{t.entertainmentVenues.consultEyebrow}</span>
               </div>
               <h2
-                className="font-sans font-bold text-white leading-[0.88] tracking-tighter mb-8"
+                className="font-sans font-bold text-white leading-[0.88] tracking-tight mb-8"
                 style={{ fontSize: 'clamp(2rem, 4vw, 3.8rem)' }}
               >
                 {t.entertainmentVenues.consultH2.split('\n').map((line, i) => (
@@ -312,7 +312,7 @@ export default function VenuesPage() {
             <div>
               <K26Mark size={20} className="text-white/15 mb-8" />
               <h3
-                className="font-sans font-bold text-white leading-[0.9] tracking-tighter mb-6"
+                className="font-sans font-bold text-white leading-[0.9] tracking-tight mb-6"
                 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}
               >
                 {t.entertainmentVenues.coverH3.split('\n').map((line, i) => (
@@ -343,7 +343,7 @@ export default function VenuesPage() {
           >
             <div className="w-8 h-[1.5px] bg-yellow mb-10" />
             <h2
-              className="font-sans font-bold leading-[0.88] tracking-tighter"
+              className="font-sans font-bold leading-[0.88] tracking-tight"
               style={{ fontSize: 'clamp(2.5rem, 5.5vw, 6rem)' }}
             >
               <span className="text-black block">{t.entertainmentVenues.ctaH1}</span>
