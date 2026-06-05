@@ -53,7 +53,7 @@ const textReveal = {
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: 0.3 + i * 0.12, ease: "easeOut" as const },
+    transition: { duration: 0.6, delay: 0.3 + i * 0.12, ease: 'easeOut' as const },
   }),
 }
 
@@ -73,7 +73,7 @@ export default function Hero() {
           <div className="lg:col-span-4 relative z-10">
             <motion.p
               custom={0}
-              variants={textReveal}
+              variants={textReveal as any}
               initial="hidden"
               animate="show"
               className="font-mono text-[10px] xl:text-[11px] text-mg mb-10 tracking-[0.22em] uppercase"
@@ -83,7 +83,7 @@ export default function Hero() {
 
             <motion.p
               custom={1}
-              variants={textReveal}
+              variants={textReveal as any}
               initial="hidden"
               animate="show"
               className="font-sans font-light text-dark/50 text-sm leading-relaxed max-w-[300px] xl:max-w-[340px] mt-4 mb-6"
@@ -94,7 +94,7 @@ export default function Hero() {
 
             <motion.p
               custom={2}
-              variants={textReveal}
+              variants={textReveal as any}
               initial="hidden"
               animate="show"
               className="font-sans font-light text-dark/55 text-[16px] xl:text-lg 2xl:text-xl leading-relaxed mb-16 max-w-[300px] xl:max-w-[340px]"
@@ -123,7 +123,7 @@ export default function Hero() {
                   <motion.span
                     key={word}
                     custom={i}
-                    variants={textReveal}
+                    variants={textReveal as any}
                     initial="hidden"
                     animate="show"
                     className="block"
@@ -217,7 +217,7 @@ export default function Hero() {
                 <motion.span
                   key={word}
                   custom={i}
-                  variants={textReveal}
+                  variants={textReveal as any}
                   initial="hidden"
                   animate="show"
                   className="block"
@@ -244,7 +244,7 @@ export default function Hero() {
         <div className="relative z-10 px-5 pb-8 shrink-0">
           <motion.p
             custom={0}
-            variants={textReveal}
+            variants={textReveal as any}
             initial="hidden"
             animate="show"
             className="font-mono text-[10px] text-mg tracking-[0.22em] uppercase"
