@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useLang } from '@/lib/LanguageContext'
+import CollaboratorsStrip from '@/app/components/CollaboratorsStrip'
 
 export default function AboutPage() {
   const { t } = useLang()
@@ -136,6 +137,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <CollaboratorsStrip />
 
       {/* Why 26 */}
       <section id="why-26" className="border-t border-black/15 py-28 lg:py-44 px-8 lg:px-16 bg-offwhite">
