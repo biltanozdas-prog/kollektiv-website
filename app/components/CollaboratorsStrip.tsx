@@ -38,7 +38,7 @@ export default function CollaboratorsStrip() {
         </div>
 
         {/* Sağ kolon — ticker */}
-        <div className="flex-1 h-[120px] overflow-hidden relative">
+        <div className="flex-1 h-[180px] overflow-hidden relative">
 
           {/* Üst gradient */}
           <div
@@ -63,12 +63,12 @@ export default function CollaboratorsStrip() {
               {logos.map((logo, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-center h-[60px] border-b border-black/15 px-12"
+                  className="flex items-center justify-center h-[80px] px-16"
                 >
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-7 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                    className="h-11 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                   />
                 </div>
               ))}
@@ -79,12 +79,12 @@ export default function CollaboratorsStrip() {
               {logos.map((logo, i) => (
                 <div
                   key={`copy-${i}`}
-                  className="flex items-center justify-center h-[60px] border-b border-black/15 px-12"
+                  className="flex items-center justify-center h-[80px] px-16"
                 >
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-7 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                    className="h-11 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                   />
                 </div>
               ))}
