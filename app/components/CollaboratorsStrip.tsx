@@ -8,8 +8,14 @@ type Logo = {
 }
 
 const logos: Logo[] = [
-  // Logolar gelince buraya eklenecek:
-  // { src: '/images/partners/logo-adi.png', alt: 'Marka Adı' },
+  { src: '/images/partners/Opa logo png.png',         alt: 'Opa' },
+  { src: '/images/partners/daze logo.png',            alt: 'Daze' },
+  { src: '/images/partners/ils logo.png',             alt: 'ILS Publishing' },
+  { src: '/images/partners/toranaga.png',             alt: 'Toranaga' },
+  { src: '/images/partners/villa residance.png',      alt: 'Villa Residence' },
+  { src: '/images/partners/rise.png',                 alt: 'Rise' },
+  { src: '/images/partners/vogue otel supreme.png',   alt: 'Vogue Hotel Supreme' },
+  { src: '/images/partners/el papi logo.png',         alt: 'El Papi' },
 ]
 
 export default function CollaboratorsStrip() {
