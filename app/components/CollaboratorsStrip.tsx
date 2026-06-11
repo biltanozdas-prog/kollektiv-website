@@ -1,7 +1,5 @@
 'use client'
 
-import { useState } from 'react'
-
 type Logo = {
   src: string
   alt: string
@@ -19,8 +17,6 @@ const logos: Logo[] = [
 ]
 
 export default function CollaboratorsStrip() {
-  const [paused, setPaused] = useState(false)
-
   if (!logos.length) return null
 
   return (
@@ -50,11 +46,7 @@ export default function CollaboratorsStrip() {
           />
 
           {/* Ticker */}
-          <div
-            className={`ticker-animate${paused ? ' ticker-paused' : ''}`}
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
+          <div className="ticker-animate">
             {/* Liste 1 */}
             <div>
               {logos.map((logo, i) => (
