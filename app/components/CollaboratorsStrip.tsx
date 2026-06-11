@@ -28,14 +28,14 @@ export default function CollaboratorsStrip() {
       <div className="flex flex-col lg:flex-row items-stretch">
 
         {/* Sol kolon — başlık */}
-        <div className="w-full lg:w-[280px] lg:flex-shrink-0 border-b lg:border-b-0 lg:border-r border-black/15 flex flex-col justify-center py-8 px-5 lg:py-12 lg:pl-[60px] lg:pr-10">
+        <div className="w-full lg:w-[280px] lg:flex-shrink-0 border-b lg:border-b-0 lg:border-r border-black/15 flex flex-col justify-center py-8 px-5 lg:py-8 lg:pl-[60px] lg:pr-10">
           <h2 className="font-sans font-light text-[36px] tracking-[-0.025em] leading-[1.1] text-black">
             Selected<br />partnerships.
           </h2>
         </div>
 
         {/* Sağ kolon — ticker */}
-        <div className="flex-1 h-[220px] overflow-hidden relative">
+        <div className="flex-1 h-[280px] overflow-hidden relative">
 
           {/* Üst gradient */}
           <div
@@ -60,12 +60,12 @@ export default function CollaboratorsStrip() {
               {logos.map((logo, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-center h-[100px] px-16"
+                  className="flex items-center justify-center h-[120px] px-16"
                 >
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-14 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                    className="h-20 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                   />
                 </div>
               ))}
@@ -76,12 +76,12 @@ export default function CollaboratorsStrip() {
               {logos.map((logo, i) => (
                 <div
                   key={`copy-${i}`}
-                  className="flex items-center justify-center h-[100px] px-16"
+                  className="flex items-center justify-center h-[120px] px-16"
                 >
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-14 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                    className="h-20 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                   />
                 </div>
               ))}

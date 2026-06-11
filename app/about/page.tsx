@@ -99,7 +99,7 @@ export default function AboutPage() {
       </section>
 
       {/* Platform Description */}
-      <section className="border-t border-black/15 py-20 lg:py-28 px-8 lg:px-16">
+      <section className="border-t border-black/15 pt-20 lg:pt-28 pb-0 px-8 lg:px-16">
         <div className="max-w-screen-2xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-0 border-l border-black/15">
             {cards.map((item, i) => (
