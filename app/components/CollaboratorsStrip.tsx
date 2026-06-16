@@ -21,16 +21,56 @@ export default function CollaboratorsStrip() {
 
   return (
     <section className="border-t border-black/15 bg-white">
-      <div className="flex flex-col lg:flex-row items-stretch">
+
+      {/* ── MOBILE layout ── */}
+      <div className="lg:hidden">
+        <div className="px-5 py-8 border-b border-black/15">
+          <h2 className="font-sans font-light text-[28px] tracking-[-0.025em] leading-[1.1] text-black">
+            Selected partnerships.
+          </h2>
+        </div>
+
+        {/* Yatay ticker */}
+        <div className="overflow-hidden relative h-20">
+          {/* Sol gradient */}
+          <div
+            className="absolute top-0 left-0 bottom-0 w-10 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to right, #ffffff, transparent)' }}
+          />
+          {/* Sağ gradient */}
+          <div
+            className="absolute top-0 right-0 bottom-0 w-10 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to left, #ffffff, transparent)' }}
+          />
+
+          <div className="ticker-animate-x flex" style={{ width: 'max-content' }}>
+            {[...logos, ...logos].map((logo, i) => (
+              <div
+                key={i}
+                className="inline-flex items-center justify-center h-20 px-8 shrink-0"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-10 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── DESKTOP layout ── */}
+      <div className="hidden lg:flex items-stretch">
 
         {/* Sol kolon — başlık */}
-        <div className="w-full lg:w-[280px] lg:flex-shrink-0 border-b lg:border-b-0 lg:border-r border-black/15 flex flex-col justify-center py-8 px-5 lg:py-8 lg:pl-[60px] lg:pr-10">
+        <div className="w-[280px] flex-shrink-0 border-r border-black/15 flex flex-col justify-center py-8 pl-[60px] pr-10">
           <h2 className="font-sans font-light text-[36px] tracking-[-0.025em] leading-[1.1] text-black">
             Selected<br />partnerships.
           </h2>
         </div>
 
-        {/* Sağ kolon — ticker */}
+        {/* Sağ kolon — dikey ticker */}
         <div className="flex-1 h-[280px] overflow-hidden relative">
 
           {/* Üst gradient */}
@@ -82,6 +122,7 @@ export default function CollaboratorsStrip() {
 
         </div>
       </div>
+
     </section>
   )
 }
