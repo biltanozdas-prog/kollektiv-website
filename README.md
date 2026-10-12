@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# Kollektiv26 — Website
 
-## Getting Started
+Corporate website for Kollektiv26, a contemporary cultural platform founded in Istanbul.
 
-First, run the development server:
+**Live:** [kollektiv26.com](https://kollektiv26.com)
+
+---
+
+## Stack
+
+- **Next.js 15** — App Router
+- **TypeScript**
+- **Tailwind CSS v4** — tokens defined in `app/globals.css`
+- **Framer Motion** — scroll and mount animations
+- **DM Sans + DM Mono** — Google Fonts (loaded via `next/font`)
+
+---
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+app/
+  layout.tsx          # Root layout, fonts, global metadata
+  page.tsx            # Homepage
+  globals.css         # Tailwind tokens + brand colors + keyframes
+  about/              # About page
+  contact/            # Contact page
+  entertainment/      # Entertainment + Events / Label / Venues subpages
+  tourism/            # Tourism + Concierge / Approach subpages
+  innovation/         # Innovation page
+  components/         # Shared components (Hero, Navbar, CollaboratorsStrip...)
 
-To learn more about Next.js, take a look at the following resources:
+lib/
+  translations.ts     # All EN/TR copy — single source of truth
+  LanguageContext.tsx # Language switcher context
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+public/
+  favicon.png         # K26 mark
+  site.webmanifest
+  images/             # All page images
+    partners/         # Collaborator logos (About page)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Updating Content
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Text (EN / TR)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All page copy lives in `lib/translations.ts`.
+Find the key you want, edit the `en` and `tr` values, save, push.
+
+### Images
+
+Drop the file into `public/images/` and reference it as `/images/filename.ext` in the page component.
+
+### Partner Logos (About > Collaborators)
+
+1. Add the logo PNG to `public/images/partners/`
+2. Open `app/components/CollaboratorsStrip.tsx`
+3. Add a line to the `logos` array:
+   ```ts
+   { src: '/images/partners/your-logo.png', alt: 'Brand Name' },
+   ```
+
+---
+
+## Deployment
+
+Automatic — every push to `main` triggers a Vercel build.
+
+```bash
+git add .
+git commit -m "your message"
+git push
+```
+
+No environment variables required.
+
+---
+
+## Brand Tokens
+
+Defined in `app/globals.css` under `@theme`:
+
+| Token     | Value     | Usage                  |
+|-----------|-----------|------------------------|
+| `black`   | `#0A0A0A` | Primary text           |
+| `dark`    | `#1A1A1A` | Body text              |
+| `mg`      | `#8C8C8C` | Muted text, eyebrows   |
+| `lg`      | `#D8D4CC` | Borders                |
+| `offwhite`| `#F8F5EF` | Section backgrounds    |
+| `yellow`  | `#E8C832` | Accent, CTAs           |
+| `saffron` | `#C8A96E` | Warm accent            |
